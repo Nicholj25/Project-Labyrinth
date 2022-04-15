@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Vector3 moveValues;
     CharacterController characterController;
-    public float MovementSpeed =1;
+    public float MovementSpeed = 5f;
+    public float RotationSpeed = 5f;
     public float Gravity = 9.8f;
-    private float velocity = 0;
  
     private void Start()
     {
@@ -16,20 +17,20 @@ public class PlayerMovement : MonoBehaviour
  
     void Update()
     {
-        // player movement - forward, backward, left, right
-        float horizontal = Input.GetAxis("Horizontal") * MovementSpeed;
-        float vertical = Input.GetAxis("Vertical") * MovementSpeed;
-        characterController.Move((Vector3.right * horizontal + Vector3.forward * vertical) * Time.deltaTime);
- 
-        // Gravity
-        if(characterController.isGrounded)
-        {
-            velocity = 0;
-        }
-        else
-        {
-            velocity -= Gravity * Time.deltaTime;
-            characterController.Move(new Vector3(0, velocity, 0));
-        }
+        // Player movement - forward, backward and rotate left, right
+        // Sources: https://www.youtube.com/embed/e5g1nJcjz-M
+        //          https://forum.unity.com/threads/character-controller-move-local-vs-global-problem.107863/
+        float horizontal = Input.GetAxis("Horizontal") * RotationSpeed;
+
+        // Rotate Left and Right
+        transform.Rotate(0, horizontal * Time.deltaTime, 0);
+
+        // Forward Backward
+        // Changes Direction to Local Direction to Maintain Perspective
+        Vector3 vertical = Vector3.zero;
+        vertical.z = Input.GetAxis("Vertical") * MovementSpeed;
+        moveValues = transform.TransformDirection(vertical);
+        characterController.Move(moveValues * Time.deltaTime);
+
     }
 }

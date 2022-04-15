@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float RotationSpeed = 5f;
     public float Gravity = 9.8f;
  
-    // Source: https://docs.unity3d.com/ScriptReference/Transform.InverseTransformDirection.html
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -22,15 +21,14 @@ public class PlayerMovement : MonoBehaviour
         // Sources: https://www.youtube.com/embed/e5g1nJcjz-M
         //          https://forum.unity.com/threads/character-controller-move-local-vs-global-problem.107863/
         float horizontal = Input.GetAxis("Horizontal") * RotationSpeed;
+
         // Rotate Left and Right
         transform.Rotate(0, horizontal * Time.deltaTime, 0);
-        Vector3 vertical = Vector3.zero;
-        vertical.z = Input.GetAxis("Vertical") * MovementSpeed;
-
-
 
         // Forward Backward
         // Changes Direction to Local Direction to Maintain Perspective
+        Vector3 vertical = Vector3.zero;
+        vertical.z = Input.GetAxis("Vertical") * MovementSpeed;
         moveValues = transform.TransformDirection(vertical);
         characterController.Move(moveValues * Time.deltaTime);
 

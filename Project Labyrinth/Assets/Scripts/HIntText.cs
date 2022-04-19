@@ -32,10 +32,6 @@ public class HintText : MonoBehaviour
     void Start()
     {
         Text = this.gameObject.GetComponent<TextPrompt>();
-        if(Text != null)
-        {
-            Debug.Log("Text is here");
-        }
     }
 
     // Update is called once per frame

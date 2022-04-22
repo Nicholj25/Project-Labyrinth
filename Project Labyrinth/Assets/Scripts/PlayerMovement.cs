@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 rotationMovement;
     Vector3 moveValues;
     public float MovementSpeed = 5f;
+    public bool isFrozen;
     public float RotationSpeed = 5f;
     private float horizontal;
     Rigidbody rb;
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         zMovement = Vector3.zero;
         rotationMovement = Vector3.zero;
+        isFrozen = false;
     }
 
     void Update()
@@ -31,16 +33,31 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!isFrozen)
+        {
+            // Rotate Left and Right
+            rotationMovement.y = horizontal;
+            Quaternion deltaRotation = Quaternion.Euler(rotationMovement * Time.fixedDeltaTime);
+            rb.MoveRotation(rb.rotation * deltaRotation);
 
-        // Rotate Left and Right
-        rotationMovement.y = horizontal;
-        Quaternion deltaRotation = Quaternion.Euler(rotationMovement * Time.fixedDeltaTime);
-        rb.MoveRotation(rb.rotation * deltaRotation);
+            // Forward Backward
+            // Changes Direction to Local Direction to Maintain Perspective
+            moveValues = transform.TransformDirection(zMovement);
+            rb.MovePosition(transform.position + moveValues * Time.deltaTime);
+        }
+    }
 
-        // Forward Backward
-        // Changes Direction to Local Direction to Maintain Perspective
-        moveValues = transform.TransformDirection(zMovement);
-        rb.MovePosition(transform.position + moveValues * Time.deltaTime);
 
+    // Source: https://www.youtube.com/watch?v=qO06RnRmnSw
+    public bool isNearby(GameObject clickableObject)
+    {
+        // Check Distance to Player
+        float playerDistance = Vector3.Distance(clickableObject.transform.position, this.gameObject.transform.position);
+        if (playerDistance <= 5)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

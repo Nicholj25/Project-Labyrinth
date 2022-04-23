@@ -11,19 +11,20 @@ public class InventoryItem : MonoBehaviour
     public string ItemText;
     public bool Equippable;
     public bool Inspectable;
-
     public PlayerInventory Inventory;
+    private PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
     {
-        ItemModel = this.gameObject;   
+        ItemModel = this.gameObject;
+        playerMovement = GameObject.Find("Player Capsule").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

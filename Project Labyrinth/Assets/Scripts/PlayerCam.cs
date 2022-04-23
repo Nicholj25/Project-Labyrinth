@@ -18,4 +18,6 @@ public class PlayerCam : MonoBehaviour
             transform.eulerAngles += speed * new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);
         }
     }
+
+
 }

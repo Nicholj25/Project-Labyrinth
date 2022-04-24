@@ -15,7 +15,7 @@ public class ZoomItem : MonoBehaviour
     {
         player = GameObject.Find("Player Capsule");
         mainCam = GameObject.Find("Main Camera");
-        zoomCam = GameObject.Find("Desk Zoom Cam");
+        //zoomCam = GameObject.Find("Desk Zoom Cam");
         playerMovement = player.GetComponent<PlayerMovement>();
         mainCam.SetActive(true);
         zoomCam.SetActive(false);

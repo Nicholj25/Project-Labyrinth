@@ -17,4 +17,6 @@ public class Puzzle : MonoBehaviour
     {
         
     }
+
+    public virtual string GetCurrentHint() { return ""; }
 }

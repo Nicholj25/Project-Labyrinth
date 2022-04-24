@@ -6,7 +6,9 @@ public class HintTextTutorial : HintText
 {
     protected override void DetermineHint()
     {
-        // Will need to be updated once there are puzzles in the room
-        UpdateHint("All puzzles are completed in this room");
+        if (!RoomPuzzles[0].Completed)
+            UpdateHint(RoomPuzzles[0].GetCurrentHint());
+        else
+            UpdateHint("You've found the key. Hurry and escape the room!");
     }
 }

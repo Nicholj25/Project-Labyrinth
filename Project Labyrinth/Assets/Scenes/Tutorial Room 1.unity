@@ -2341,7 +2341,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 599038612093543904, guid: ba80b85bf77952144a7c91245a33d968, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 599038612093543904, guid: ba80b85bf77952144a7c91245a33d968, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3357,6 +3357,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c82fb38a27b0ff4bb1036c29fa61074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomCam: {fileID: 0}
+  mainCam: {fileID: 963194225}
   ItemName: Escape Room Basics
   ItemImage: {fileID: 21300000, guid: f43ae9259bc458740bcf574a3adf003e, type: 3}
   ItemText: '"Escape Room Basics"  By: I. M. Leavin'''
@@ -3364,6 +3366,7 @@ MonoBehaviour:
   Inspectable: 1
   Inventory: {fileID: 60734867}
   playerMovement: {fileID: 60734865}
+  zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
       m_Calls: []
@@ -12996,6 +12999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c82fb38a27b0ff4bb1036c29fa61074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomCam: {fileID: 0}
+  mainCam: {fileID: 963194225}
   ItemName: Desk Drawer Key
   ItemImage: {fileID: 21300000, guid: c45bdc4a57bed3149bc8b73b1a94b178, type: 3}
   ItemText: A key obtained from the desk drawer
@@ -13003,6 +13008,7 @@ MonoBehaviour:
   Inspectable: 0
   Inventory: {fileID: 60734867}
   playerMovement: {fileID: 60734865}
+  zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
       m_Calls: []

@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class ZoomItem : MonoBehaviour
 {
-    public GameObject zoomCam;
-    public GameObject puzzleInputObject;
-    public PuzzleInput puzzleInput;
-    public PlayerMovement playerMovement;
+    [SerializeField] private GameObject zoomCam;
+    [SerializeField] private GameObject puzzleInputObject;
+    [SerializeField] private PuzzleInput puzzleInput;
+    private PlayerMovement playerMovement;
     private bool inUse;
     private GameObject player;
     private GameObject mainCam;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player = GameObject.Find("Player Capsule");
         mainCam = GameObject.Find("Main Camera");
@@ -71,5 +71,20 @@ public class ZoomItem : MonoBehaviour
                 puzzleInput.Show(puzzleInputObject);
             }
         }
+    }
+
+    public Camera getCurrentCamera()
+    {
+        if (zoomCam && zoomCam.activeSelf)
+        {
+            return zoomCam.GetComponent<Camera>();
+
+        }
+        else if (mainCam && mainCam.activeSelf)
+        {
+            return mainCam.GetComponent<Camera>();
+        }
+
+        return null;
     }
 }

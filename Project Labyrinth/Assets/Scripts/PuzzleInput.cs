@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PuzzleInput : MonoBehaviour
+public class PuzzleInput : Puzzle
 {
     public GameObject puzzleInputWindow;
     [SerializeField] private GameObject closeButtonObject;
@@ -101,12 +101,14 @@ public class PuzzleInput : MonoBehaviour
         // Add Positive Feedback Sound Here
         Debug.Log("Positive feedback sound here");
 
-        // Success Object Appears
+        // Success Object Appears and If Present, Start Object Disappears
         if (startObject)
         {
             Hide(startObject);
         }
         Show(successObject);
+
+        Completed = true;
     }
 
     // Changes Input Field Background to Red and Resets Field

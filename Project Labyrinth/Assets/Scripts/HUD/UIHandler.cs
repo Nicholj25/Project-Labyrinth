@@ -27,5 +27,6 @@ public class UIHandler : MonoBehaviour
             Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
             Inventory.PopulateScreen();
         }
+
     }
 }

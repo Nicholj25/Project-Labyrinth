@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 public class InventoryItem : MonoBehaviour
 {
     public GameObject ItemModel { get; private set; }
+    public GameObject zoomCam;
+    public GameObject mainCam;
     public string ItemName;
     public Sprite ItemImage;
     public string ItemText;
@@ -14,6 +16,8 @@ public class InventoryItem : MonoBehaviour
     public bool Inspectable;
     public PlayerInventory Inventory;
     public PlayerMovement playerMovement;
+    private Camera cam;
+    [SerializeField] private ZoomItem zoomItem;
 
     public UnityEvent PickupCompletion = new UnityEvent();
 
@@ -21,14 +25,20 @@ public class InventoryItem : MonoBehaviour
     void Start()
     {
         ItemModel = this.gameObject;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (zoomItem)
+        {
+            cam = zoomItem.getCurrentCamera();
+        }
+
         if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
             if(hit.transform.gameObject == this.gameObject)

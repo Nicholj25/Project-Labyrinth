@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialRoomPuzzle : Puzzle
 {
     public BookOnShelfAction Trigger;
+    public ZoomItem ZoomTrigger;
     public OpenableDrawer LockedDrawer;
     public TextPrompt Text;
     public InventoryItem Key;
@@ -14,6 +15,7 @@ public class TutorialRoomPuzzle : Puzzle
     // Start is called before the first frame update
     void Start()
     {
+        ZoomTrigger.InteractionComplete.AddListener(GiveZoomOutInstruction);
         Trigger.InteractionComplete.AddListener(UnlockDrawer);
         Key.PickupCompletion.AddListener(() => { KeyObtained = true; Completed = true; });
 
@@ -26,6 +28,11 @@ public class TutorialRoomPuzzle : Puzzle
     void Update()
     {
         
+    }
+
+    private void GiveZoomOutInstruction()
+    {
+        Text.UpdateTextBox("Right click to zoom out.");
     }
 
     private void UnlockDrawer()

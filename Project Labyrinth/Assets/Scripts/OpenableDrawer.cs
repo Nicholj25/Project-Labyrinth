@@ -5,8 +5,8 @@ using UnityEngine;
 public class OpenableDrawer : MonoBehaviour
 {
     public bool Locked;
-
     public bool Opened { get; private set; }
+    public CameraHandler cameraHandler;
     private Animator Animations;
     private GameObject Drawer;
     public PlayerMovement playerMovement;
@@ -27,7 +27,8 @@ public class OpenableDrawer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
+
+        if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PuzzleInput : Puzzle
+public class PuzzleInput : ItemInteraction
 {
     public GameObject puzzleInputWindow;
     [SerializeField] private GameObject closeButtonObject;
@@ -17,7 +17,7 @@ public class PuzzleInput : Puzzle
     private Button closeButton;
     private string inputString;
 
-    private void Awake()
+    void Awake()
     {
         correctInput = correctInput.ToLower();
         inputString = "";
@@ -25,17 +25,17 @@ public class PuzzleInput : Puzzle
         SetSubmitButtonEvent();
         Hide(this.gameObject);
         Hide(successObject);
-
+        cam = Camera.main;
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
+        
     }
 
     // Update is called once per frame
     // Source: https://forum.unity.com/threads/solved-invoke-a-unity-button-click-event-from-c-script.722126/
-    void Update()
+    protected override void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return) && inputField.text.Length != 0)
         {
@@ -108,7 +108,8 @@ public class PuzzleInput : Puzzle
         }
         Show(successObject);
 
-        Completed = true;
+        InteractionComplete?.Invoke();
+
     }
 
     // Changes Input Field Background to Red and Resets Field

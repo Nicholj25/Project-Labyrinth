@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ZoomItem : MonoBehaviour
+public class ZoomItem : ItemInteraction
 {
     [SerializeField] private GameObject zoomCam;
     [SerializeField] private GameObject puzzleInputObject;
     [SerializeField] private PuzzleInput puzzleInput;
-    private PlayerMovement playerMovement;
-    private bool inUse;
+    [SerializeField] private bool inUse;
+    [SerializeField] private bool hasZoomed;
     private GameObject player;
     private GameObject mainCam;
 
@@ -21,10 +22,12 @@ public class ZoomItem : MonoBehaviour
         mainCam.SetActive(true);
         zoomCam.SetActive(false);
         inUse = false;
+        hasZoomed = false;
     }
 
+
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButton(0) && Camera.main)
         {
@@ -36,7 +39,7 @@ public class ZoomItem : MonoBehaviour
             // Left Click Brings Back Puzzle Input Window If Exists and Is Closed
             if (!puzzleInput.puzzleInputWindow.activeSelf)
             {
-                puzzleInput.Show(puzzleInputObject);
+                puzzleInput?.Show(puzzleInputObject);
             }
         }
         else if (Input.GetMouseButton(1))
@@ -50,6 +53,7 @@ public class ZoomItem : MonoBehaviour
         mainCam.SetActive(true);
         zoomCam.SetActive(false);
         playerMovement.isFrozen = false;
+        inUse = false;
         if (puzzleInput)
         {
             puzzleInput.Hide(puzzleInputObject);
@@ -57,7 +61,7 @@ public class ZoomItem : MonoBehaviour
     }
 
     private void ActivateZoomCam()
-    {
+    { 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
@@ -65,25 +69,24 @@ public class ZoomItem : MonoBehaviour
         {
             mainCam.SetActive(false);
             zoomCam.SetActive(true);
-            playerMovement.isFrozen = true;
-            if (puzzleInput)
+            if (!hasZoomed)
             {
-                puzzleInput.Show(puzzleInputObject);
+                InteractionComplete?.Invoke();
+                hasZoomed = true;
             }
+            playerMovement.isFrozen = true;
+            puzzleInput?.Show(puzzleInputObject);
+            inUse = true;
         }
     }
 
     public Camera getCurrentCamera()
     {
         if (zoomCam && zoomCam.activeSelf)
-        {
             return zoomCam.GetComponent<Camera>();
 
-        }
         else if (mainCam && mainCam.activeSelf)
-        {
             return mainCam.GetComponent<Camera>();
-        }
 
         return null;
     }

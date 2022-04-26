@@ -10,7 +10,6 @@ public class TutorialRoomPuzzle : Puzzle
     public InventoryItem Key;
 
     private bool BookOnShelf;
-    private bool KeyObtained;
 
     // Start is called before the first frame update
     void Start()

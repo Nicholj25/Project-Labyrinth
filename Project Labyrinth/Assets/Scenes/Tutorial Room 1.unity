@@ -7608,6 +7608,8 @@ MonoBehaviour:
   AcceptableItems:
   - {fileID: 1521534580}
   playerMovement: {fileID: 60734865}
+  zoomItem: {fileID: 0}
+  cam: {fileID: 0}
   Text: {fileID: 32645287}
   Inventory: {fileID: 60734867}
   InteractionComplete:
@@ -8233,6 +8235,8 @@ MonoBehaviour:
   AcceptableItems:
   - {fileID: 315621108}
   playerMovement: {fileID: 60734865}
+  zoomItem: {fileID: 0}
+  cam: {fileID: 0}
   Text: {fileID: 32645287}
   Inventory: {fileID: 60734867}
   InteractionComplete:

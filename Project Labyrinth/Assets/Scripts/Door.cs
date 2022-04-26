@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         bool isMainCameraActive = false;
-        if (zoomItem.getCurrentCamera())
+        if (zoomItem && zoomItem.getCurrentCamera())
         {
             isMainCameraActive = zoomItem.getCurrentCamera() == Camera.main;
         }

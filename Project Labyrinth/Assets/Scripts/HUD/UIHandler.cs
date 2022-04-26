@@ -21,7 +21,7 @@ public class UIHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !Inventory.isFrozen)
         {
             Normal.gameObject.SetActive(!Normal.activeSelf);
             Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);

@@ -4295,7 +4295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3877025530316016204, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.535
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 3877025530316016204, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6417,6 +6417,8 @@ MonoBehaviour:
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
+  inventoryUI: {fileID: 1818364163}
+  hintUI: {fileID: 32645286}
   zoomCam: {fileID: 990810598}
   puzzleInputObject: {fileID: 0}
   puzzleInput: {fileID: 0}
@@ -14847,6 +14849,8 @@ MonoBehaviour:
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
+  inventoryUI: {fileID: 1818364163}
+  hintUI: {fileID: 32645286}
   zoomCam: {fileID: 1968638232}
   puzzleInputObject: {fileID: 2056205768}
   puzzleInput: {fileID: 2056205770}
@@ -16181,6 +16185,7 @@ MonoBehaviour:
   LockObjects:
   - {fileID: 3162173}
   playerMovement: {fileID: 60734865}
+  zoomItem: {fileID: 1544466263}
   Text: {fileID: 32645287}
 --- !u!1 &1695323313
 GameObject:

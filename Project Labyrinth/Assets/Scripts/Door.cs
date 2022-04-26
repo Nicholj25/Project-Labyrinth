@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     public List<GameObject> LockObjects;
     public List<ILock> Locks;
     public PlayerMovement playerMovement;
+    public ZoomItem zoomItem;
 
     public bool Locked { get; private set; }
 
@@ -39,8 +40,9 @@ public class Door : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
+    {
+        bool isMainCameraActive = zoomItem.getCurrentCamera() == Camera.main;
+        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && isMainCameraActive)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

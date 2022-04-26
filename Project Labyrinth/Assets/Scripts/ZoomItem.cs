@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class ZoomItem : ItemInteraction
 {
+    [SerializeField] private InventoryScreen inventoryUI;
+    [SerializeField] private HintText hintUI;
     [SerializeField] private GameObject zoomCam;
     [SerializeField] private GameObject puzzleInputObject;
     [SerializeField] private PuzzleInput puzzleInput;
@@ -25,14 +27,20 @@ public class ZoomItem : ItemInteraction
         hasZoomed = false;
     }
 
+    private void Start()
+    {
+    }
 
     // Update is called once per frame
     protected override void Update()
     {
         if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButton(0) && Camera.main)
         {
-            ActivateZoomCam();
-
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            Physics.Raycast(ray, out hit);
+            if (hit.transform.gameObject == this.gameObject && !inUse)
+                ActivateZoomCam();
         }
         else if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButton(0) && puzzleInput)
         {
@@ -48,38 +56,44 @@ public class ZoomItem : ItemInteraction
         }
     }
 
+    /// <summary>
+    /// Changes from Zoom Camera to Main Camera
+    /// </summary>
     public void ZoomOut()
     {
         mainCam.SetActive(true);
         zoomCam.SetActive(false);
         playerMovement.isFrozen = false;
+        inventoryUI.isFrozen = false;
+        hintUI.isFrozen = false;
         inUse = false;
-        if (puzzleInput)
-        {
-            puzzleInput.Hide(puzzleInputObject);
-        }
+        puzzleInput?.Hide(puzzleInputObject);
     }
-
+    /// <summary>
+    /// Changes From Main Camera to Zoom Camera
+    /// </summary>
     private void ActivateZoomCam()
     { 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit);
-        if (hit.transform.gameObject == this.gameObject && !inUse)
+
+        mainCam.SetActive(false);
+        zoomCam.SetActive(true);
+        if (!hasZoomed)
         {
-            mainCam.SetActive(false);
-            zoomCam.SetActive(true);
-            if (!hasZoomed)
-            {
-                InteractionComplete?.Invoke();
-                hasZoomed = true;
-            }
-            playerMovement.isFrozen = true;
-            puzzleInput?.Show(puzzleInputObject);
-            inUse = true;
+            InteractionComplete?.Invoke();
+            hasZoomed = true;
         }
+        playerMovement.isFrozen = true;
+        inventoryUI.isFrozen = true;
+        hintUI.isFrozen = true;
+        puzzleInput?.Show(puzzleInputObject);
+        inUse = true;
     }
 
+    /// <summary>
+    /// Gets the Camera that is Currently Active
+    /// </summary>
+    /// <returns>Currently Active Camera or Null if
+    /// another zoom camera other than zoomCam is active</returns>
     public Camera getCurrentCamera()
     {
         if (zoomCam && zoomCam.activeSelf)

@@ -41,7 +41,11 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool isMainCameraActive = zoomItem.getCurrentCamera() == Camera.main;
+        bool isMainCameraActive = false;
+        if (zoomItem.getCurrentCamera())
+        {
+            isMainCameraActive = zoomItem.getCurrentCamera() == Camera.main;
+        }
         if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && isMainCameraActive)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

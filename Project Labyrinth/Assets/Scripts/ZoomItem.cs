@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class ZoomItem : ItemInteraction
 {
-    [SerializeField] private InventoryScreen inventoryUI;
-    [SerializeField] private HintText hintUI;
+    [SerializeField] private UIHandler uiHandler;
     [SerializeField] private GameObject zoomCam;
     [SerializeField] private GameObject puzzleInputObject;
     [SerializeField] private PuzzleInput puzzleInput;
@@ -34,7 +33,7 @@ public class ZoomItem : ItemInteraction
     // Update is called once per frame
     protected override void Update()
     {
-        if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButton(0) && Camera.main)
+        if (Input.GetMouseButton(0) && Camera.main && isValidZoomConditions())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -42,7 +41,7 @@ public class ZoomItem : ItemInteraction
             if (hit.transform.gameObject == this.gameObject && !inUse)
                 ActivateZoomCam();
         }
-        else if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButton(0) && puzzleInput)
+        else if (Input.GetMouseButton(0) && puzzleInput && isValidZoomConditions())
         {
             // Left Click Brings Back Puzzle Input Window If Exists and Is Closed
             if (!puzzleInput.puzzleInputWindow.activeSelf)
@@ -64,16 +63,16 @@ public class ZoomItem : ItemInteraction
         mainCam.SetActive(true);
         zoomCam.SetActive(false);
         playerMovement.isFrozen = false;
-        inventoryUI.isFrozen = false;
-        hintUI.isFrozen = false;
+        uiHandler.toggleUI(false);
         inUse = false;
         puzzleInput?.Hide(puzzleInputObject);
     }
+
     /// <summary>
     /// Changes From Main Camera to Zoom Camera
     /// </summary>
     private void ActivateZoomCam()
-    { 
+    {
 
         mainCam.SetActive(false);
         zoomCam.SetActive(true);
@@ -83,25 +82,24 @@ public class ZoomItem : ItemInteraction
             hasZoomed = true;
         }
         playerMovement.isFrozen = true;
-        inventoryUI.isFrozen = true;
-        hintUI.isFrozen = true;
+        uiHandler.toggleUI(true);
         puzzleInput?.Show(puzzleInputObject);
         inUse = true;
     }
 
     /// <summary>
-    /// Gets the Camera that is Currently Active
+    /// Checks if the player is nearby and that UI is not active
+    /// 
+    /// UI has to be inactive to zoom. Otherwise, if the user has
+    /// UI open over zoomable object, it will zoom in and they 
+    /// won't be able to get out of the inventory screen. This is
+    /// because UI is active but freezes during a zoom.
     /// </summary>
-    /// <returns>Currently Active Camera or Null if
-    /// another zoom camera other than zoomCam is active</returns>
-    public Camera getCurrentCamera()
+    /// <returns>Bool True if valid conditions False if not</returns>
+    private bool isValidZoomConditions()
     {
-        if (zoomCam && zoomCam.activeSelf)
-            return zoomCam.GetComponent<Camera>();
-
-        else if (mainCam && mainCam.activeSelf)
-            return mainCam.GetComponent<Camera>();
-
-        return null;
+        if (playerMovement.isNearby(this.gameObject) && !uiHandler.isUIActive())
+            return true;
+        return false;
     }
 }

@@ -3381,6 +3381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
   mainCam: {fileID: 963194225}
+  cameraHandler: {fileID: 963194230}
   ItemName: Escape Room Basics
   ItemImage: {fileID: 21300000, guid: f43ae9259bc458740bcf574a3adf003e, type: 3}
   ItemText: '"Escape Room Basics"  By: I. M. Leavin'''
@@ -7630,7 +7631,7 @@ MonoBehaviour:
   AcceptableItems:
   - {fileID: 1521534580}
   playerMovement: {fileID: 60734865}
-  zoomItem: {fileID: 0}
+  cameraHandler: {fileID: 0}
   cam: {fileID: 0}
   Text: {fileID: 32645287}
   Inventory: {fileID: 60734867}
@@ -7649,6 +7650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702a05bcdcda0404b94cd44b017497c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiHandler: {fileID: 2050044385}
   LockObjects:
   - {fileID: 823172433}
   playerMovement: {fileID: 60734865}
@@ -8258,7 +8260,7 @@ MonoBehaviour:
   AcceptableItems:
   - {fileID: 315621108}
   playerMovement: {fileID: 60734865}
-  zoomItem: {fileID: 0}
+  cameraHandler: {fileID: 963194230}
   cam: {fileID: 0}
   Text: {fileID: 32645287}
   Inventory: {fileID: 60734867}
@@ -10243,15 +10245,14 @@ MonoBehaviour:
   Item: {fileID: 0}
   AcceptableItems: []
   playerMovement: {fileID: 0}
-  zoomItem: {fileID: 1170529178}
+  cameraHandler: {fileID: 0}
   cam: {fileID: 0}
   Text: {fileID: 0}
   Inventory: {fileID: 0}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
-  inventoryUI: {fileID: 1818364163}
-  hintUI: {fileID: 32645286}
+  uiHandler: {fileID: 2050044385}
   zoomCam: {fileID: 1343715638}
   puzzleInputObject: {fileID: 0}
   puzzleInput: {fileID: 0}
@@ -13187,6 +13188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
   mainCam: {fileID: 963194225}
+  cameraHandler: {fileID: 963194230}
   ItemName: Desk Drawer Key
   ItemImage: {fileID: 21300000, guid: c45bdc4a57bed3149bc8b73b1a94b178, type: 3}
   ItemText: A key obtained from the desk drawer
@@ -16685,6 +16687,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc8638f1ecd544aad54d1e5f8d79b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 1818364163}
+  hintUI: {fileID: 32645286}
+  instructions: {fileID: 1933508278}
+  inventory: {fileID: 1818364159}
+  textBackground: {fileID: 331458924}
   Normal: {fileID: 1149113793}
   Inventory: {fileID: 1818364163}
   Time: {fileID: 1850276581}

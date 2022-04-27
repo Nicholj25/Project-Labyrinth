@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private UIHandler uiHandler;
     public List<GameObject> LockObjects;
     public List<ILock> Locks;
     public PlayerMovement playerMovement;
@@ -42,7 +43,8 @@ public class Door : MonoBehaviour
     void Update()
     {
 
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive())
+        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) 
+            && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

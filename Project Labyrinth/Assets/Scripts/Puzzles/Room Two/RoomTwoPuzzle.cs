@@ -34,7 +34,7 @@ public class RoomTwoPuzzle : Puzzle
 
         if (!hasZoomed)
             hintText = "Looks like the boss left the computer on too.";
-        else if (hasZoomed)
+        else if (hasZoomed && !riddleSolved)
             hintText = "Take a look around. I am in this room.";
         else if (riddleSolved)
             hintText = "Where did you see me last? Look there.";

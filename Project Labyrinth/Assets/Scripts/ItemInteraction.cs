@@ -9,7 +9,7 @@ public class ItemInteraction : MonoBehaviour
     public InventoryItem Item;
     public List<InventoryItem> AcceptableItems;
     public PlayerMovement playerMovement;
-    public ZoomItem zoomItem;
+    public CameraHandler cameraHandler;
     public Camera cam;
 
     /// <summary>
@@ -31,6 +31,7 @@ public class ItemInteraction : MonoBehaviour
 
     void Awake()
     {
+        cameraHandler = GameObject.Find("Main Camera").GetComponent<CameraHandler>();
         InteractionComplete = new UnityEvent();
         cam = Camera.main;
     }
@@ -42,8 +43,7 @@ public class ItemInteraction : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (zoomItem)
-            cam = zoomItem.getCurrentCamera();
+        cam = cameraHandler.GetCurrentCamera();
         if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);

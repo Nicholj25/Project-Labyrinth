@@ -9,6 +9,7 @@ public class InventoryItem : MonoBehaviour
     public GameObject ItemModel { get; private set; }
     public GameObject zoomCam;
     public GameObject mainCam;
+    public CameraHandler cameraHandler;
     public string ItemName;
     public Sprite ItemImage;
     public string ItemText;
@@ -31,10 +32,8 @@ public class InventoryItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (zoomItem)
-        {
-            cam = zoomItem.getCurrentCamera();
-        }
+
+        cam = cameraHandler.GetCurrentCamera();
 
         if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
         {

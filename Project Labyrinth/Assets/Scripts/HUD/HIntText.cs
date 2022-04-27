@@ -7,7 +7,7 @@ public class HintText : MonoBehaviour
     /// <summary>
     /// used to turn off hints to allow for text entry use of H key
     /// </summary>
-    public bool isFrozen { set; private get; }
+    public bool isFrozen { set; get; }
     
     /// <summary>
     /// List of puzzles found in the room. Used to determine current hint to display.

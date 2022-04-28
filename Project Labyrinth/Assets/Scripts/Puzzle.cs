@@ -5,6 +5,7 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour
 {
     public bool Completed;
+    protected bool KeyObtained;
 
     // Start is called before the first frame update
     void Start()

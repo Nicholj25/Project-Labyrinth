@@ -5,6 +5,11 @@ using UnityEngine;
 public class HintText : MonoBehaviour
 {
     /// <summary>
+    /// used to turn off hints to allow for text entry use of H key
+    /// </summary>
+    public bool isFrozen { set; get; }
+    
+    /// <summary>
     /// List of puzzles found in the room. Used to determine current hint to display.
     /// </summary>
     public List<Puzzle> RoomPuzzles;
@@ -31,13 +36,14 @@ public class HintText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isFrozen = false;
         Text = this.gameObject.GetComponent<TextPrompt>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H) && !isFrozen)
         {
             DetermineHint();
         }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43748862, g: 0.48531258, b: 0.5655862, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -803,6 +803,8 @@ GameObject:
   - component: {fileID: 60734860}
   - component: {fileID: 60734863}
   - component: {fileID: 60734866}
+  - component: {fileID: 60734868}
+  - component: {fileID: 60734867}
   - component: {fileID: 60734865}
   m_Layer: 0
   m_Name: Player Capsule
@@ -905,7 +907,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &60734865
 MonoBehaviour:
@@ -920,8 +922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
+  isFrozen: 0
   RotationSpeed: 50
-  Gravity: 9.8
 --- !u!143 &60734866
 CharacterController:
   m_ObjectHideFlags: 0
@@ -940,6 +942,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &60734867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60734858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd72599e62bf2e4a9d8e4e6ce2855a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed: 0
+--- !u!114 &60734868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60734858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f33ecc6a243b04a9a7a88b8d1f0a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeldItems: []
 --- !u!1001 &70978257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3480,100 +3508,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339310463}
   m_CullTransparentMesh: 1
---- !u!1 &353457701
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 353457704}
-  - component: {fileID: 353457703}
-  - component: {fileID: 353457706}
-  - component: {fileID: 353457705}
-  - component: {fileID: 353457707}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!143 &353457703
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353457701}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.5
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &353457704
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353457701}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3857706, y: -0.76663077, z: 11.58378}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &353457705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353457701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 683a84e6f2c1ae14b9f926f1785a0b7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 5
-  RotationSpeed: 5
-  Gravity: 0
---- !u!114 &353457706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353457701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd72599e62bf2e4a9d8e4e6ce2855a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Completed: 0
---- !u!114 &353457707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353457701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02f33ecc6a243b04a9a7a88b8d1f0a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HeldItems: []
 --- !u!1 &366318522
 GameObject:
   m_ObjectHideFlags: 0
@@ -8770,6 +8704,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8856,6 +8791,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d5bb8018ac59f4a990c53e74281e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomCamObj: []
 --- !u!1 &964091556
 GameObject:
   m_ObjectHideFlags: 0
@@ -11540,19 +11488,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 748239710643081293, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
   m_PrefabInstance: {fileID: 367697163}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1378141820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378141818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1e558119ca8e24f9ec84bc01ba14ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room1: Room 1
 --- !u!64 &1378141821
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13491,7 +13426,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1635301735
 PrefabInstance:
@@ -14817,7 +14752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722598e5f5eb88845accd2d023ead5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 353457707}
+  Inventory: {fileID: 0}
 --- !u!1001 &1832421662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16082,7 +16017,7 @@ RectTransform:
   - {fileID: 1149113794}
   - {fileID: 1850276578}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -16101,6 +16036,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc8638f1ecd544aad54d1e5f8d79b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
+  hintUI: {fileID: 0}
+  instructions: {fileID: 0}
+  inventory: {fileID: 0}
+  textBackground: {fileID: 0}
   Normal: {fileID: 1149113793}
   Inventory: {fileID: 1818364163}
   Time: {fileID: 1850276581}
@@ -17210,12 +17150,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c82fb38a27b0ff4bb1036c29fa61074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomCam: {fileID: 0}
+  mainCam: {fileID: 963194225}
+  cameraHandler: {fileID: 963194230}
   ItemName: Sample Book
   ItemImage: {fileID: 21300000, guid: f43ae9259bc458740bcf574a3adf003e, type: 3}
   ItemText: This sample book appears to contain a clue
   Equippable: 0
   Inspectable: 1
-  Inventory: {fileID: 353457707}
+  Inventory: {fileID: 60734868}
+  playerMovement: {fileID: 60734865}
+  zoomItem: {fileID: 0}
+  PickupCompletion:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &8900345819082873441
 MeshCollider:
   m_ObjectHideFlags: 0

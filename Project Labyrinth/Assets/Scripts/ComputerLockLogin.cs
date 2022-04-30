@@ -30,6 +30,8 @@ public class ComputerLockLogin : MonoBehaviour, ILock
 
     private void Awake()
     {
+        LockStateChange = new UnityEvent();
+
         Locked = true;
 
         UsernameString = "";
@@ -73,7 +75,7 @@ public class ComputerLockLogin : MonoBehaviour, ILock
     // Start is called before the first frame update
     private void Start()
     {
-        LockStateChange = new UnityEvent();
+        
     }
 
     void Update()

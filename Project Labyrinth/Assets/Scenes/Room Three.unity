@@ -4800,9 +4800,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702a05bcdcda0404b94cd44b017497c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiHandler: {fileID: 2050044385}
   LockObjects:
   - {fileID: 1172511419}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 374313777}
+  cameraHandler: {fileID: 1390927062}
   Text: {fileID: 32645287}
 --- !u!65 &366196759
 BoxCollider:
@@ -12646,14 +12648,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
-  mainCam: {fileID: 0}
+  mainCam: {fileID: 1390927057}
+  cameraHandler: {fileID: 1390927062}
   ItemName: Whiteboard Eraser
   ItemImage: {fileID: 21300000, guid: a666b74bd7906b64380ebddef6667b75, type: 3}
   ItemText: Let's get erasing!
   Equippable: 1
   Inspectable: 0
-  Inventory: {fileID: 0}
-  playerMovement: {fileID: 0}
+  Inventory: {fileID: 374313776}
+  playerMovement: {fileID: 374313777}
   zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
@@ -14072,14 +14075,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
-  mainCam: {fileID: 0}
+  mainCam: {fileID: 1390927057}
+  cameraHandler: {fileID: 1390927062}
   ItemName: Crumpled Paper
   ItemImage: {fileID: 21300000, guid: 91ac6397b7bdf3e4fa10a8925cd87d50, type: 3}
   ItemText: '"Urgent! Don''t forget to deactivate Jeremy Quandry''s account."'
   Equippable: 0
   Inspectable: 0
-  Inventory: {fileID: 0}
-  playerMovement: {fileID: 0}
+  Inventory: {fileID: 374313776}
+  playerMovement: {fileID: 374313777}
   zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
@@ -14241,9 +14245,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b5b46c8b5ca134d802573e4f0726f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  AcceptableItems: []
+  playerMovement: {fileID: 374313777}
+  cameraHandler: {fileID: 1390927062}
+  cam: {fileID: 2037675670}
+  Text: {fileID: 32645287}
+  Inventory: {fileID: 374313776}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  uiHandler: {fileID: 2050044385}
   zoomCam: {fileID: 2037675668}
   puzzleInputObject: {fileID: 0}
   puzzleInput: {fileID: 0}
+  inUse: 0
+  hasZoomed: 0
 --- !u!65 &1048617472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17099,14 +17116,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
-  mainCam: {fileID: 0}
+  mainCam: {fileID: 1390927057}
+  cameraHandler: {fileID: 1390927062}
   ItemName: Sticky Note
   ItemImage: {fileID: 21300000, guid: 5c5e25a20e651b44197885971fe98dc0, type: 3}
   ItemText: 'Password: QuanMan06'
   Equippable: 1
   Inspectable: 0
-  Inventory: {fileID: 0}
-  playerMovement: {fileID: 0}
+  Inventory: {fileID: 374313776}
+  playerMovement: {fileID: 374313777}
   zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
@@ -18430,6 +18448,7 @@ GameObject:
   - component: {fileID: 1390927061}
   - component: {fileID: 1390927060}
   - component: {fileID: 1390927059}
+  - component: {fileID: 1390927062}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18516,6 +18535,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1390927062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390927057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d5bb8018ac59f4a990c53e74281e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomCamObj:
+  - {fileID: 2037675668}
 --- !u!1 &1391656807
 GameObject:
   m_ObjectHideFlags: 0
@@ -23765,7 +23798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722598e5f5eb88845accd2d023ead5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 374313776}
 --- !u!4 &1819110475 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4471087690841739454, guid: c184ee61f59bf7a45832f4bd6fe6d54c, type: 3}
@@ -26427,6 +26460,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc8638f1ecd544aad54d1e5f8d79b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 1818364163}
+  hintUI: {fileID: 32645288}
+  instructions: {fileID: 1933508278}
+  inventory: {fileID: 1818364159}
+  textBackground: {fileID: 331458924}
   Normal: {fileID: 1149113793}
   Inventory: {fileID: 1818364163}
   Time: {fileID: 1850276581}
@@ -26740,7 +26778,7 @@ MonoBehaviour:
   WhiteboardEraser: {fileID: 970050221}
   Paper: {fileID: 1041324132}
   ComputerLock: {fileID: 1172511421}
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 374313776}
 --- !u!1 &2070473486
 GameObject:
   m_ObjectHideFlags: 0
@@ -28850,9 +28888,11 @@ MonoBehaviour:
   Item: {fileID: 970050221}
   AcceptableItems:
   - {fileID: 970050221}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 374313777}
+  cameraHandler: {fileID: 1390927062}
+  cam: {fileID: 0}
   Text: {fileID: 32645287}
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 374313776}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []

@@ -57,6 +57,7 @@ public class InventoryScreen : MonoBehaviour
                 // Update Image
                 Image currentImage = currentInventoryButton.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
                 currentImage.sprite = Inventory.HeldItems[i].ItemImage;
+                currentImage.preserveAspect = true;
                 Color currentColor = currentImage.color;
                 currentColor.a = 1f;
                 currentImage.color = currentColor;

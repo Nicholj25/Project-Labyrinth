@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PuzzleInput : Puzzle
+public class PuzzleInput : ItemInteraction
 {
     public GameObject puzzleInputWindow;
     [SerializeField] private GameObject closeButtonObject;
@@ -17,7 +17,7 @@ public class PuzzleInput : Puzzle
     private Button closeButton;
     private string inputString;
 
-    private void Awake()
+    void Awake()
     {
         correctInput = correctInput.ToLower();
         inputString = "";
@@ -25,60 +25,70 @@ public class PuzzleInput : Puzzle
         SetSubmitButtonEvent();
         Hide(this.gameObject);
         Hide(successObject);
-
+        cam = Camera.main;
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
+        
     }
 
     // Update is called once per frame
     // Source: https://forum.unity.com/threads/solved-invoke-a-unity-button-click-event-from-c-script.722126/
-    void Update()
+    protected override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) && inputField.text.Length != 0)
-        {
-            //Invoke the button's onClick event.
-            submitButton.onClick.Invoke();
 
-        }
+        if (Input.GetKeyDown(KeyCode.Return) && inputField.text.Length != 0)
+            //Invoke the button's onClick event so enter also submits text
+            submitButton.onClick.Invoke();
 
     }
 
-    // Displays Puzzle Input Window
-    // Source: https://www.youtube.com/watch?v=4n6RT805rCc
+    /// <summary>
+    /// Displays GameObject
+    /// </summary>
+    /// <param name="obj"> GameObject to Activate</param>
+    /// Source: https://www.youtube.com/watch?v=4n6RT805rCc
     public void Show(GameObject obj)
     {
         obj.SetActive(true);
     }
 
-    // Hides Puzzle Input Window
-    // Source: https://www.youtube.com/watch?v=4n6RT805rCc
+    /// <summary>
+    /// Hides GameObject
+    /// </summary>
+    /// <param name="obj"> GameObject to Activate</param>
+    /// Source: https://www.youtube.com/watch?v=4n6RT805rCc
     public void Hide(GameObject obj)
     {
         obj.SetActive(false);
     }
 
-
-    // Sets Up Close Button Onclick Event
-    // Source: https://docs.unity3d.com/2018.4/Documentation/ScriptReference/UI.InputField-onEndEdit.html
+    /// <summary>
+    /// Sets Up Close Button (X) on Input Window Onclick Event
+    /// </summary>
+    /// Source: https://docs.unity3d.com/2018.4/Documentation/ScriptReference/UI.InputField-onEndEdit.html
     public void SetCloseButtonEvent()
     {
         closeButton = closeButtonObject.GetComponent<Button>();
         closeButton.onClick.AddListener(delegate { Hide(this.gameObject); });
     }
 
-    // Sets Up Close Button Onclick Event
-    // Source: https://docs.unity3d.com/2018.4/Documentation/ScriptReference/UI.InputField-onEndEdit.html
+    /// <summary>
+    /// Sets Up Submit Button Onclick Event
+    /// </summary>
+    /// Source: https://docs.unity3d.com/2018.4/Documentation/ScriptReference/UI.InputField-onEndEdit.html
     public void SetSubmitButtonEvent()
     {
         submitButton = submitButtonObject.GetComponent<Button>();
         submitButton.onClick.AddListener(delegate { ReadStringInput(inputField.text); });
     }
 
-    // Reads String From InputField
-    // Source:  https://www.youtube.com/watch?v=guelZvubWFY
+    /// <summary>
+    ///  Reads String From InputField
+    /// </summary>
+    /// <param name="input"></param>
+    /// Source:  https://www.youtube.com/watch?v=guelZvubWFY
     private void ReadStringInput(string input)
     {
         inputString = input.ToLower();
@@ -93,7 +103,11 @@ public class PuzzleInput : Puzzle
 
     }
 
-    // Changes an Object to Another Object
+    /// <summary>
+    /// Changes an Object to Another Object
+    /// successObject appears
+    /// startObject disappears if it exists
+    /// </summary>
     private void RunSuccess()
     {
         inputField.GetComponent<Image>().color = Color.green;
@@ -108,11 +122,16 @@ public class PuzzleInput : Puzzle
         }
         Show(successObject);
 
-        Completed = true;
+        InteractionComplete?.Invoke();
+
     }
 
-    // Changes Input Field Background to Red and Resets Field
-    // Source: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
+    /// <summary>
+    /// Changes Input Field Background to Red then back to white
+    /// and Resets Field
+    /// </summary>
+    /// <returns>uses a co-routine to pause briefly</returns> 
+    /// Source: https://stackoverflow.com/questions/30056471/how-to-make-the-script-wait-sleep-in-a-simple-way-in-unity
     IEnumerator RunTryAgain()
     {
         // Change Color of Background

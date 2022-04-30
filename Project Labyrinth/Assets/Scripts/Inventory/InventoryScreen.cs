@@ -6,6 +6,11 @@ using UnityEngine.UI;
 
 public class InventoryScreen : MonoBehaviour
 {
+    /// <summary>
+    /// used to turn off Inventory Screen to allow for text entry use of I key
+    /// </summary>
+    public bool isFrozen { set; get; }
+
     public PlayerInventory Inventory;
 
     public GameObject InventorySelection { get; private set; }
@@ -20,6 +25,7 @@ public class InventoryScreen : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        isFrozen = false;
         InventorySelection = this.transform.GetChild(1).gameObject;
         ItemDescriptionTextBox = this.transform.GetChild(2).gameObject;
         

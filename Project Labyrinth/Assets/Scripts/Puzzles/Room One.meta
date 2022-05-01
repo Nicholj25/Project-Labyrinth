@@ -1,6 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project Labyrinth/Assets/Scripts/Puzzles/Room One.meta
 guid: d73df6b26c4684a418a74e72b43e224d
 folderAsset: yes
+|||||||| 5c84d6ea:Project Labyrinth/Assets/Scenes/Room M.unity.meta
+guid: b4e4894878989ea4db39ecfe7dc0b175
+========
+guid: 4b61bfd4d66a5b94eb5c1167507c9c2e
+folderAsset: yes
+>>>>>>>> main:Project Labyrinth/Assets/Scripts/Puzzles/Room Three.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

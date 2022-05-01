@@ -12,6 +12,7 @@ public class KeyLock : ItemInteraction, ILock
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
         Locked = true;
         LockStateChange = new UnityEvent();
     }

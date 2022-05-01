@@ -1604,6 +1604,7 @@ GameObject:
   - component: {fileID: 156526698}
   - component: {fileID: 156526697}
   - component: {fileID: 156526696}
+  - component: {fileID: 156526699}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1690,6 +1691,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &156526699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156526694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d5bb8018ac59f4a990c53e74281e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomCamObj: []
 --- !u!4 &163472744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 637984315911060732, guid: db25d2b389bb0f8478e7e515c8f76426, type: 3}
@@ -6357,7 +6371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3877025530316016204, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.54169804
+      value: -0.519
       objectReference: {fileID: 0}
     - target: {fileID: 3877025530316016204, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11480,6 +11494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
   mainCam: {fileID: 156526694}
+  cameraHandler: {fileID: 156526699}
   ItemName: File Cabinet Key
   ItemImage: {fileID: 21300000, guid: c45bdc4a57bed3149bc8b73b1a94b178, type: 3}
   ItemText: A key found behind a file cabinet.
@@ -17105,6 +17120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc8638f1ecd544aad54d1e5f8d79b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
+  hintUI: {fileID: 0}
+  instructions: {fileID: 0}
+  inventory: {fileID: 0}
+  textBackground: {fileID: 0}
   Normal: {fileID: 612761736}
   Inventory: {fileID: 2133293929}
   Time: {fileID: 116155439}

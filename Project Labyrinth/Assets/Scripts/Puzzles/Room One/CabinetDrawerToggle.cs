@@ -6,10 +6,10 @@ public class CabinetDrawerToggle : MonoBehaviour
 {
     public bool Opened;
     public Transform player; //This creates a slot in the inspector where you can add your player
-    private Rigidbody rigidbody;
+    private Rigidbody rigidBody;
 
     void Start () {
-         rigidbody = GetComponent<Rigidbody> ();
+         rigidBody = GetComponent<Rigidbody> ();
          Opened = false;
      }
 
@@ -28,7 +28,7 @@ public class CabinetDrawerToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && Camera.main) {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
             

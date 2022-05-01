@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43748862, g: 0.48531258, b: 0.5655862, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1721,7 +1721,6 @@ GameObject:
   - component: {fileID: 165765686}
   - component: {fileID: 165765685}
   - component: {fileID: 165765684}
-  - component: {fileID: 165765687}
   m_Layer: 5
   m_Name: LoadingPanel
   m_TagString: Untagged
@@ -1811,23 +1810,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &165765687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165765682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa42164f03c8b994f93916fd029c0cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainCamera: {fileID: 156526694}
-  LoadingCamera: {fileID: 257992351}
-  roomToLoad: Room Two
-  LoadingPanel: {fileID: 165765682}
-  LoadingBar: {fileID: 1442179729}
 --- !u!1001 &169234882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6444,6 +6426,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4223151906506891888, guid: f1cd6800d51724d4291ee22764292e86, type: 3}
+--- !u!114 &612208671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612208666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88859608945eebf47a4c20c20d177503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 969293190}
+  AcceptableItems: []
+  playerMovement: {fileID: 1943328749}
+  cameraHandler: {fileID: 156526699}
+  cam: {fileID: 0}
+  Text: {fileID: 1191765875}
+  Inventory: {fileID: 1943328747}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &612208672
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6471,23 +6475,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.96571285, y: 2.0248804, z: 0.08707758}
   m_Center: {x: -0.48285642, y: 1.0079007, z: 0}
---- !u!114 &612208684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612208666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa42164f03c8b994f93916fd029c0cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainCamera: {fileID: 156526694}
-  LoadingCamera: {fileID: 257992351}
-  roomToLoad: Room Two
-  LoadingPanel: {fileID: 165765682}
-  LoadingBar: {fileID: 1442179729}
 --- !u!1 &612761736
 GameObject:
   m_ObjectHideFlags: 0
@@ -17120,11 +17107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc8638f1ecd544aad54d1e5f8d79b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
-  hintUI: {fileID: 0}
-  instructions: {fileID: 0}
-  inventory: {fileID: 0}
-  textBackground: {fileID: 0}
+  inventoryUI: {fileID: 2133293929}
+  hintUI: {fileID: 1191765876}
+  instructions: {fileID: 2003348748}
+  inventory: {fileID: 2133293928}
+  textBackground: {fileID: 1669931568}
   Normal: {fileID: 612761736}
   Inventory: {fileID: 2133293929}
   Time: {fileID: 116155439}
@@ -18970,6 +18957,40 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000002, y: 3, z: 0.20000006}
   m_Center: {x: -1.0000001, y: 1.5, z: -0.099998705}
+--- !u!114 &1671737028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612208668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702a05bcdcda0404b94cd44b017497c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiHandler: {fileID: 1513195935}
+  LockObjects: []
+  playerMovement: {fileID: 1943328749}
+  cameraHandler: {fileID: 156526699}
+  Text: {fileID: 1191765875}
+--- !u!114 &1671737029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612208668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa42164f03c8b994f93916fd029c0cf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainCamera: {fileID: 156526694}
+  LoadingCamera: {fileID: 257992351}
+  roomToLoad: Room Two
+  LoadingPanel: {fileID: 165765682}
+  LoadingBar: {fileID: 1442179729}
 --- !u!1 &1672377719
 GameObject:
   m_ObjectHideFlags: 0
@@ -24535,7 +24556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722598e5f5eb88845accd2d023ead5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 1943328747}
 --- !u!114 &2133293930
 MonoBehaviour:
   m_ObjectHideFlags: 0

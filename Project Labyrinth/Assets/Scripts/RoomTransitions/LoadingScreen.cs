@@ -5,17 +5,38 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System;
 using System.Threading.Tasks;
-using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour
 {
     public GameObject MainCamera;
     public GameObject LoadingCamera;
-    [SerializeField] private string roomToLoad = "Room One";
+    [SerializeField] private string roomToLoad;
+    [SerializeField] private bool loadOnClick;
     public GameObject LoadingPanel;
     public Slider LoadingBar;
-    
+    private void Start()
+    {
+        if (!loadOnClick)
+        {
+            Debug.Log("disbled");
+            enabled = false;
+        }
+
+    }
+
     async void OnMouseDown()
+    {
+        if (loadOnClick)
+        {
+            Debug.Log("onclick");
+            showLoadingCamera();
+            await WaitOneSecondAsync();
+            LoadLevel(roomToLoad);
+            await WaitOneSecondAsync();
+        }
+    }
+
+    async public void LoadNextRoom()
     {
         showLoadingCamera();
         await WaitOneSecondAsync();

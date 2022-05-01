@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43748862, g: 0.48531258, b: 0.5655862, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3617,9 +3617,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 514680725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f71cf7c69d7f6b247a4ef1a4a2cc65b0, type: 3}
+  m_Script: {fileID: 11500000, guid: aa42164f03c8b994f93916fd029c0cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 1643537378}
+  LoadingCamera: {fileID: 269971830}
+  roomToLoad: Tutorial Room 1
+  loadOnClick: 1
+  LoadingPanel: {fileID: 754520523}
+  LoadingBar: {fileID: 439083933}
 --- !u!64 &514680727
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5455,7 +5461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
   LoadingCamera: {fileID: 269971830}
-  roomToLoad: Room Two
+  roomToLoad: Room One
+  loadOnClick: 0
   LoadingPanel: {fileID: 754520523}
   LoadingBar: {fileID: 439083933}
 --- !u!114 &754520526
@@ -9936,6 +9943,7 @@ MonoBehaviour:
   MainCamera: {fileID: 1643537378}
   LoadingCamera: {fileID: 269971830}
   roomToLoad: Tutorial Room
+  loadOnClick: 0
   LoadingPanel: {fileID: 754520523}
   LoadingBar: {fileID: 439083933}
 --- !u!1001 &1571859128

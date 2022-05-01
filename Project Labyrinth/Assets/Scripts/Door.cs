@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public List<ILock> Locks;
     public PlayerMovement playerMovement;
     public CameraHandler cameraHandler;
+    LoadingScreen loadRoom;
 
     public bool Locked { get; private set; }
 
@@ -18,6 +19,11 @@ public class Door : MonoBehaviour
     /// TextPrompt script to display info
     /// </summary>
     public TextPrompt Text;
+
+    private void Awake()
+    {
+        loadRoom = GetComponent<LoadingScreen>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -70,8 +76,6 @@ public class Door : MonoBehaviour
             Text.UpdateTextBox("The door is locked.");
         else
         {
-            LoadRoom loadRoom;
-            loadRoom = GetComponent<LoadRoom>();
             loadRoom.enabled = true;
             loadRoom.LoadNextRoom(); 
         }

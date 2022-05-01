@@ -38,4 +38,9 @@ public class PlayerInventory : MonoBehaviour
     {
         CurrentItem = null;
     }
+
+    public bool ContainsItem(InventoryItem item)
+    {
+        return HeldItems.Contains(item);
+    }
 }

@@ -1503,6 +1503,7 @@ GameObject:
   - component: {fileID: 156526698}
   - component: {fileID: 156526697}
   - component: {fileID: 156526696}
+  - component: {fileID: 156526699}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1589,6 +1590,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &156526699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156526694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d5bb8018ac59f4a990c53e74281e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomCamObj: []
 --- !u!4 &163472744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 637984315911060732, guid: db25d2b389bb0f8478e7e515c8f76426, type: 3}
@@ -6008,19 +6022,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7088789423196969760, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
   m_PrefabInstance: {fileID: 612208665}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &612208669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 612208666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3bfa88f7a66e345a9eeacf8d21dacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room3: Room Three
 --- !u!64 &612208670
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6075,6 +6076,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.96571285, y: 2.0248804, z: 0.08707758}
   m_Center: {x: -0.48285642, y: 1.0079007, z: 0}
+--- !u!114 &612208676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612208666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832aaf0e8005cf74993a061d558080fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: Room Two
+  cameraHandler: {fileID: 156526699}
 --- !u!1 &612761736
 GameObject:
   m_ObjectHideFlags: 0
@@ -16270,11 +16285,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ddc8638f1ecd544aad54d1e5f8d79b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
-  hintUI: {fileID: 0}
-  instructions: {fileID: 0}
-  inventory: {fileID: 0}
-  textBackground: {fileID: 0}
+  inventoryUI: {fileID: 2133293929}
+  hintUI: {fileID: 1191765876}
+  instructions: {fileID: 2003348748}
+  inventory: {fileID: 2133293928}
+  textBackground: {fileID: 1669931568}
   Normal: {fileID: 612761736}
   Inventory: {fileID: 2133293929}
   Time: {fileID: 116155439}

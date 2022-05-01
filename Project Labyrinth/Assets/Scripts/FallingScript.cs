@@ -5,15 +5,15 @@
  public class FallingScript : MonoBehaviour {
  
      public Transform player; //This creates a slot in the inspector where you can add your player
-     private Rigidbody rigidbody;
+     private Rigidbody rb;
      void Start () {
-         rigidbody = GetComponent<Rigidbody> ();
-         rigidbody.useGravity = false;
+         rb = GetComponent<Rigidbody> ();
+         rb.useGravity = false;
      }
  
     void OnMouseDown()
     {
-        rigidbody.useGravity = true;
+        rb.useGravity = true;
     }
 
      void Update(){

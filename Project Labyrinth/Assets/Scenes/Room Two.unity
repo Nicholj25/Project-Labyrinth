@@ -144,7 +144,7 @@ MonoBehaviour:
   AcceptableItems:
   - {fileID: 1501377609}
   playerMovement: {fileID: 60734865}
-  cameraHandler: {fileID: 0}
+  cameraHandler: {fileID: 963194230}
   cam: {fileID: 0}
   Text: {fileID: 32645287}
   Inventory: {fileID: 60734867}
@@ -4904,19 +4904,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6822915286014580230, guid: 38f068d20c4cae84ea6ce0135bff6c3a, type: 3}
   m_PrefabInstance: {fileID: 367697163}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &367697167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367697165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb3bfa88f7a66e345a9eeacf8d21dacf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room3: Room Three
 --- !u!64 &367697169
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -19385,7 +19372,22 @@ MonoBehaviour:
   - {fileID: 3162173}
   playerMovement: {fileID: 60734865}
   cameraHandler: {fileID: 963194230}
+  loadRoom: {fileID: 1685064916}
   Text: {fileID: 32645287}
+--- !u!114 &1685064916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685064906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832aaf0e8005cf74993a061d558080fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: Room Three
+  cameraHandler: {fileID: 963194230}
 --- !u!1001 &1693100317
 PrefabInstance:
   m_ObjectHideFlags: 0

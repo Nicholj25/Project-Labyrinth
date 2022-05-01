@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // Get list of door locks
         Locks = new List<ILock>();
         foreach (GameObject obj in LockObjects)
@@ -54,6 +55,8 @@ public class Door : MonoBehaviour
                 OpenDoor();
             }
         }
+
+
     }
 
     public void CheckLocked()
@@ -65,7 +68,12 @@ public class Door : MonoBehaviour
     {
         if (Locked)
             Text.UpdateTextBox("The door is locked.");
-        
-        // ToDo: Implement door opening functionalities
+        else
+        {
+            LoadRoom loadRoom;
+            loadRoom = GetComponent<LoadRoom>();
+            loadRoom.enabled = true;
+            loadRoom.LoadNextRoom(); 
+        }
     }
 }

@@ -60,4 +60,10 @@ public class PlayerMovement : MonoBehaviour
 
         return false;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
+    }
 }

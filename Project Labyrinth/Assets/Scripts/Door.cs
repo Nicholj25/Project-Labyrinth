@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public List<ILock> Locks;
     public PlayerMovement playerMovement;
     public CameraHandler cameraHandler;
+    LoadingScreen loadRoom;
 
     public bool Locked { get; private set; }
 
@@ -19,9 +20,15 @@ public class Door : MonoBehaviour
     /// </summary>
     public TextPrompt Text;
 
+    private void Awake()
+    {
+        loadRoom = GetComponent<LoadingScreen>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+
         // Get list of door locks
         Locks = new List<ILock>();
         foreach (GameObject obj in LockObjects)
@@ -54,6 +61,8 @@ public class Door : MonoBehaviour
                 OpenDoor();
             }
         }
+
+
     }
 
     public void CheckLocked()
@@ -65,7 +74,10 @@ public class Door : MonoBehaviour
     {
         if (Locked)
             Text.UpdateTextBox("The door is locked.");
-        
-        // ToDo: Implement door opening functionalities
+        else
+        {
+            loadRoom.enabled = true;
+            loadRoom.LoadNextRoom(); 
+        }
     }
 }

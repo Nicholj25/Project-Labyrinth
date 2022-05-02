@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
     public float speed = 1f;
-    private bool isPanning = false;
+    //private bool isPanning = false;
     float turnY = 0;
     float turnX = 0;
 

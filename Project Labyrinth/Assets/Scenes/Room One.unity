@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43748918, g: 0.48531258, b: 0.5655865, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12371,15 +12371,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomCam: {fileID: 0}
-  mainCam: {fileID: 0}
-  cameraHandler: {fileID: 0}
+  mainCam: {fileID: 1588635202}
+  cameraHandler: {fileID: 1588635204}
   ItemName: File Cabinet Key
   ItemImage: {fileID: 21300000, guid: c45bdc4a57bed3149bc8b73b1a94b178, type: 3}
   ItemText: A key found behind a file cabinet.
   Equippable: 1
   Inspectable: 0
-  Inventory: {fileID: 0}
-  playerMovement: {fileID: 0}
+  Inventory: {fileID: 318401993}
+  playerMovement: {fileID: 318401996}
   zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:

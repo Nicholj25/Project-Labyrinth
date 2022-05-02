@@ -66,6 +66,7 @@ public class ZoomItem : ItemInteraction
         uiHandler.toggleUI(false);
         inUse = false;
         puzzleInput?.Hide(puzzleInputObject);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
@@ -85,6 +86,7 @@ public class ZoomItem : ItemInteraction
         uiHandler.toggleUI(true);
         puzzleInput?.Show(puzzleInputObject);
         inUse = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     /// <summary>

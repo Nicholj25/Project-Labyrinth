@@ -49,9 +49,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) 
-            && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
+        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -61,8 +59,6 @@ public class Door : MonoBehaviour
                 OpenDoor();
             }
         }
-
-
     }
 
     public void CheckLocked()

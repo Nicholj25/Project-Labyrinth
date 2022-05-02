@@ -18,7 +18,6 @@ public class LoadingScreen : MonoBehaviour
     {
         if (!loadOnClick)
         {
-            Debug.Log("disbled");
             enabled = false;
         }
 

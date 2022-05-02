@@ -14,21 +14,24 @@ public class PlayerMovement : MonoBehaviour
     Vector3 moveValues;
     public float MovementSpeed = 5f;
     public bool isFrozen;
-    public float RotationSpeed = 5f;
+    //public float RotationSpeed = 5f;
     private float horizontal;
     Rigidbody rb;
+    CharacterController cont;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        cont = GetComponent<CharacterController>();
         zMovement = Vector3.zero;
-        rotationMovement = Vector3.zero;
+        //rotationMovement = Vector3.zero;
         isFrozen = false;
     }
 
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal") * RotationSpeed;
+        //horizontal = Input.GetAxis("Horizontal") * RotationSpeed;
+        zMovement.x = Input.GetAxis("Horizontal") * MovementSpeed;
         zMovement.z = Input.GetAxis("Vertical") * MovementSpeed;
     }
     void FixedUpdate()
@@ -36,14 +39,15 @@ public class PlayerMovement : MonoBehaviour
         if (!isFrozen)
         {
             // Rotate Left and Right
-            rotationMovement.y = horizontal;
-            Quaternion deltaRotation = Quaternion.Euler(rotationMovement * Time.fixedDeltaTime);
-            rb.MoveRotation(rb.rotation * deltaRotation);
+            //rotationMovement.y = horizontal;
+            //Quaternion deltaRotation = Quaternion.Euler(rotationMovement * Time.fixedDeltaTime);
+            //rb.MoveRotation(rb.rotation * deltaRotation);
 
             // Forward Backward
             // Changes Direction to Local Direction to Maintain Perspective
             moveValues = transform.TransformDirection(zMovement);
-            rb.MovePosition(transform.position + moveValues * Time.deltaTime);
+            cont.SimpleMove(moveValues * Time.deltaTime);
+            //rb.MovePosition(transform.position + moveValues * Time.deltaTime);
         }
     }
 
@@ -59,11 +63,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         return false;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
     }
 }

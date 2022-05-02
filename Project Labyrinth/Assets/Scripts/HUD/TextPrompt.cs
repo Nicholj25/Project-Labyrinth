@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class TextPrompt : MonoBehaviour
 {
+    /// <summary>
+    /// used to turn off hints to allow for text entry use of  key
+    /// </summary>
+    public bool isFrozen { set; get; }
+
     private Text PromptText;
     private GameObject TextBox;
 
@@ -36,6 +41,9 @@ public class TextPrompt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(TextBox.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        {
+            CloseTextBox();
+        }
     }
 }

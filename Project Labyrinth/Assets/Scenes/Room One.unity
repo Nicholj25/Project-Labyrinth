@@ -6861,7 +6861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 782755289}
-  hintUI: {fileID: 1868343082}
+  hintUI: {fileID: 0}
   instructions: {fileID: 0}
   inventory: {fileID: 782755285}
   textBackground: {fileID: 1868343079}
@@ -21571,7 +21571,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868343080}
-  - component: {fileID: 1868343082}
   - component: {fileID: 1868343081}
   m_Layer: 5
   m_Name: Prompt Text Box
@@ -21613,20 +21612,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916c6d1996621f04ba21dedf558ee9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1868343082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868343079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b35a074ef5e18b488d8158d0d83ff26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RoomPuzzles:
-  - {fileID: 0}
 --- !u!1001 &1869900318
 PrefabInstance:
   m_ObjectHideFlags: 0

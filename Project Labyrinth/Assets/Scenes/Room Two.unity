@@ -21850,7 +21850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomPuzzles:
-  - {fileID: 0}
+  - {fileID: 1567853172}
 --- !u!1001 &1822892183
 PrefabInstance:
   m_ObjectHideFlags: 0

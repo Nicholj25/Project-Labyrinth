@@ -45,14 +45,13 @@ public class InventoryScreen : MonoBehaviour
     /// <param name="open">The screen been opened (T) The screen has been closed (F)</param>
     public void PopulateScreen()
     {
-        Debug.Log("in populate");
 
         for (int i = 0; i <= 7; i++)
         {
-
+            // Clear Inventory Screen
             GameObject currentInventoryButton = InventorySelection.transform.GetChild(i).gameObject;
 
-            //Clear Text
+            // Clear Text
             currentInventoryButton.transform.GetChild(0).GetComponentInChildren<Text>().text = "";
             ItemDescriptionTextBox.transform.GetComponentInChildren<Text>().text = "";
             currentInventoryButton.transform.GetChild(2).gameObject.SetActive(false);
@@ -92,15 +91,14 @@ public class InventoryScreen : MonoBehaviour
 
                 // Enable buttons
                 currentInventoryButton.GetComponent<Button>().interactable = true;
-                if (i == 0)
+                if (Inventory.CurrentItem)
                 {
                     EquipButton.interactable = true;
+                    if (Inventory.CurrentItem == Inventory.HeldItems[i])
+                    {
+                        EquipButton.GetComponentInChildren<Text>().text = "Unequip";
+                    }
                 }
-                if (Inventory.CurrentItem == Inventory.HeldItems[i])
-                { 
-                    EquipButton.GetComponentInChildren<Text>().text = "Unequip";
-                }
-
             }
 
         }

@@ -12,7 +12,6 @@ public class InventoryScreen : MonoBehaviour
     public bool isFrozen { set; get; }
 
     public PlayerInventory Inventory;
-
     public GameObject InventorySelection { get; private set; }
     public GameObject ItemDescriptionTextBox { get; private set; }
     public Button EquipButton { get; private set; }
@@ -33,6 +32,7 @@ public class InventoryScreen : MonoBehaviour
         EquipButton.interactable = false;
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -45,42 +45,64 @@ public class InventoryScreen : MonoBehaviour
     /// <param name="open">The screen been opened (T) The screen has been closed (F)</param>
     public void PopulateScreen()
     {
+        Debug.Log("in populate");
+
         for (int i = 0; i <= 7; i++)
         {
-            if(Inventory.HeldItems.Count > i)
+
+            GameObject currentInventoryButton = InventorySelection.transform.GetChild(i).gameObject;
+
+            //Clear Text
+            currentInventoryButton.transform.GetChild(0).GetComponentInChildren<Text>().text = "";
+            ItemDescriptionTextBox.transform.GetComponentInChildren<Text>().text = "";
+            currentInventoryButton.transform.GetChild(2).gameObject.SetActive(false);
+
+
+            // Update Image
+            Image currentImage = currentInventoryButton.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
+            Color currentColor = currentImage.color;
+            currentColor.a = 0f;
+            currentImage.color = currentColor;
+
+            // Disable buttons
+            currentInventoryButton.GetComponent<Button>().interactable = false;
+            if (i == 0)
             {
-                GameObject currentInventoryButton = InventorySelection.transform.GetChild(i).gameObject;
+                EquipButton.interactable = false;
+                EquipButton.GetComponentInChildren<Text>().text = "Equip";
+            }
+
+            if (Inventory.HeldItems.Count > i)
+            {
+                currentInventoryButton = InventorySelection.transform.GetChild(i).gameObject;
 
                 // Update Text
                 currentInventoryButton.transform.GetChild(0).GetComponentInChildren<Text>().text = Inventory.HeldItems[i].ItemName;
 
                 // Update Image
-                Image currentImage = currentInventoryButton.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
+                currentImage = currentInventoryButton.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
                 currentImage.sprite = Inventory.HeldItems[i].ItemImage;
                 currentImage.preserveAspect = true;
-                Color currentColor = currentImage.color;
+                currentColor = currentImage.color;
                 currentColor.a = 1f;
                 currentImage.color = currentColor;
 
                 // Update Equipped
                 currentInventoryButton.transform.GetChild(2).gameObject.SetActive(Inventory.CurrentItem == Inventory.HeldItems[i]);
 
-                // Enable button
+                // Enable buttons
                 currentInventoryButton.GetComponent<Button>().interactable = true;
-            }
-            else
-            {
-                GameObject currentInventoryButton = InventorySelection.transform.GetChild(i).gameObject;
+                if (i == 0)
+                {
+                    EquipButton.interactable = true;
+                }
+                if (Inventory.CurrentItem == Inventory.HeldItems[i])
+                { 
+                    EquipButton.GetComponentInChildren<Text>().text = "Unequip";
+                }
 
-                // Update Image
-                Image currentImage = currentInventoryButton.transform.GetChild(1).GetChild(0).GetComponentInChildren<Image>();
-                Color currentColor = currentImage.color;
-                currentColor.a = 0f;
-                currentImage.color = currentColor;
-
-                // Disable button
-                currentInventoryButton.GetComponent<Button>().interactable = false;
             }
+
         }
     }
 
@@ -105,6 +127,8 @@ public class InventoryScreen : MonoBehaviour
         if(Inventory.CurrentItem == Inventory.HeldItems[CurrentSelectedIndex])
         {
             Inventory.UnequipItem();
+            if (Inventory.CurrentItem is InventoryItem && Inventory.CurrentItem.Reappearable)
+                Inventory.RemoveItem(Inventory.CurrentItem);
             EquipButton.GetComponentInChildren<Text>().text = "Equip";
         }
         else

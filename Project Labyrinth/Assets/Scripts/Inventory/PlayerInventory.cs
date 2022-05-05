@@ -31,6 +31,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void EquipItem(InventoryItem item)
     {
+        // if (item.Reappearable)
+        //    item.gameObject.SetActive(true);
         CurrentItem = item;
     }
 

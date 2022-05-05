@@ -15,8 +15,11 @@ public class InventoryItem : MonoBehaviour
     public string ItemText;
     public bool Equippable;
     public bool Inspectable;
+    public bool Reappearable;
+    //public bool FollowCursor;
     public PlayerInventory Inventory;
     public PlayerMovement playerMovement;
+    public float zPosition;
     private Camera cam;
     [SerializeField] private ZoomItem zoomItem;
 
@@ -35,17 +38,34 @@ public class InventoryItem : MonoBehaviour
 
         cam = cameraHandler.GetCurrentCamera();
 
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 mousePosition = Input.mousePosition;
+            Ray ray = cam.ScreenPointToRay(mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
-            if(hit.transform.gameObject == this.gameObject)
+            if (playerMovement.isNearby(this.gameObject) && hit.transform.gameObject == this.gameObject)
             {
                 Inventory.AddItem(this);
                 this.gameObject.SetActive(false);
                 PickupCompletion?.Invoke();
             }
+            else if (Inventory.ContainsItem(this) && Reappearable)
+            {
+                /*if (!FollowCursor)
+                {*/
+                    Debug.Log(this + "is in inventory");
+                 //   this.gameObject.transform.position = cam.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, zPosition));
+               /*     FollowCursor = true;
+                }
+                else if (FollowCursor)
+                {
+                    this.gameObject.transform.position = cam.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, zPosition));
+                   FollowCursor = false;
+                 }*/
+
+            }
+
         }
     }
 }

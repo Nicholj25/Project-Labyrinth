@@ -124,9 +124,10 @@ public class InventoryScreen : MonoBehaviour
     {
         if(Inventory.CurrentItem == Inventory.HeldItems[CurrentSelectedIndex])
         {
+            if (Inventory.CurrentItem.Reappearable)
+                Inventory.ToggleItem(Inventory.CurrentItem);
             Inventory.UnequipItem();
-            if (Inventory.CurrentItem is InventoryItem && Inventory.CurrentItem.Reappearable)
-                Inventory.RemoveItem(Inventory.CurrentItem);
+                
             EquipButton.GetComponentInChildren<Text>().text = "Equip";
         }
         else

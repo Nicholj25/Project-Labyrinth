@@ -21,7 +21,8 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(InventoryItem item)
     {
-        HeldItems.Add(item);
+        //if(!ContainsItem(item))
+            HeldItems.Add(item);
     }
 
     public void RemoveItem(InventoryItem item)
@@ -31,14 +32,19 @@ public class PlayerInventory : MonoBehaviour
 
     public void EquipItem(InventoryItem item)
     {
-        // if (item.Reappearable)
-        //    item.gameObject.SetActive(true);
+        ToggleItem(item);
         CurrentItem = item;
     }
 
     public void UnequipItem()
     {
         CurrentItem = null;
+    }
+
+    public void ToggleItem(InventoryItem item)
+    {
+        if (item.Reappearable)
+            item.gameObject.SetActive(!item.gameObject.activeSelf);
     }
 
     public bool ContainsItem(InventoryItem item)

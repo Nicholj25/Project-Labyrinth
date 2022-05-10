@@ -1,30 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ReappearItemAction : ItemInteraction
 {
-    // Start is called before the first frame update
+    private Rigidbody rb;
+    public float zPosition;
+    public InventoryItem inventoryItem;
     void Start()
     {
-        // Moving book to correct location
-        Inventory.CurrentItem.transform.parent = this.transform;
-        Inventory.CurrentItem.gameObject.SetActive(true);
-
-        // Play book animation
-        Inventory.CurrentItem.transform.localPosition = new Vector3();
-        Inventory.CurrentItem.transform.localRotation = new Quaternion();
-
-        // Remove book from inventory
-        Inventory.RemoveItem(Inventory.CurrentItem);
-        Inventory.UnequipItem();
-
-        InteractionComplete?.Invoke();
+        inventoryItem = GetComponent<InventoryItem>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
+        if (Inventory.CurrentItem == inventoryItem)
+        {
+            cam = cameraHandler.GetCurrentCamera();
+
+            Vector3 mousePosition = Input.mousePosition;
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Inventory.RemoveItem(inventoryItem);
+                Inventory.UnequipItem();
+                rb.isKinematic = false;
+                rb.MovePosition(cam.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, zPosition)));
+            }
+            else
+            {
+                rb.isKinematic = true;
+                rb.MovePosition(cam.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, zPosition)));
+            }
+
+        }
+
     }
 }

@@ -7,6 +7,7 @@ using TMPro;
 public class PuzzleInput : ItemInteraction
 {
     public GameObject puzzleInputWindow;
+    public BasicWindow NewWindow;
     [SerializeField] private GameObject closeButtonObject;
     [SerializeField] private GameObject submitButtonObject;
     [SerializeField] private GameObject startObject;
@@ -94,7 +95,7 @@ public class PuzzleInput : ItemInteraction
         inputString = input.ToLower();
         if (correctInput == inputString)
         {
-            RunSuccess();
+            StartCoroutine(RunSuccess());
         }
         else
         {
@@ -108,9 +109,10 @@ public class PuzzleInput : ItemInteraction
     /// successObject appears
     /// startObject disappears if it exists
     /// </summary>
-    private void RunSuccess()
+    IEnumerator RunSuccess()
     {
         inputField.GetComponent<Image>().color = Color.green;
+        yield return new WaitForSeconds(.5f);
 
         // Add Positive Feedback Sound Here
         Debug.Log("Positive feedback sound here");
@@ -123,6 +125,10 @@ public class PuzzleInput : ItemInteraction
         Show(successObject);
 
         InteractionComplete?.Invoke();
+
+        NewWindow.UpdateWindow();
+
+        Hide(this.gameObject);
 
     }
 
@@ -144,5 +150,6 @@ public class PuzzleInput : ItemInteraction
         inputField.text = "";
 
     }
+
 
 }

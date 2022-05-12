@@ -3,12 +3,25 @@ using UnityEngine;
 public class ReappearItemAction : ItemInteraction
 {
     private Rigidbody rb;
-    public float zPosition;
+    public float zPosition = 1f;
     public InventoryItem inventoryItem;
+    public GameObject triggerObject;
     void Start()
     {
         inventoryItem = GetComponent<InventoryItem>();
         rb = GetComponent<Rigidbody>();
+    }
+
+    /// <summary>
+    /// Triggers the InteractionComplete event when item collides with the trigger object
+    /// </summary>
+    /// <param name="collision">Unity collision object</param>
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (triggerObject == collision.gameObject)
+        {
+            InteractionComplete?.Invoke();
+        }
     }
 
     // Update is called once per frame

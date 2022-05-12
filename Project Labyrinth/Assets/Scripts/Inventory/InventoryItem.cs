@@ -15,6 +15,7 @@ public class InventoryItem : MonoBehaviour
     public string ItemText;
     public bool Equippable;
     public bool Inspectable;
+    public bool Reappearable;
     public PlayerInventory Inventory;
     public PlayerMovement playerMovement;
     private Camera cam;
@@ -35,17 +36,22 @@ public class InventoryItem : MonoBehaviour
 
         cam = cameraHandler.GetCurrentCamera();
 
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 mousePosition = Input.mousePosition;
+            Ray ray = cam.ScreenPointToRay(mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
-            if(hit.transform.gameObject == this.gameObject)
+            if (playerMovement.isNearby(this.gameObject) && hit.transform.gameObject == this.gameObject)
             {
-                Inventory.AddItem(this);
-                this.gameObject.SetActive(false);
-                PickupCompletion?.Invoke();
+                if (!Inventory.ContainsItem(this))
+                {
+                    Inventory.AddItem(this);
+                    this.gameObject.SetActive(false);
+                    PickupCompletion?.Invoke();
+                }
             }
+
         }
     }
 }

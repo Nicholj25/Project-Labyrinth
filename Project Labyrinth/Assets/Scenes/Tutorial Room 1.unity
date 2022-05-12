@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43748918, g: 0.48531258, b: 0.5655865, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3452,8 +3452,10 @@ MonoBehaviour:
   ItemText: '"Escape Room Basics"  By: I. M. Leavin'''
   Equippable: 0
   Inspectable: 1
+  Reappearable: 0
   Inventory: {fileID: 60734867}
   playerMovement: {fileID: 60734865}
+  zPosition: 0
   zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
@@ -14318,8 +14320,10 @@ MonoBehaviour:
   ItemText: A key obtained from the desk drawer
   Equippable: 1
   Inspectable: 0
+  Reappearable: 0
   Inventory: {fileID: 60734867}
   playerMovement: {fileID: 60734865}
+  zPosition: 0
   zoomItem: {fileID: 1170529178}
   PickupCompletion:
     m_PersistentCalls:
@@ -17879,6 +17883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722598e5f5eb88845accd2d023ead5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInteraction: {fileID: 931697282}
   Inventory: {fileID: 60734867}
 --- !u!1001 &2066805791
 PrefabInstance:

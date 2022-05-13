@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Room Two.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/Loading Screen.unity
+    guid: 981d569eeef09ac4f8bd81918503d154
+  - enabled: 1
     path: Assets/Scenes/Room Three.unity
     guid: cb277c630afdbc242aaa789daff21ecc
   - enabled: 1

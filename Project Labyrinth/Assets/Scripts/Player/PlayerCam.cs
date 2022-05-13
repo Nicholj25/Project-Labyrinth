@@ -10,20 +10,23 @@ public class PlayerCam : MonoBehaviour
     float turnY = 0;
     float turnX = 0;
 
+    public bool IsFrozen { get; set; }
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        IsFrozen = false;
     }
 
     void Update()
     {
-        //if (Input.GetAxis("Mouse Y") > .5)
-        if (turnY + Input.GetAxis("Mouse Y") * speed <= 90 && turnY + Input.GetAxis("Mouse Y") * speed >= -90)
-            turnY += Input.GetAxis("Mouse Y") * speed;
-        //if (Input.GetAxis("Mouse X") > .5)
-        turnX += Input.GetAxis("Mouse X") * speed;
-        transform.eulerAngles = new Vector3(-turnY, turnX, 0);
-
+        if(!IsFrozen)
+        {
+            if (turnY + Input.GetAxis("Mouse Y") * speed <= 90 && turnY + Input.GetAxis("Mouse Y") * speed >= -90)
+                turnY += Input.GetAxis("Mouse Y") * speed;
+            turnX += Input.GetAxis("Mouse X") * speed;
+            transform.eulerAngles = new Vector3(-turnY, turnX, 0);
+        }
+        
         /*if (Input.GetMouseButton(0))
         {
             transform.eulerAngles += speed * new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0);

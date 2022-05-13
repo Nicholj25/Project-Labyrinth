@@ -5,14 +5,15 @@ using UnityEngine.Events;
 
 public class ZoomItem : ItemInteraction
 {
-    [SerializeField] private UIHandler uiHandler;
-    [SerializeField] private GameObject zoomCam;
-    [SerializeField] private GameObject puzzleInputObject;
-    [SerializeField] private PuzzleInput puzzleInput;
-    [SerializeField] private bool inUse;
-    [SerializeField] private bool hasZoomed;
-    private GameObject player;
-    private GameObject mainCam;
+    [SerializeField] protected UIHandler uiHandler;
+    [SerializeField] protected GameObject zoomCam;
+    [SerializeField] protected GameObject puzzleInputObject;
+    [SerializeField] protected PuzzleInput puzzleInput;
+    [SerializeField] protected bool inUse;
+    [SerializeField] protected bool hasZoomed;
+    protected GameObject player;
+    protected GameObject mainCam;
+    protected bool wasAnswered;
 
     // Start is called before the first frame update
     void Awake()
@@ -24,10 +25,12 @@ public class ZoomItem : ItemInteraction
         zoomCam.SetActive(false);
         inUse = false;
         hasZoomed = false;
+        wasAnswered = false;
     }
 
     private void Start()
     {
+        puzzleInput?.InteractionComplete.AddListener(puzzleAnswered);
     }
 
     // Update is called once per frame
@@ -40,8 +43,9 @@ public class ZoomItem : ItemInteraction
             Physics.Raycast(ray, out hit);
             if (hit.transform.gameObject == this.gameObject && !inUse)
                 ActivateZoomCam();
+
         }
-        else if (Input.GetMouseButton(0) && puzzleInput && isValidZoomConditions())
+        else if (Input.GetMouseButton(0) && puzzleInput && isValidZoomConditions() && inUse)
         {
             // Left Click Brings Back Puzzle Input Window If Exists and Is Closed
             if (!puzzleInput.puzzleInputWindow.activeSelf)
@@ -49,7 +53,7 @@ public class ZoomItem : ItemInteraction
                 puzzleInput?.Show(puzzleInputObject);
             }
         }
-        else if (Input.GetMouseButton(1))
+        else if (Input.GetMouseButton(1) & inUse)
         {
             ZoomOut();
         }
@@ -58,7 +62,7 @@ public class ZoomItem : ItemInteraction
     /// <summary>
     /// Changes from Zoom Camera to Main Camera
     /// </summary>
-    public void ZoomOut()
+    protected virtual void ZoomOut()
     {
         mainCam.SetActive(true);
         zoomCam.SetActive(false);
@@ -66,12 +70,13 @@ public class ZoomItem : ItemInteraction
         uiHandler.toggleUI(false);
         inUse = false;
         puzzleInput?.Hide(puzzleInputObject);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
     /// Changes From Main Camera to Zoom Camera
     /// </summary>
-    private void ActivateZoomCam()
+    protected virtual void ActivateZoomCam()
     {
 
         mainCam.SetActive(false);
@@ -83,8 +88,19 @@ public class ZoomItem : ItemInteraction
         }
         playerMovement.isFrozen = true;
         uiHandler.toggleUI(true);
-        puzzleInput?.Show(puzzleInputObject);
+        if (!wasAnswered)
+            puzzleInput?.Show(puzzleInputObject);
         inUse = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    /// <summary>
+    /// Updates when the puzzle input has been answered so that the 
+    /// input window doesn't automatically pop up when item is zoomed
+    /// </summary>
+    private void puzzleAnswered()
+    {
+        wasAnswered = true;
     }
 
     /// <summary>

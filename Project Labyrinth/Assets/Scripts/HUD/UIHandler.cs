@@ -7,6 +7,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private GameObject instructions;
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject textBackground;
+    [SerializeField] private PlayerCam playerCam;
     public GameObject Normal;
     public InventoryScreen Inventory;
     public Timer Time;
@@ -14,6 +15,9 @@ public class UIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Start with locked cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        
         // Set all to active to trigger individual Start() functions
         Inventory.gameObject.SetActive(true);
         Normal.SetActive(true);
@@ -31,6 +35,10 @@ public class UIHandler : MonoBehaviour
             Normal.gameObject.SetActive(!Normal.activeSelf);
             Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
             Inventory.PopulateScreen();
+
+            // Change cursor and lock camera when inventory menu is open
+            Cursor.lockState = Inventory.gameObject.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+            playerCam.IsFrozen = Inventory.gameObject.activeSelf;
         }
 
     }
@@ -48,7 +56,7 @@ public class UIHandler : MonoBehaviour
 
     public bool isUIActive()
     {
-        if (inventory.activeSelf || textBackground.activeSelf)
+        if (inventory.activeSelf)
         {
             return true;
         }

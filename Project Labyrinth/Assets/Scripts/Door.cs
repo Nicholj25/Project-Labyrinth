@@ -11,7 +11,8 @@ public class Door : MonoBehaviour
     public List<ILock> Locks;
     public PlayerMovement playerMovement;
     public CameraHandler cameraHandler;
-    LoadingScreen loadRoom;
+    //LoadingScreen loadRoom;
+    LoadRoom loadRoom;
 
     public bool Locked { get; private set; }
 
@@ -22,7 +23,7 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-        loadRoom = GetComponent<LoadingScreen>();
+        loadRoom = GetComponent<LoadRoom>();
     }
 
     // Start is called before the first frame update

@@ -5003,6 +5003,7 @@ MonoBehaviour:
   uiHandler: {fileID: 420397685}
   LockObjects:
   - {fileID: 1172511419}
+  - {fileID: 1633064369}
   playerMovement: {fileID: 1430299960}
   cameraHandler: {fileID: 1882498821}
   Text: {fileID: 151298171}
@@ -22172,6 +22173,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631951177}
   m_CullTransparentMesh: 1
+--- !u!1 &1633064369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6093123324213153233, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
+  m_PrefabInstance: {fileID: 98904855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1633064371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2050899113203238594, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
+  m_PrefabInstance: {fileID: 98904855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633064369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3999a2672bd475d44af09074d6cfb666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1633064373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633064369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7280da0b7ec22a48a478cf0546416d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Keypad: {fileID: 1633064371}
 --- !u!1 &1633952550
 GameObject:
   m_ObjectHideFlags: 0

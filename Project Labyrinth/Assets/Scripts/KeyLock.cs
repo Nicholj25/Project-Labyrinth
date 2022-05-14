@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class KeyLock : ItemInteraction, ILock
 {
+
     public bool Locked { get; private set; }
 
     public UnityEvent LockStateChange { get; set; }

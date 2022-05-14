@@ -121,7 +121,7 @@ public class Keypad : ZoomItem
         Color newColor = new Color(red, green, 0);
         foreach (Transform digit in Digits)
         {
-            digit.GetComponent<TextMeshPro>().color = newColor;
+            digit.GetComponent<TextMeshProUGUI>().color = newColor;
         }
 
         if (CorrectValueFound)
@@ -140,7 +140,7 @@ public class Keypad : ZoomItem
         foreach (Transform digit in Digits)
         {
             int index = digit.GetSiblingIndex();
-            TextMeshPro textMesh = digit.GetComponent<TextMeshPro>();
+            TextMeshProUGUI textMesh = digit.GetComponent<TextMeshProUGUI>();
             if (index < startingIndex)
             {
                 textMesh.text = "";

@@ -6,6 +6,7 @@ public class ReappearItemAction : ItemInteraction
     public float zPosition = 1f;
     public InventoryItem inventoryItem;
     public GameObject triggerObject;
+    public GameObject inventoryScreen;
     void Start()
     {
         inventoryItem = GetComponent<InventoryItem>();
@@ -33,7 +34,7 @@ public class ReappearItemAction : ItemInteraction
 
             Vector3 mousePosition = Input.mousePosition;
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && !inventoryScreen.activeSelf)
             {
                 Inventory.RemoveItem(inventoryItem);
                 Inventory.UnequipItem();

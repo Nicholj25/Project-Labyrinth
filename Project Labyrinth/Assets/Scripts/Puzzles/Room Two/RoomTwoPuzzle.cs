@@ -1,20 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomTwoPuzzle : Puzzle
 {
     [SerializeField] private PuzzleInput riddle;
     [SerializeField] private ZoomItem monitor;
+    [SerializeField] private ReappearItemAction donut;
+    [SerializeField] private ReappearItemAction book;
+    [SerializeField] private RigidbodiesHandler bamboo;
+    [SerializeField] private GameObject smallBamboo;
+    [SerializeField] private PlayerInventory inventory;
     public TextPrompt Text;
     public InventoryItem Key;
     [SerializeField] private bool hasZoomed;
     [SerializeField] private bool riddleSolved;
+    [SerializeField] private bool inTrash;
+    [SerializeField] private bool onTable;
     void Start()
     {
         Key.PickupCompletion.AddListener(() => { KeyObtained = true; Completed = true; });
         riddle.InteractionComplete.AddListener(() => { riddleSolved = true; });
         monitor.InteractionComplete.AddListener(() => { hasZoomed = true; });
+        donut.InteractionComplete.AddListener(() => { if (!inTrash) TipBamboo(-45); inTrash = true; CheckBamboo(); });
+        book.InteractionComplete.AddListener(() => { if (!onTable) TipBamboo(-45); onTable = true; CheckBamboo(); });
 
         // Start with key unobtained, Monitor not Zoomed, Riddle not Solved
         KeyObtained = false;
@@ -25,7 +32,16 @@ public class RoomTwoPuzzle : Puzzle
     // Update is called once per frame
     void Update()
     {
-
+        if (onTable && !book.gameObject.activeSelf)
+        {
+            onTable = false;
+            TipBamboo(45);
+        }
+        else if (inTrash && !donut.gameObject.activeSelf)
+        {
+            inTrash = false;
+            TipBamboo(45);
+        }
     }
 
     public override string GetCurrentHint()
@@ -40,4 +56,18 @@ public class RoomTwoPuzzle : Puzzle
             hintText = "Where did you see me last? Look there.";
         return hintText;
     }
+
+    private void CheckBamboo()
+    {
+        if (inTrash && onTable)
+        {
+            bamboo.UnlockBamboo();
+        }
+    }
+
+    private void TipBamboo(float zAxis)
+    {   
+        smallBamboo.transform.eulerAngles = smallBamboo.transform.eulerAngles + new Vector3(0, 0, zAxis);
+    }
+
 }

@@ -27,6 +27,8 @@ public class RoomTwoPuzzle : Puzzle
         KeyObtained = false;
         hasZoomed = false;
         riddleSolved = false;
+
+        Key.enabled = false;
     }
 
     // Update is called once per frame
@@ -42,6 +44,9 @@ public class RoomTwoPuzzle : Puzzle
             inTrash = false;
             TipBamboo(45);
         }
+        if (!onTable || !inTrash)
+            bamboo.toggleRigidbody(true);
+
     }
 
     public override string GetCurrentHint()
@@ -61,7 +66,8 @@ public class RoomTwoPuzzle : Puzzle
     {
         if (inTrash && onTable)
         {
-            bamboo.UnlockBamboo();
+            bamboo.toggleRigidbody(false);
+            Key.enabled = true;
         }
     }
 

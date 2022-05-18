@@ -22,15 +22,18 @@ public class RigidbodiesHandler : MonoBehaviour
         
     }
 
-    public void UnlockBamboo()
+    public void toggleRigidbody(bool isKinem)
     {
         foreach (Transform child in transform)
         {
             if (child.GetComponent<Rigidbody>() != null)
             {
-                child.GetComponent<Rigidbody>().isKinematic = false;
+                Rigidbody rb = child.GetComponent<Rigidbody>(); 
+                rb.isKinematic = isKinem;
+
             }
         }
     
     }
+
 }

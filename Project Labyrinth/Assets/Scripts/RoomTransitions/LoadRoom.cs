@@ -16,7 +16,6 @@ public class LoadRoom : MonoBehaviour
 
     public void Start()
     {
-        DontDestroyOnLoad(GetComponent<LoadRoom>());
 
         if (!loadOnClick)
         {

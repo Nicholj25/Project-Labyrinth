@@ -3455,7 +3455,6 @@ MonoBehaviour:
   Reappearable: 0
   Inventory: {fileID: 60734867}
   playerMovement: {fileID: 60734865}
-  zPosition: 0
   zoomItem: {fileID: 0}
   PickupCompletion:
     m_PersistentCalls:
@@ -7685,14 +7684,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.96571285, y: 2.0248804, z: 0.08707758}
   m_Center: {x: -0.48285642, y: 1.0079007, z: 0}
---- !u!114 &823172446
+--- !u!114 &823172439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 823172434}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa42164f03c8b994f93916fd029c0cf0, type: 3}
   m_Name: 
@@ -7703,20 +7702,6 @@ MonoBehaviour:
   loadOnClick: 0
   LoadingPanel: {fileID: 457737069}
   LoadingBar: {fileID: 162424555}
---- !u!114 &823172450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823172434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832aaf0e8005cf74993a061d558080fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  room: Room One
-  cameraHandler: {fileID: 963194230}
 --- !u!1 &828568268
 GameObject:
   m_ObjectHideFlags: 0
@@ -10114,6 +10099,7 @@ GameObject:
   - component: {fileID: 1083688778}
   - component: {fileID: 1083688777}
   - component: {fileID: 1083688776}
+  - component: {fileID: 1083688780}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -10207,6 +10193,18 @@ RectTransform:
   m_AnchoredPosition: {x: 343.8, y: 253.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1083688780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083688775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10611302933f0d42a7060110e955d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1087624377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14323,7 +14321,6 @@ MonoBehaviour:
   Reappearable: 0
   Inventory: {fileID: 60734867}
   playerMovement: {fileID: 60734865}
-  zPosition: 0
   zoomItem: {fileID: 1170529178}
   PickupCompletion:
     m_PersistentCalls:
@@ -17883,7 +17880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722598e5f5eb88845accd2d023ead5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemInteraction: {fileID: 931697282}
   Inventory: {fileID: 60734867}
 --- !u!1001 &2066805791
 PrefabInstance:

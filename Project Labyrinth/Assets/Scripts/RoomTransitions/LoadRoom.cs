@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,7 +15,6 @@ public class LoadRoom : MonoBehaviour
 
     public void Start()
     {
-        DontDestroyOnLoad(GetComponent<LoadRoom>());
 
         if (!loadOnClick)
         {

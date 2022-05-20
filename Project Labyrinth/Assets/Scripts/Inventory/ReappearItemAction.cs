@@ -6,10 +6,12 @@ public class ReappearItemAction : ItemInteraction
     public float zPosition = 1f;
     public InventoryItem inventoryItem;
     public GameObject triggerObject;
+    public GameObject inventoryScreen;
     void Start()
     {
         inventoryItem = GetComponent<InventoryItem>();
         rb = GetComponent<Rigidbody>();
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
     }
 
     /// <summary>
@@ -21,7 +23,9 @@ public class ReappearItemAction : ItemInteraction
         if (triggerObject == collision.gameObject)
         {
             InteractionComplete?.Invoke();
+            rb.isKinematic = true;
         }
+
     }
 
     // Update is called once per frame
@@ -33,7 +37,7 @@ public class ReappearItemAction : ItemInteraction
 
             Vector3 mousePosition = Input.mousePosition;
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && !inventoryScreen.activeSelf && isInRoom())
             {
                 Inventory.RemoveItem(inventoryItem);
                 Inventory.UnequipItem();
@@ -48,5 +52,26 @@ public class ReappearItemAction : ItemInteraction
 
         }
 
+
+    }
+
+    private bool isInRoom()
+    {
+        bool inX = this.gameObject.transform.position.x >  -3.6 && this.gameObject.transform.position.x < 7.75;
+        bool inY = this.gameObject.transform.position.y > 0.01 && this.gameObject.transform.position.y < 2;
+        bool inZ = this.gameObject.transform.position.z > 0.3 && this.gameObject.transform.position.z < 13.75;
+
+        if (inX && inY && inZ)
+        {
+            Debug.Log("true isInRoom");
+            Debug.Log(this.gameObject.transform.position);
+            return true;
+        }
+        else
+        {
+            Debug.Log("false isInRoom");
+            Debug.Log(this.gameObject.transform.position);
+            return false;
+        }
     }
 }

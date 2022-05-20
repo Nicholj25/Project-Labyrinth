@@ -29,10 +29,11 @@ public class FloatingGhost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Camera cam = cameraHandler.GetCurrentCamera();
 
         if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
             if (hit.transform.gameObject == this.gameObject)

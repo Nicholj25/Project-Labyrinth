@@ -6,7 +6,7 @@ public class MaterialOnOff : MonoBehaviour
 {
      // The material we want to click on and off
     public Material material1;
-    bool materialOn = true;
+    //bool materialOn = true;
 
     void Start () 
     {

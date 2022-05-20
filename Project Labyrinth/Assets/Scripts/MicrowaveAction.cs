@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MicrowaveAction : MonoBehaviour
+public class MicrowaveAction : ItemInteraction
 {
     [SerializeField] private Vector3 eulerRotation;
     private bool isOpen;
@@ -15,16 +15,12 @@ public class MicrowaveAction : MonoBehaviour
         isLocked = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnMouseDown()
     {
         if(!isLocked)
             OpenDoor();
+            InteractionComplete?.Invoke();
+            
     }
 
     public void OpenDoor()

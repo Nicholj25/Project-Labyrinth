@@ -12922,6 +12922,75 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1054167473569994100, guid: f1cd6800d51724d4291ee22764292e86, type: 3}
+--- !u!1001 &781013315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1167599823}
+    m_Modifications:
+    - target: {fileID: 5855705973423424595, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_Name
+      value: Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5923333
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.14701223
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3568266
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.61047083
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.610471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.35682666
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -119.387
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587582143533137103, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9eb5b2920eb768d48998ebfeb31de24a, type: 3}
 --- !u!1001 &782618345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25958,17 +26027,31 @@ MonoBehaviour:
   Completed: 0
   riddle: {fileID: 2056205770}
   monitor: {fileID: 1544466263}
+  station7: {fileID: 1941185453}
+  whiteboard: {fileID: 1339792082}
+  paperPile: {fileID: 1713747831}
   donut: {fileID: 1661369242}
   book: {fileID: 8900345819082873445}
   bamboo: {fileID: 1439873157}
+  secondBamboo: {fileID: 1578296605}
+  fourthBamboo: {fileID: 1920019569}
+  keypad: {fileID: 1637506842}
+  microwave: {fileID: 1795157113}
   smallBamboo: {fileID: 1203570661}
-  inventory: {fileID: 0}
+  inventory: {fileID: 826913971}
   Text: {fileID: 1822873324}
   Key: {fileID: 1501377609}
   hasZoomed: 0
   riddleSolved: 0
+  station7Zoomed: 0
+  whiteboardZoomed: 0
   inTrash: 0
   onTable: 0
+  givenFirstHint: 0
+  codeZoomed: 0
+  microwaveUnlocked: 0
+  microwaveOpened: 0
+  bambooMoved: 0
 --- !u!1 &1567995952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 997355199164330822, guid: e7da0d6427b19144284bf86795f849b1, type: 3}
@@ -26255,6 +26338,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88d77dfd7f71bb4aabf6802f8fbf903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  AcceptableItems: []
+  playerMovement: {fileID: 826913974}
+  cameraHandler: {fileID: 1533396526}
+  cam: {fileID: 0}
+  Text: {fileID: 1822873324}
+  Inventory: {fileID: 826913971}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
   transformDirection: {x: 0, y: 0, z: 2}
   thrust: 7
   player: {fileID: 0}
@@ -30576,6 +30669,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1101abcfeff4dd643a9bd4c2a64e295d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  AcceptableItems: []
+  playerMovement: {fileID: 826913974}
+  cameraHandler: {fileID: 1533396526}
+  cam: {fileID: 0}
+  Text: {fileID: 1822873324}
+  Inventory: {fileID: 826913971}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
   eulerRotation: {x: 0, y: -55, z: 0}
 --- !u!64 &1795157114
 MeshCollider:
@@ -32752,6 +32855,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88d77dfd7f71bb4aabf6802f8fbf903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  AcceptableItems: []
+  playerMovement: {fileID: 826913974}
+  cameraHandler: {fileID: 1533396526}
+  cam: {fileID: 0}
+  Text: {fileID: 1822873324}
+  Inventory: {fileID: 826913971}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
   transformDirection: {x: 0, y: 0, z: -2}
   thrust: 7
   player: {fileID: 0}

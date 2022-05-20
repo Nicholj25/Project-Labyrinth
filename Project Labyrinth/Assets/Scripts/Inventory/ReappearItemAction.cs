@@ -7,7 +7,6 @@ public class ReappearItemAction : ItemInteraction
     public InventoryItem inventoryItem;
     public GameObject triggerObject;
     public GameObject inventoryScreen;
-    private bool dropped;
     void Start()
     {
         inventoryItem = GetComponent<InventoryItem>();

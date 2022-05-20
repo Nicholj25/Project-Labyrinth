@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PushItemAction : MonoBehaviour
+public class PushItemAction : ItemInteraction
 {
     private Rigidbody rb;
     public Vector3 transformDirection;
@@ -19,14 +19,13 @@ public class PushItemAction : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if(player.isNearby(this.gameObject))
-        rb.AddForce(transformDirection * thrust, ForceMode.Impulse);
+        if (player.isNearby(this.gameObject))
+        {
+            rb.AddForce(transformDirection * thrust, ForceMode.Impulse);
+            InteractionComplete?.Invoke();
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

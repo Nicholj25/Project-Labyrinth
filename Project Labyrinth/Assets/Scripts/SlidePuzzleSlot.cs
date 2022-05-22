@@ -25,15 +25,12 @@ public class SlidePuzzleSlot : MonoBehaviour
 
     public Sprite StartingSprite { get; private set; }
 
-    public Color StartingColor { get; private set; }
-
     // Start is called before the first frame update
     protected void Start()
     {
         Collider = this.gameObject.GetComponent<Collider>();
         ImageObject = this.gameObject.transform.GetComponentInChildren<Image>();
         StartingSprite = ImageObject.sprite;
-        StartingColor = ImageObject.color;
         SetActive();
     }
 

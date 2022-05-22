@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,14 +9,13 @@ public class LoadRoom : MonoBehaviour
 {
     // Room we want to transition to
     [SerializeField] public string roomToLoad;
-    // Scene with loading screen
-    public string loadingScreen = "Loading Screen";
     [SerializeField] private bool loadOnClick;
     public GameObject LoadingPanel;
     public Slider LoadingBar;
 
     public void Start()
     {
+
         if (!loadOnClick)
         {
             enabled = false;
@@ -29,17 +27,19 @@ public class LoadRoom : MonoBehaviour
     {
         if (loadOnClick)
         {
-            Debug.Log("onclick");
-            LoadLevel(loadingScreen);
+            LoadLevel("Loading Screen");
+            Debug.Log("1");
             await WaitOneSecondAsync();
+            Debug.Log("2");
             LoadLevel(roomToLoad);
+            Debug.Log("3");
             await WaitOneSecondAsync();
         }
     }
 
     async public void LoadNextRoom()
     {
-        LoadLevel(loadingScreen);
+        LoadLevel("Loading Screen");
         await WaitOneSecondAsync();
         LoadLevel(roomToLoad);
         await WaitOneSecondAsync();

@@ -63,6 +63,7 @@ public class LoadingScreen : MonoBehaviour
                 hit.collider.attachedRigidbody.AddForce(Vector2.up);
             }
         }
+        enabled = false;
     }
 
     // Add a short delay--otherwise loading screen isn't on screen long enough to see

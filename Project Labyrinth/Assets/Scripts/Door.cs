@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     public PlayerMovement playerMovement;
     public CameraHandler cameraHandler;
     //LoadingScreen loadRoom;
-    LoadRoom loadRoom;
+    LoadingScreen loadingScreen;
 
     private bool LocksInitialized;
 
@@ -25,7 +25,7 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-        loadRoom = GetComponent<LoadRoom>();
+        loadingScreen = GetComponent<LoadingScreen>();
     }
 
     // Start is called before the first frame update
@@ -83,8 +83,8 @@ public class Door : MonoBehaviour
             Text.UpdateTextBox($"The door is locked. {locksRemaining}");
         else
         {
-            loadRoom.enabled = true;
-            loadRoom.LoadNextRoom(); 
+            loadingScreen.enabled = true;
+            loadingScreen.LoadNextRoom(); 
         }
     }
 }

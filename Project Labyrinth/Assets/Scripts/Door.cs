@@ -14,6 +14,8 @@ public class Door : MonoBehaviour
     //LoadingScreen loadRoom;
     LoadingScreen loadingScreen;
 
+    private bool LocksInitialized;
+
     public bool Locked { get; private set; }
 
     /// <summary>
@@ -29,19 +31,13 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         // Get list of door locks
         Locks = new List<ILock>();
         foreach (GameObject obj in LockObjects)
         {
             Locks.Add(obj.GetComponent<ILock>());
         }
-
-        // Add listeners to all the locks
-        foreach (ILock currentLock in Locks)
-        {
-            currentLock.LockStateChange.AddListener(CheckLocked);
-        }
+        LocksInitialized = false;
 
         // Set initial locked state
         CheckLocked();
@@ -50,7 +46,20 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
+        // Add listeners to all the locks
+        if (!LocksInitialized)
+        {
+            if(Locks.All(x => x.LockStateChange != null))
+            {
+                foreach (ILock currentLock in Locks)
+                {
+                    currentLock.LockStateChange.AddListener(CheckLocked);
+                    LocksInitialized = true;
+                }
+            }
+        }
+
+        if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -69,8 +78,9 @@ public class Door : MonoBehaviour
 
     protected void OpenDoor()
     {
+        string locksRemaining = Locks.Count > 1 ? $"Number of Locks Remaining: {Locks.Where(x => x.Locked).Count()}" : "";
         if (Locked)
-            Text.UpdateTextBox("The door is locked.");
+            Text.UpdateTextBox($"The door is locked. {locksRemaining}");
         else
         {
             loadingScreen.enabled = true;

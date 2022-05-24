@@ -174,4 +174,9 @@ public class Keypad : ZoomItem
         EnableButtonColliders(true);
         base.ActivateZoomCam();
     }
+
+    public void SetExpectedValue(string value)
+    {
+        ExpectedValue = value;
+    }
 }

@@ -29,7 +29,7 @@ public class ItemInteraction : MonoBehaviour
 
     protected virtual void ItemUsageAction() { }
 
-    void Awake()
+    protected virtual void Awake()
     {
         cameraHandler = GameObject.Find("Main Camera").GetComponent<CameraHandler>();
         InteractionComplete = new UnityEvent();

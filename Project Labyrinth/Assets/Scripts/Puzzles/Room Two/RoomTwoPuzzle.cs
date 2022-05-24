@@ -18,16 +18,16 @@ public class RoomTwoPuzzle : Puzzle
     [SerializeField] private PlayerInventory inventory;
     public TextPrompt Text;
     public InventoryItem Key;
-    [SerializeField] private bool hasZoomed;
-    [SerializeField] private bool riddleSolved;
-    [SerializeField] private bool station7Zoomed;
-    [SerializeField] private bool whiteboardZoomed;
-    [SerializeField] private bool inTrash;
-    [SerializeField] private bool onTable;
-    [SerializeField] private bool codeZoomed;
-    [SerializeField] private bool microwaveUnlocked;
-    [SerializeField] private bool microwaveOpened;
-    [SerializeField] private bool bambooMoved;
+    private bool hasZoomed;
+    private bool riddleSolved;
+    private bool station7Zoomed;
+    private bool whiteboardZoomed;
+    private bool inTrash;
+    private bool onTable;
+    private bool codeZoomed;
+    private bool microwaveUnlocked;
+    private bool microwaveOpened;
+    private bool bambooMoved;
     void Start()
     {
         Key.PickupCompletion.AddListener(() => { KeyObtained = true; Completed = true; });
@@ -37,6 +37,8 @@ public class RoomTwoPuzzle : Puzzle
         whiteboard.InteractionComplete.AddListener(() => { whiteboardZoomed = true; });
         donut.InteractionComplete.AddListener(() => { if (!inTrash) TipBamboo(-45); inTrash = true; CheckBamboo(); });
         book.InteractionComplete.AddListener(() => { if (!onTable) TipBamboo(-45); onTable = true; CheckBamboo(); });
+        donut.ItemRemoved.AddListener(() => { if (onTable) TipBamboo(45); onTable = false; CheckBamboo(); });
+        book.ItemRemoved.AddListener(() => { if (onTable) TipBamboo(45); onTable = false; CheckBamboo(); });
         paperPile.InteractionComplete.AddListener(() => { codeZoomed = true; });
         keypad.SuccessfulEntry.AddListener(() => { microwaveUnlocked = true; });
         microwave.InteractionComplete.AddListener(() => { microwaveOpened = true; });
@@ -59,7 +61,7 @@ public class RoomTwoPuzzle : Puzzle
         Key.enabled = false;
     }
 
-    // Update is called once per frame
+   // Update is called once per frame
     void Update()
     {
         if (onTable && !book.gameObject.activeSelf)
@@ -112,6 +114,11 @@ public class RoomTwoPuzzle : Puzzle
         {
             bamboo.toggleRigidbody(false);
             Key.enabled = true;
+        }
+        else
+        {
+            bamboo.toggleRigidbody(true);
+            Key.enabled = false;
         }
     }
 

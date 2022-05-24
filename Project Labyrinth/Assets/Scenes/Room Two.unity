@@ -26041,17 +26041,6 @@ MonoBehaviour:
   inventory: {fileID: 826913971}
   Text: {fileID: 1822873324}
   Key: {fileID: 1501377609}
-  hasZoomed: 0
-  riddleSolved: 0
-  station7Zoomed: 0
-  whiteboardZoomed: 0
-  inTrash: 0
-  onTable: 0
-  givenFirstHint: 0
-  codeZoomed: 0
-  microwaveUnlocked: 0
-  microwaveOpened: 0
-  bambooMoved: 0
 --- !u!1 &1567995952 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 997355199164330822, guid: e7da0d6427b19144284bf86795f849b1, type: 3}
@@ -27992,6 +27981,15 @@ MonoBehaviour:
   inventoryItem: {fileID: 0}
   triggerObject: {fileID: 742268293}
   inventoryScreen: {fileID: 1190875569}
+  ItemRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  xMin: -3.6
+  xMax: 7.75
+  yMin: 0
+  yMax: 2
+  zMin: 0.3
+  zMax: 13.75
 --- !u!54 &1661369243
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28006,7 +28004,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!64 &1661369244
 MeshCollider:
@@ -36938,7 +36936,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!114 &8900345819082873445
 MonoBehaviour:
@@ -36966,3 +36964,12 @@ MonoBehaviour:
   inventoryItem: {fileID: 0}
   triggerObject: {fileID: 399614198}
   inventoryScreen: {fileID: 1190875569}
+  ItemRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  xMin: -3.6
+  xMax: 7.75
+  yMin: 0
+  yMax: 2
+  zMin: 0.4
+  zMax: 13.75

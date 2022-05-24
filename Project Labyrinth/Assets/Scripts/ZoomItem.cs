@@ -16,7 +16,7 @@ public class ZoomItem : ItemInteraction
     protected bool wasAnswered;
 
     // Start is called before the first frame update
-    protected virtual void Awake()
+    protected override void Awake()
     {
         player = GameObject.Find("Player Capsule");
         mainCam = GameObject.Find("Main Camera");

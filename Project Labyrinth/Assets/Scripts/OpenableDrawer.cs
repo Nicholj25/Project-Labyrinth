@@ -42,8 +42,7 @@ public class OpenableDrawer : MonoBehaviour
                     {
                         if (Opened)
                         {
-                            Opened = false;
-                            Animations.Play("Close");
+                            CloseDrawer();
                         }
                         else
                         {
@@ -56,5 +55,11 @@ public class OpenableDrawer : MonoBehaviour
                     Text.UpdateTextBox("The drawer is locked.");
             }
         }
+    }
+
+    public void CloseDrawer()
+    {
+            Opened = false;
+            Animations.Play("Close");
     }
 }

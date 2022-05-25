@@ -12,6 +12,7 @@ public class ReappearItemAction : ItemInteraction
     public GameObject triggerObject;
     public GameObject inventoryScreen;
     public UnityEvent ItemRemoved;
+    public UnityEvent ItemEquipped;
     public float xMin = -3.6f;
     public float xMax = 7.7f;
     public float yMin = 0f;
@@ -23,6 +24,7 @@ public class ReappearItemAction : ItemInteraction
     { 
         base.Awake();
         ItemRemoved = new UnityEvent();
+        ItemEquipped = new UnityEvent();
     }
     void Start()
     {
@@ -43,6 +45,7 @@ public class ReappearItemAction : ItemInteraction
         {
             if (triggerObject == collision.gameObject)
             {
+                Debug.Log("in enter trigger");
                 InteractionComplete?.Invoke();
             }
         }
@@ -54,6 +57,7 @@ public class ReappearItemAction : ItemInteraction
         {
             if (triggerObject == collision.gameObject)
             {
+                Debug.Log("in exit trigger");
                 ItemRemoved?.Invoke();
             }
         }
@@ -79,6 +83,7 @@ public class ReappearItemAction : ItemInteraction
 
         if (Inventory.CurrentItem == inventoryItem)
         {
+            ItemEquipped?.Invoke();
             rb.freezeRotation = true;
             cam = cameraHandler.GetCurrentCamera();
             Vector3 mousePosition = Input.mousePosition;

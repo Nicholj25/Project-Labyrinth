@@ -18,7 +18,7 @@ public class ReappearItemAction : ItemInteraction
     public float yMin = 0f;
     public float yMax = 2f;
     public float zMin = 0.4f;
-    public float zMax = 13.75f;
+    public float zMax = 13.7f;
     
     protected override void Awake()
     { 
@@ -67,11 +67,8 @@ public class ReappearItemAction : ItemInteraction
     {
         if (Input.GetMouseButtonDown(1) && !inventoryScreen.activeSelf)
         {
-            cam = cameraHandler.GetCurrentCamera();
-            Vector3 mousePosition = Input.mousePosition;
             Inventory.RemoveItem(inventoryItem);
             Inventory.UnequipItem();
-            rb.MovePosition(Vector3.Lerp(rb.position, cam.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, zPosition)), Time.deltaTime * 5));
             rb.drag = startDrag;
             rb.mass = startMass;
             rb.freezeRotation = false;
@@ -88,7 +85,7 @@ public class ReappearItemAction : ItemInteraction
             cam = cameraHandler.GetCurrentCamera();
             Vector3 mousePosition = Input.mousePosition;
             mousePosition = cam.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, zPosition));
-            mousePosition = getInRoomPosition(mousePosition);
+            mousePosition = GetValidPosition(mousePosition, new Vector3(xMin, yMin, zMin), new Vector3(xMax, yMax, zMax));
             rb.MovePosition(Vector3.Lerp(rb.position, mousePosition, Time.deltaTime * 5));
             rb.drag = 45;
             rb.mass = 0;
@@ -101,11 +98,12 @@ public class ReappearItemAction : ItemInteraction
     /// Checks that it is within room boundaries on x axis
     /// </summary>
     /// <param name="objPosition"> float of position of axis position to check</param>
+    /// <param name="xMini"> float of minimum x boundary</param>
+    /// <param name="xMaxi"> float of maximum x boundary</param>
     /// <returns>True if in room boundary otherwise false </returns>
-    private bool inRoomX(float objPosition)
+    private bool inRoomX(float objPosition, float xMini, float xMaxi)
     {
-        bool inX = objPosition > xMin && objPosition < xMax;
-        Debug.Log("true param InRoomX"+inX);
+        bool inX = objPosition > xMini && objPosition < xMaxi;
 
         return inX;
     }
@@ -114,11 +112,12 @@ public class ReappearItemAction : ItemInteraction
     /// Checks that it is within room boundaries on y axis
     /// </summary>
     /// <param name="objPosition"> float of position of axis position to check</param>
+    /// <param name="yMini"> float of minimum y boundary</param>
+    /// <param name="yMaxi"> float of maximum y boundary</param>
     /// <returns>True if in room boundary otherwise false </returns>
-    private bool inRoomY(float objPosition)
+    private bool inRoomY(float objPosition, float yMini, float yMaxi)
     {
-        bool inY = objPosition > yMin && objPosition < yMax;
-        Debug.Log("true param InRoomY" + inY);
+        bool inY = objPosition > yMini && objPosition < yMaxi;
 
         return inY;
 
@@ -128,11 +127,12 @@ public class ReappearItemAction : ItemInteraction
     /// Checks that it is within room boundaries on z axis
     /// </summary>
     /// <param name="objPosition"> float of position of axis position to check</param>
+    /// <param name="zMini"> float of minimum z boundary</param>
+    /// <param name="zMaxi"> float of maximum z boundary</param>
     /// <returns>True if in room boundary otherwise false </returns>
-    private bool inRoomZ(float objPosition)
+    private bool inRoomZ(float objPosition, float zMini, float zMaxi)
     {
-        bool inZ = objPosition > zMin && objPosition < zMax;
-        Debug.Log("true param InRoomZ" + inZ);
+        bool inZ = objPosition > zMini && objPosition < zMaxi;
 
         return inZ;
     }
@@ -143,37 +143,37 @@ public class ReappearItemAction : ItemInteraction
     /// </summary>
     /// <param name="objPosition"> Vector3 of position to check</param>
     /// <returns>Vector 3 with x y or z access unchanged if it is out of the boundary </returns>
-    private Vector3 getInRoomPosition(Vector3 objPosition)
+    public Vector3 GetValidPosition(Vector3 objPosition, Vector3 minPosition, Vector3 maxPosition)
     {
-        if (!inRoomX(objPosition.x))
+        if (!inRoomX(objPosition.x, minPosition.x, maxPosition.x))
         {
             Debug.Log(this.gameObject.transform.position);
 
-            if (objPosition.x <= xMin)
-                objPosition.x = xMin;
+            if (objPosition.x <= minPosition.x)
+                objPosition.x = minPosition.x;
 
-            if (objPosition.x >= xMax)
-                objPosition.x = xMax;
+            if (objPosition.x >= maxPosition.x)
+                objPosition.x = maxPosition.x;
         }
-        if (!inRoomY(objPosition.y))
+        if (!inRoomY(objPosition.y, minPosition.y, maxPosition.y))
         {
             Debug.Log(this.gameObject.transform.position);
-            if(objPosition.y <= yMin)
-              objPosition.y = yMin;
+            if(objPosition.y <= minPosition.y)
+              objPosition.y = minPosition.y;
 
-            if (objPosition.y >= yMax)
-              objPosition.y = yMax;
+            if (objPosition.y >= maxPosition.y)
+              objPosition.y = maxPosition.y;
 
             }
-        if (!inRoomZ(objPosition.z))
+        if (!inRoomZ(objPosition.z, minPosition.z, maxPosition.z))
         {
             Debug.Log(this.gameObject.transform.position);
 
-            if (objPosition.z <= zMin)
-                objPosition.z = zMin;
+            if (objPosition.z <= minPosition.z)
+                objPosition.z = minPosition.z;
 
-            if (objPosition.z >= zMax)
-                objPosition.z = zMax;
+            if (objPosition.z >= maxPosition.z)
+                objPosition.z = maxPosition.z;
         }
         return objPosition;
     }

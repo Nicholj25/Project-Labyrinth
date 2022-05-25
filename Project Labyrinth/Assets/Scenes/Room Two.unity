@@ -12115,14 +12115,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752598436}
-  m_LocalRotation: {x: -0.00049734523, y: 0.9999999, z: 0.00028799588, w: -0.00000014323341}
-  m_LocalPosition: {x: -0.028, y: -0.2, z: 0.1}
+  m_LocalRotation: {x: -0.0004973453, y: 0.9999999, z: 0.00027919497, w: 0.00000013885632}
+  m_LocalPosition: {x: -0.028, y: -0.2, z: 0.032}
   m_LocalScale: {x: 0.083, y: 0.083, z: 0.083}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 768516727}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.032, y: 180, z: -0.057}
 --- !u!212 &752598438
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12623,7 +12623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769865355}
   m_LocalRotation: {x: -0.00049734523, y: 0.9999999, z: 0.00028799588, w: -0.00000014323341}
-  m_LocalPosition: {x: 0.109, y: -0.008, z: 0.058}
+  m_LocalPosition: {x: 0.109, y: -0.008, z: 0.032}
   m_LocalScale: {x: 0.070503995, y: 0.070503995, z: 0.070503995}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -22064,17 +22064,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339792075}
-  m_LocalRotation: {x: -0.00049734523, y: 0.9999999, z: 0.00028799588, w: -0.00000014323341}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
-  m_LocalScale: {x: 0.080000006, y: 0.08, z: 0.08}
+  m_LocalRotation: {x: -0.0004969705, y: 0.9961946, z: -0.08715577, w: -0.00006069482}
+  m_LocalPosition: {x: 0, y: 0, z: 0.049}
+  m_LocalScale: {x: 0.075, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 768516727}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 180.002, z: -0.057}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.015, y: -0.397}
+  m_AnchoredPosition: {x: 0.015, y: -0.399}
   m_SizeDelta: {x: 23.04, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1339792080
@@ -22156,7 +22156,14 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  reappearItem: {fileID: 8900345819082873445}
   zPosition: 1.6
+  minBorder: {x: -3.5, y: 1.165, z: 13}
+  maxBorder: {x: 1.55, y: 2.27, z: 14}
+  zoomInRotation: {x: 0, y: 0, z: 0}
 --- !u!222 &1339792083
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22229,7 +22236,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 23.040012, y: 3, z: 0.2000002}
-  m_Center: {x: 0, y: 0, z: 0.0000076293945}
+  m_Center: {x: 0, y: 0, z: -0.1}
 --- !u!1001 &1340236255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25765,6 +25772,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 2056205770}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1548421432
 GameObject:
   m_ObjectHideFlags: 0
@@ -27549,6 +27559,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   ExpectedValue: 1042
 --- !u!65 &1637506843
 BoxCollider:
@@ -27984,12 +27997,15 @@ MonoBehaviour:
   ItemRemoved:
     m_PersistentCalls:
       m_Calls: []
+  ItemEquipped:
+    m_PersistentCalls:
+      m_Calls: []
   xMin: -3.6
-  xMax: 7.75
+  xMax: 7.7
   yMin: 0
   yMax: 2
   zMin: 0.3
-  zMax: 13.75
+  zMax: 13.7
 --- !u!54 &1661369243
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29004,6 +29020,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1717911814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33051,6 +33070,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1941185454
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36967,9 +36989,12 @@ MonoBehaviour:
   ItemRemoved:
     m_PersistentCalls:
       m_Calls: []
+  ItemEquipped:
+    m_PersistentCalls:
+      m_Calls: []
   xMin: -3.6
-  xMax: 7.75
+  xMax: 7.7
   yMin: 0
   yMax: 2
   zMin: 0.4
-  zMax: 13.75
+  zMax: 13.7

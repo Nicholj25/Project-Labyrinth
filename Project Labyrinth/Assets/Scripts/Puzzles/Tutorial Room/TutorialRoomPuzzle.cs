@@ -29,6 +29,7 @@ public class TutorialRoomPuzzle : Puzzle
         BookOnShelf = false;
         KeyObtained = false;
     }
+
     private void Update()
     {
         if (!ReappearingItem.gameObject.activeSelf)
@@ -39,6 +40,7 @@ public class TutorialRoomPuzzle : Puzzle
             UnlockDrawer();
         }
     }  
+
     private void GiveZoomOutInstruction()
     {
         Text.UpdateTextBox("Right click to zoom out.");

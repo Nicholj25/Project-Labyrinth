@@ -7387,7 +7387,6 @@ GameObject:
   - component: {fileID: 1083688778}
   - component: {fileID: 1083688777}
   - component: {fileID: 1083688776}
-  - component: {fileID: 1083688780}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -7481,18 +7480,6 @@ RectTransform:
   m_AnchoredPosition: {x: 343.8, y: 253.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1083688780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083688775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10611302933f0d42a7060110e955d4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1087624377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8246,6 +8233,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!64 &1170529179
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10424,7 +10414,7 @@ MonoBehaviour:
   mainCam: {fileID: 963194225}
   cameraHandler: {fileID: 963194230}
   ItemName: Keyboard
-  ItemImage: {fileID: 21300000, guid: 5c5e25a20e651b44197885971fe98dc0, type: 3}
+  ItemImage: {fileID: 21300000, guid: 6e04341f3c58f0441a94fed205eda92e, type: 3}
   ItemText: This is a reappearable object.  When equipped it will appear in front
     of the cursor. Right click to place it in the room.
   Equippable: 1
@@ -11129,7 +11119,7 @@ MonoBehaviour:
   mainCam: {fileID: 963194225}
   cameraHandler: {fileID: 963194230}
   ItemName: Desk Drawer Key
-  ItemImage: {fileID: 21300000, guid: c45bdc4a57bed3149bc8b73b1a94b178, type: 3}
+  ItemImage: {fileID: 21300000, guid: 67a2d8e7e7817dd4cbfc122dbaab69ff, type: 3}
   ItemText: A key obtained from the desk drawer
   Equippable: 1
   Inspectable: 0

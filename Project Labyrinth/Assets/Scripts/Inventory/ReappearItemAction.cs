@@ -45,7 +45,6 @@ public class ReappearItemAction : ItemInteraction
         {
             if (triggerObject == collision.gameObject)
             {
-                Debug.Log("in enter trigger");
                 InteractionComplete?.Invoke();
             }
         }
@@ -57,7 +56,6 @@ public class ReappearItemAction : ItemInteraction
         {
             if (triggerObject == collision.gameObject)
             {
-                Debug.Log("in exit trigger");
                 ItemRemoved?.Invoke();
             }
         }

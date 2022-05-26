@@ -2032,6 +2032,7 @@ MonoBehaviour:
   ReappearingItem: {fileID: 1449653621}
   Text: {fileID: 1422120212}
   Key: {fileID: 1521534580}
+  BookHover: {fileID: 0}
 --- !u!4 &254978368
 Transform:
   m_ObjectHideFlags: 0
@@ -2547,7 +2548,7 @@ GameObject:
   - component: {fileID: 315621107}
   m_Layer: 0
   m_Name: Puzzle Book
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2596,6 +2597,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 963194225}
   cameraHandler: {fileID: 963194230}
+  cursorHover: {fileID: 0}
   ItemName: Escape Room Basics
   ItemImage: {fileID: 21300000, guid: f43ae9259bc458740bcf574a3adf003e, type: 3}
   ItemText: '"Escape Room Basics"  By: I. M. Leavin'''
@@ -5548,6 +5550,7 @@ MonoBehaviour:
   playerMovement: {fileID: 60734865}
   cameraHandler: {fileID: 963194230}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1422120212}
   Inventory: {fileID: 60734867}
   InteractionComplete:
@@ -6051,7 +6054,7 @@ GameObject:
   - component: {fileID: 931697283}
   m_Layer: 0
   m_Name: Missing Book
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6102,6 +6105,7 @@ MonoBehaviour:
   playerMovement: {fileID: 60734865}
   cameraHandler: {fileID: 963194230}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1422120212}
   Inventory: {fileID: 60734867}
   InteractionComplete:
@@ -6642,6 +6646,10 @@ PrefabInstance:
     - target: {fileID: 4691969862466713484, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.573
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966805188017466402, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
@@ -8222,6 +8230,7 @@ MonoBehaviour:
   playerMovement: {fileID: 60734865}
   cameraHandler: {fileID: 963194230}
   cam: {fileID: 1343715641}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1422120212}
   Inventory: {fileID: 60734867}
   InteractionComplete:
@@ -10377,13 +10386,13 @@ MonoBehaviour:
   playerMovement: {fileID: 60734865}
   cameraHandler: {fileID: 963194230}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1422120212}
   Inventory: {fileID: 60734867}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  inventoryItem: {fileID: 1449653622}
   triggerObject: {fileID: 1616624850}
   inventoryScreen: {fileID: 2031333461}
   ItemRemoved:
@@ -10413,6 +10422,7 @@ MonoBehaviour:
   zoomCam: {fileID: 1343715638}
   mainCam: {fileID: 963194225}
   cameraHandler: {fileID: 963194230}
+  cursorHover: {fileID: 0}
   ItemName: Keyboard
   ItemImage: {fileID: 21300000, guid: 6e04341f3c58f0441a94fed205eda92e, type: 3}
   ItemText: This is a reappearable object.  When equipped it will appear in front
@@ -11118,6 +11128,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 963194225}
   cameraHandler: {fileID: 963194230}
+  cursorHover: {fileID: 0}
   ItemName: Desk Drawer Key
   ItemImage: {fileID: 21300000, guid: 67a2d8e7e7817dd4cbfc122dbaab69ff, type: 3}
   ItemText: A key obtained from the desk drawer

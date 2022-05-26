@@ -10,8 +10,9 @@ public class PushItemAction : ItemInteraction
     public PlayerMovement player;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         player = GameObject.Find("Player Capsule").GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
         

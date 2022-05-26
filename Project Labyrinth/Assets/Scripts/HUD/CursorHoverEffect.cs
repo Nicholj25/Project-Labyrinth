@@ -5,23 +5,25 @@ public class CursorHoverEffect : MonoBehaviour
 {
     public Sprite interactionTexture;
     public PlayerInventory playerInventory;
+    public PlayerMovement player;
     public Image cursor;
+    public bool isOn;
     public float width = 50f;
     public float height = 30f;
-    public bool isOn;
     private Sprite defaultTexture;
     private InventoryItem inventoryItem;
 
-    // Start is called before the first frame update
-    void Start()
+    // Sources: https://forum.unity.com/threads/resources-load-not-working.95527/
+    public void Start()
     {
-        //width = 50;
-        //height = 30;
         isOn = true;
-        defaultTexture = cursor.sprite;
         inventoryItem = GetComponent<InventoryItem>();
         inventoryItem?.PickupCompletion.AddListener(OnMouseExit);
-
+        interactionTexture = Resources.Load<Sprite>("Sprites/eye_cursor");
+        player = GameObject.Find("Player Capsule").GetComponent<PlayerMovement>();
+        playerInventory = GameObject.Find("Player Capsule").GetComponent<PlayerInventory>();
+        cursor = GameObject.Find("Cursor")?.GetComponent<Image>();
+        defaultTexture = cursor?.sprite;
     }
 
     /// <summary>
@@ -29,7 +31,7 @@ public class CursorHoverEffect : MonoBehaviour
     /// </summary>
     private void OnMouseEnter()
     {
-        if (isOn)
+        if (!playerInventory.CurrentItem && isOn && player.isNearby(this.gameObject))
         {
             if (gameObject.tag == "Interaction")
             {

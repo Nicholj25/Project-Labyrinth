@@ -28,8 +28,9 @@ public class ZoomItem : ItemInteraction
         wasAnswered = false;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         puzzleInput?.InteractionComplete.AddListener(puzzleAnswered);
     }
 

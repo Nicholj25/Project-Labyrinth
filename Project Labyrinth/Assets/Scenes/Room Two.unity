@@ -146,6 +146,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -10666,6 +10667,10 @@ PrefabInstance:
     - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_Name
       value: Small Bamboo Deco (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     - target: {fileID: 9183824216971400581, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_RootOrder
@@ -22056,7 +22061,7 @@ GameObject:
   - component: {fileID: 1339792086}
   m_Layer: 0
   m_Name: crypto_key (1)
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22149,6 +22154,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -24166,6 +24172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keypad
       objectReference: {fileID: 0}
+    - target: {fileID: 6093123324213153233, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 7035535659886823454, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -25769,6 +25779,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -25783,24 +25794,6 @@ MonoBehaviour:
   zoomOutTrigger:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1544466266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1544466260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
-  playerInventory: {fileID: 826913971}
-  cursor: {fileID: 1535349857}
-  width: 50
-  height: 30
-  isOn: 0
 --- !u!1 &1548421432
 GameObject:
   m_ObjectHideFlags: 0
@@ -26368,6 +26361,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -27531,7 +27525,7 @@ GameObject:
   - component: {fileID: 1637506842}
   m_Layer: 0
   m_Name: Keypad
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27574,6 +27568,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -28011,13 +28006,13 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  cursorHover: {fileID: 1661369247}
   triggerObject: {fileID: 742268293}
   inventoryScreen: {fileID: 1190875569}
   ItemRemoved:
@@ -28062,24 +28057,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1307710139112066287, guid: f096afbd48f7f0145b305e5f4d056649, type: 3}
---- !u!114 &1661369247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661369236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
-  playerInventory: {fileID: 826913971}
-  cursor: {fileID: 1535349857}
-  width: 50
-  height: 30
-  isOn: 0
 --- !u!1001 &1667505954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28432,6 +28409,10 @@ PrefabInstance:
     - target: {fileID: 3578783842441146562, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767705124589997216, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     - target: {fileID: 8259110232592829767, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29053,6 +29034,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -30730,17 +30712,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1101abcfeff4dd643a9bd4c2a64e295d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
+  Item: {fileID: 1970158562}
   AcceptableItems: []
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   eulerRotation: {x: 0, y: -55, z: 0}
+  contents: {fileID: 0}
 --- !u!64 &1795157114
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32818,6 +32802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Bamboo Deco (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 9183824216971400581, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -32921,6 +32909,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -33010,7 +32999,6 @@ GameObject:
   - component: {fileID: 1941185452}
   - component: {fileID: 1941185451}
   - component: {fileID: 1941185453}
-  - component: {fileID: 1941185455}
   - component: {fileID: 1941185454}
   m_Layer: 0
   m_Name: Monitor On
@@ -33104,6 +33092,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -33132,24 +33121,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3393542984935021979, guid: f1cd6800d51724d4291ee22764292e86, type: 3}
---- !u!114 &1941185455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941185449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
-  playerInventory: {fileID: 826913971}
-  cursor: {fileID: 1535349857}
-  width: 50
-  height: 30
-  isOn: 0
 --- !u!1001 &1941307461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33508,6 +33479,10 @@ PrefabInstance:
     - target: {fileID: 333640529973026658, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
       propertyPath: m_Name
       value: Sticky Note B (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 333640529973026658, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     - target: {fileID: 9141498245154989028, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
       propertyPath: m_RootOrder
@@ -35032,6 +35007,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -36956,7 +36932,6 @@ GameObject:
   - component: {fileID: 7717069590494660462}
   - component: {fileID: 5860318963782206634}
   - component: {fileID: 7201435626620803341}
-  - component: {fileID: 8900345819082873446}
   - component: {fileID: 8900345819082873440}
   - component: {fileID: 8900345819082873443}
   - component: {fileID: 8900345819082873444}
@@ -37041,13 +37016,13 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  cursorHover: {fileID: 8900345819082873446}
   triggerObject: {fileID: 399614198}
   inventoryScreen: {fileID: 1190875569}
   ItemRemoved:
@@ -37062,21 +37037,3 @@ MonoBehaviour:
   yMax: 2
   zMin: 0.4
   zMax: 13.7
---- !u!114 &8900345819082873446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8900345819082873439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
-  playerInventory: {fileID: 826913971}
-  cursor: {fileID: 1535349857}
-  width: 50
-  height: 30
-  isOn: 0

@@ -28,8 +28,9 @@ public class Plinko : ItemInteraction
     public List<PlinkoBall> PlayedBalls { get; private set; }
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         Collider = this.gameObject.GetComponent<Collider>();
 
         Spots = this.transform.Find("Spots").GetComponentsInChildren<Collider>().ToList();

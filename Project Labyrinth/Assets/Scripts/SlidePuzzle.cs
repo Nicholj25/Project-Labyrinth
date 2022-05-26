@@ -21,8 +21,9 @@ public class SlidePuzzle : ZoomItem
     private Collider PuzzleCollider;
 
     // Start is called before the first frame update
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         // Setup Colliders
         PuzzleCollider = this.gameObject.transform.GetComponent<Collider>();
 

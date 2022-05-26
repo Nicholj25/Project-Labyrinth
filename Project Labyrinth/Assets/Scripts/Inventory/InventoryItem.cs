@@ -33,25 +33,26 @@ public class InventoryItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        cam = cameraHandler.GetCurrentCamera();
-
-        if(Input.GetMouseButtonDown(0))
+        if (Camera.main)
         {
-            Vector3 mousePosition = Input.mousePosition;
-            Ray ray = cam.ScreenPointToRay(mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (playerMovement.isNearby(this.gameObject) && hit.transform.gameObject == this.gameObject)
-            {
-                if (!Inventory.ContainsItem(this))
-                {
-                    Inventory.AddItem(this);
-                    this.gameObject.SetActive(false);
-                    PickupCompletion?.Invoke();
-                }
-            }
+           cam = cameraHandler.GetCurrentCamera();
 
-        }
+            if(Input.GetMouseButtonDown(0))
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                Ray ray = cam.ScreenPointToRay(mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (playerMovement.isNearby(this.gameObject) && hit.transform.gameObject == this.gameObject)
+                {
+                    if (!Inventory.ContainsItem(this))
+                    {
+                        Inventory.AddItem(this);
+                        this.gameObject.SetActive(false);
+                        PickupCompletion?.Invoke();
+                    }
+                }
+            } 
+        }   
     }
 }

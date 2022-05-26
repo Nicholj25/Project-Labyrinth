@@ -21,39 +21,45 @@ public class OpenableDrawer : MonoBehaviour
     {
         Opened = false;
         Animations = this.gameObject.GetComponent<Animator>();
-        Drawer = this.transform.GetChild(0).gameObject;
+        // Had to add this line of code so it wouldn't throw UnityException: Transform child out of bounds
+        if (this.transform.childCount > 0)
+        {
+           Drawer = this.transform.GetChild(0).gameObject; 
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive())
+        if (Camera.main)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (hit.transform.gameObject == Drawer)
+            if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive())
             {
-                if (!Locked)
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (hit.transform.gameObject == Drawer)
                 {
-                    // Check current state of playing animator
-                    if (Animations.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                    if (!Locked)
                     {
-                        if (Opened)
+                        // Check current state of playing animator
+                        if (Animations.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
                         {
-                            Opened = false;
-                            Animations.Play("Close");
-                        }
-                        else
-                        {
-                            Opened = true;
-                            Animations.Play("Open");
+                            if (Opened)
+                            {
+                                Opened = false;
+                                Animations.Play("Close");
+                            }
+                            else
+                            {
+                                Opened = true;
+                                Animations.Play("Open");
+                            }
                         }
                     }
+                    else
+                        Text.UpdateTextBox("The drawer is locked.");
                 }
-                else
-                    Text.UpdateTextBox("The drawer is locked.");
             }
         }
     }

@@ -43,15 +43,18 @@ public class ItemInteraction : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        cam = cameraHandler.GetCurrentCamera();
-        if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
+        if (Camera.main)
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (hit.transform.gameObject == this.gameObject && AcceptableItems.Contains(Inventory.CurrentItem))
+            cam = cameraHandler.GetCurrentCamera();
+            if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
             {
-                ItemUsageAction();
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (hit.transform.gameObject == this.gameObject && AcceptableItems.Contains(Inventory.CurrentItem))
+                {
+                    ItemUsageAction();
+                }
             }
         }
     }

@@ -16029,6 +16029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Simple Donut (alt)
       objectReference: {fileID: 0}
+    - target: {fileID: 1874491376359214744, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
 --- !u!1 &969905023 stripped
@@ -25085,6 +25089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Monitor
       objectReference: {fileID: 0}
+    - target: {fileID: 4870709984476889512, guid: 435ccff05efc97e4f8eb9212bce6f158, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 9209089727168109745, guid: 435ccff05efc97e4f8eb9212bce6f158, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -25775,6 +25783,24 @@ MonoBehaviour:
   zoomOutTrigger:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1544466266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544466260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
+  playerInventory: {fileID: 826913971}
+  cursor: {fileID: 1535349857}
+  width: 50
+  height: 30
+  isOn: 0
 --- !u!1 &1548421432
 GameObject:
   m_ObjectHideFlags: 0
@@ -27991,7 +28017,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  inventoryItem: {fileID: 0}
+  cursorHover: {fileID: 1661369247}
   triggerObject: {fileID: 742268293}
   inventoryScreen: {fileID: 1190875569}
   ItemRemoved:
@@ -28036,6 +28062,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1307710139112066287, guid: f096afbd48f7f0145b305e5f4d056649, type: 3}
+--- !u!114 &1661369247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661369236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
+  playerInventory: {fileID: 826913971}
+  cursor: {fileID: 1535349857}
+  width: 50
+  height: 30
+  isOn: 0
 --- !u!1001 &1667505954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32966,10 +33010,11 @@ GameObject:
   - component: {fileID: 1941185452}
   - component: {fileID: 1941185451}
   - component: {fileID: 1941185453}
+  - component: {fileID: 1941185455}
   - component: {fileID: 1941185454}
   m_Layer: 0
   m_Name: Monitor On
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33087,6 +33132,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3393542984935021979, guid: f1cd6800d51724d4291ee22764292e86, type: 3}
+--- !u!114 &1941185455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941185449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
+  playerInventory: {fileID: 826913971}
+  cursor: {fileID: 1535349857}
+  width: 50
+  height: 30
+  isOn: 0
 --- !u!1001 &1941307461
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36893,13 +36956,14 @@ GameObject:
   - component: {fileID: 7717069590494660462}
   - component: {fileID: 5860318963782206634}
   - component: {fileID: 7201435626620803341}
+  - component: {fileID: 8900345819082873446}
   - component: {fileID: 8900345819082873440}
   - component: {fileID: 8900345819082873443}
   - component: {fileID: 8900345819082873444}
   - component: {fileID: 8900345819082873445}
   m_Layer: 0
   m_Name: Book
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36983,7 +37047,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  inventoryItem: {fileID: 0}
+  cursorHover: {fileID: 8900345819082873446}
   triggerObject: {fileID: 399614198}
   inventoryScreen: {fileID: 1190875569}
   ItemRemoved:
@@ -36998,3 +37062,21 @@ MonoBehaviour:
   yMax: 2
   zMin: 0.4
   zMax: 13.7
+--- !u!114 &8900345819082873446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8900345819082873439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241db4c8f1ee96541ae4401b1725e81a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionTexture: {fileID: 21300000, guid: 22576c7bba1edf64fae027cdfca782ab, type: 3}
+  playerInventory: {fileID: 826913971}
+  cursor: {fileID: 1535349857}
+  width: 50
+  height: 30
+  isOn: 0

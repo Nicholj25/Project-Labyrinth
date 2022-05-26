@@ -21,7 +21,6 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(InventoryItem item)
     {
-        //if(!ContainsItem(item))
             HeldItems.Add(item);
     }
 

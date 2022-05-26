@@ -26,7 +26,7 @@ public class BookOnShelfAction : ItemInteraction
 
         InteractionComplete?.Invoke();
     }
-    void Awake()
+    protected override void Awake()
     {
         cam = Camera.main;
 

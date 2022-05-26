@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,10 +12,12 @@ public class ZoomItem : ItemInteraction
     protected GameObject player;
     protected GameObject mainCam;
     protected bool wasAnswered;
+    public UnityEvent zoomOutTrigger;
 
     // Start is called before the first frame update
-    void Awake()
+    protected override void Awake()
     {
+        zoomOutTrigger = new UnityEvent();
         player = GameObject.Find("Player Capsule");
         mainCam = GameObject.Find("Main Camera");
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -64,6 +64,7 @@ public class ZoomItem : ItemInteraction
     /// </summary>
     protected virtual void ZoomOut()
     {
+        zoomOutTrigger?.Invoke();
         mainCam.SetActive(true);
         zoomCam.SetActive(false);
         playerMovement.isFrozen = false;

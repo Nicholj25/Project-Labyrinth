@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -17,7 +18,7 @@ public class PuzzleInput : ItemInteraction
     private Button closeButton;
     private string inputString;
 
-    protected override void Awake()
+    void Awake()
     {
         correctInput = correctInput.ToLower();
         inputString = "";
@@ -28,6 +29,10 @@ public class PuzzleInput : ItemInteraction
         cam = Camera.main;
     }
 
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     // Source: https://forum.unity.com/threads/solved-invoke-a-unity-button-click-event-from-c-script.722126/

@@ -89,7 +89,8 @@ public class InventoryScreen : MonoBehaviour
                 // Update Equipped
                 currentInventoryButton.transform.GetChild(2).gameObject.SetActive(Inventory.CurrentItem == Inventory.HeldItems[i]);
 
-
+                // Enable buttons
+                currentInventoryButton.GetComponent<Button>().interactable = true;
                 if (Inventory.CurrentItem)
                 {
                     EquipButton.interactable = true;
@@ -97,11 +98,6 @@ public class InventoryScreen : MonoBehaviour
                     {
                         EquipButton.GetComponentInChildren<Text>().text = "Unequip";
                     }
-                }
-                else
-                {   
-                    // Enable buttons
-                    currentInventoryButton.GetComponent<Button>().interactable = true;
                 }
             }
 

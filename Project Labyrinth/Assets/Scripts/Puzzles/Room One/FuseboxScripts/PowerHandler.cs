@@ -20,6 +20,11 @@ public class PowerHandler : MonoBehaviour
     public GameObject screenPlane;
     public Renderer planeRenderer;
 
+    void Awake()
+    {
+        breakingAudio.enabled = false;
+    }
+
     async void Start()
     {
         // Get the material from the projector object

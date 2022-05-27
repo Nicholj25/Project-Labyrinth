@@ -8,7 +8,7 @@ public class CursorHoverEffect : MonoBehaviour
     public PlayerInventory playerInventory;
     public PlayerMovement player;
     public Image cursor;
-    public bool isOn;
+    public bool isOn = true;
     public float width = 50f;
     public float height = 30f;
     private bool isHovering;
@@ -19,7 +19,6 @@ public class CursorHoverEffect : MonoBehaviour
     // Sources: https://forum.unity.com/threads/resources-load-not-working.95527/
     public void Start()
     {
-        isOn = true;
         isHovering = false;
         inventoryItem = GetComponent<InventoryItem>();
         inventoryItem?.PickupCompletion.AddListener(OnMouseExit);

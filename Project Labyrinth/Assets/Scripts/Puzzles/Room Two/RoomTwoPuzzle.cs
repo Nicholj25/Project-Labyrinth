@@ -57,8 +57,8 @@ public class RoomTwoPuzzle : Puzzle
         microwaveUnlocked = false;
         microwaveOpened = false;
         bambooMoved = false;
-
         Key.enabled = false;
+
     }
 
    // Update is called once per frame
@@ -114,11 +114,15 @@ public class RoomTwoPuzzle : Puzzle
         {
             bamboo.toggleRigidbody(false);
             Key.enabled = true;
+            secondBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = true;
+            fourthBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = true;
         }
         else
         {
             bamboo.toggleRigidbody(true);
             Key.enabled = false;
+            secondBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = false;
+            fourthBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = false;
         }
     }
 

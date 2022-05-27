@@ -48,15 +48,17 @@ public class BossDoorInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
+        if (Camera.main)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (hit.transform.gameObject == this.gameObject)
+            if(playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive() && !uiHandler.isUIActive())
             {
-                OpenDoor();
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (hit.transform.gameObject == this.gameObject)
+                {
+                    OpenDoor();
+                }
             }
         }
     }

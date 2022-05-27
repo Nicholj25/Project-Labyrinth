@@ -8,6 +8,7 @@ public class PushItemAction : ItemInteraction
     public Vector3 transformDirection;
     public float thrust;
     public PlayerMovement player;
+    public bool cursorHoverOn;
 
     // Start is called before the first frame update
     protected override void Start()
@@ -15,7 +16,9 @@ public class PushItemAction : ItemInteraction
         base.Start();
         player = GameObject.Find("Player Capsule").GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
-        
+        if (!cursorHoverOn)
+            gameObject.GetComponent<CursorHoverEffect>().isOn = false;
+
     }
 
     private void OnMouseDown()

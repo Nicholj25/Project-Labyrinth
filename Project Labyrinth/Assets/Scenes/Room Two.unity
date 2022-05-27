@@ -10674,7 +10674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9183824216971400581, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_RootOrder
@@ -16040,7 +16040,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874491376359214744, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
@@ -25616,6 +25616,7 @@ MonoBehaviour:
   - {fileID: 735972878}
   - {fileID: 1767380558}
   - {fileID: 896659755}
+  - {fileID: 2140849686}
 --- !u!81 &1533396527
 AudioListener:
   m_ObjectHideFlags: 0
@@ -28419,7 +28420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3767705124589997216, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8259110232592829767, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30762,6 +30763,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.05, z: 0.026702352}
   m_Center: {x: -0.66, y: 0.13, z: 0}
+--- !u!65 &1795157122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795157109}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.620247, y: 0.45172155, z: 0.026702352}
+  m_Center: {x: -0.29301262, y: 0.24606621, z: -0.0015991784}
 --- !u!1001 &1800979779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32814,7 +32828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 9183824216971400581, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_RootOrder
@@ -33914,6 +33928,10 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fb4295e3462ff9648a34f8d626c9e25e, type: 3}
       propertyPath: m_Name
       value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fb4295e3462ff9648a34f8d626c9e25e, type: 3}
+      propertyPath: m_TagString
+      value: Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb4295e3462ff9648a34f8d626c9e25e, type: 3}
@@ -36950,7 +36968,7 @@ GameObject:
   - component: {fileID: 8900345819082873445}
   m_Layer: 0
   m_Name: Book
-  m_TagString: Interaction
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1026,6 +1026,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Desk 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8957275475651382418, guid: a640dae6100b53b4ca9bb92c46773972, type: 3}
+      propertyPath: m_TagString
+      value: Zoom
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a640dae6100b53b4ca9bb92c46773972, type: 3}
 --- !u!4 &85009278 stripped
@@ -2032,7 +2036,6 @@ MonoBehaviour:
   ReappearingItem: {fileID: 1449653621}
   Text: {fileID: 1422120212}
   Key: {fileID: 1521534580}
-  BookHover: {fileID: 0}
 --- !u!4 &254978368
 Transform:
   m_ObjectHideFlags: 0
@@ -2548,7 +2551,7 @@ GameObject:
   - component: {fileID: 315621107}
   m_Layer: 0
   m_Name: Puzzle Book
-  m_TagString: Interaction
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6635,6 +6638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Computer (New)
       objectReference: {fileID: 0}
+    - target: {fileID: 4510268153137465182, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4691969862466713484, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.05
@@ -6649,7 +6656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6966805188017466402, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}

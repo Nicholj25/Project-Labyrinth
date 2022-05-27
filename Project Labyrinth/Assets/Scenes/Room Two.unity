@@ -146,6 +146,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -10667,6 +10668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Bamboo Deco (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 9183824216971400581, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -16028,6 +16033,10 @@ PrefabInstance:
     - target: {fileID: 1874491376359214744, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
       propertyPath: m_Name
       value: Simple Donut (alt)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874491376359214744, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20abfd8ecd279e34db3b92bcb54b5ef4, type: 3}
@@ -22052,7 +22061,7 @@ GameObject:
   - component: {fileID: 1339792086}
   m_Layer: 0
   m_Name: crypto_key (1)
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22145,6 +22154,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -24162,6 +24172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keypad
       objectReference: {fileID: 0}
+    - target: {fileID: 6093123324213153233, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 7035535659886823454, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -25085,6 +25099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Monitor
       objectReference: {fileID: 0}
+    - target: {fileID: 4870709984476889512, guid: 435ccff05efc97e4f8eb9212bce6f158, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 9209089727168109745, guid: 435ccff05efc97e4f8eb9212bce6f158, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -25761,6 +25779,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -26342,6 +26361,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -27505,7 +27525,7 @@ GameObject:
   - component: {fileID: 1637506842}
   m_Layer: 0
   m_Name: Keypad
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27548,6 +27568,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -27985,13 +28006,13 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  inventoryItem: {fileID: 0}
   triggerObject: {fileID: 742268293}
   inventoryScreen: {fileID: 1190875569}
   ItemRemoved:
@@ -28388,6 +28409,10 @@ PrefabInstance:
     - target: {fileID: 3578783842441146562, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767705124589997216, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     - target: {fileID: 8259110232592829767, guid: 29c0775bda4f15a4c972a05239145e8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29009,6 +29034,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -30686,17 +30712,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1101abcfeff4dd643a9bd4c2a64e295d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 0}
+  Item: {fileID: 1970158562}
   AcceptableItems: []
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   eulerRotation: {x: 0, y: -55, z: 0}
+  contents: {fileID: 0}
 --- !u!64 &1795157114
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32774,6 +32802,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Bamboo Deco (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4924787111933840155, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
+      objectReference: {fileID: 0}
     - target: {fileID: 9183824216971400581, guid: 9dd715038d6fa2e43a9da28d327d977b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -32877,6 +32909,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -32969,7 +33002,7 @@ GameObject:
   - component: {fileID: 1941185454}
   m_Layer: 0
   m_Name: Monitor On
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33059,6 +33092,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -33445,6 +33479,10 @@ PrefabInstance:
     - target: {fileID: 333640529973026658, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
       propertyPath: m_Name
       value: Sticky Note B (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 333640529973026658, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
+      propertyPath: m_TagString
+      value: Interaction
       objectReference: {fileID: 0}
     - target: {fileID: 9141498245154989028, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
       propertyPath: m_RootOrder
@@ -34969,6 +35007,7 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
@@ -36899,7 +36938,7 @@ GameObject:
   - component: {fileID: 8900345819082873445}
   m_Layer: 0
   m_Name: Book
-  m_TagString: Untagged
+  m_TagString: Interaction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36977,13 +37016,13 @@ MonoBehaviour:
   playerMovement: {fileID: 826913974}
   cameraHandler: {fileID: 1533396526}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 1822873324}
   Inventory: {fileID: 826913971}
   InteractionComplete:
     m_PersistentCalls:
       m_Calls: []
   zPosition: 1
-  inventoryItem: {fileID: 0}
   triggerObject: {fileID: 399614198}
   inventoryScreen: {fileID: 1190875569}
   ItemRemoved:

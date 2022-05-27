@@ -21,7 +21,7 @@ public class TutorialRoomPuzzle : Puzzle
         ReappearingItem.InteractionComplete.AddListener(() => { KeyboardOnDesk = true; UnlockDrawer(); });
         ReappearingItem.ItemRemoved.AddListener(() => { KeyboardOnDesk = false; UnlockDrawer(); });
         ZoomTrigger.InteractionComplete.AddListener(GiveZoomOutInstruction);
-        Trigger.InteractionComplete.AddListener(() => { BookOnShelf = true; UnlockDrawer(); } );
+        Trigger.InteractionComplete.AddListener(() => { BookOnShelf = true; UnlockDrawer();} );
         Key.PickupCompletion.AddListener(() => { KeyObtained = true; Completed = true; });
 
         // Start with key unobtained and book not on shelf and keyboad not on desk

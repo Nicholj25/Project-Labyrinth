@@ -31,8 +31,9 @@ public class Keypad : ZoomItem
         SuccessfulEntry = new UnityEvent();
     }
     // Start is called before the first frame update
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
 
         // Default value
         CurrentValue = "";

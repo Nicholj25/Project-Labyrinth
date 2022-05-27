@@ -10,10 +10,12 @@ public class DragObjectAction : ZoomItem
     private Vector3 zoomOutRotation;
     private Vector3 startPosition;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         GetComponent<ZoomItem>().zoomOutTrigger.AddListener(returnToStart);
         zoomOutRotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        this.gameObject.transform.rotation = Quaternion.Euler(zoomOutRotation);
         startPosition = this.gameObject.transform.position;
         cam = Camera.main;
     }

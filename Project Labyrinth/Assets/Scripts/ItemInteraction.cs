@@ -11,6 +11,7 @@ public class ItemInteraction : MonoBehaviour
     public PlayerMovement playerMovement;
     public CameraHandler cameraHandler;
     public Camera cam;
+    public CursorHoverEffect cursorHover;
 
     /// <summary>
     /// TextPrompt script to display info
@@ -36,8 +37,10 @@ public class ItemInteraction : MonoBehaviour
         cam = Camera.main;
     }
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
+        cursorHover = gameObject.AddComponent<CursorHoverEffect>();
+        cursorHover.Start();
     }
 
     // Update is called once per frame

@@ -8,7 +8,6 @@ public class ReappearItemAction : ItemInteraction
     private float startDrag;
     private float startMass;
     public float zPosition = 1f;
-    public InventoryItem inventoryItem;
     public GameObject triggerObject;
     public GameObject inventoryScreen;
     public UnityEvent ItemRemoved;
@@ -26,9 +25,10 @@ public class ReappearItemAction : ItemInteraction
         ItemRemoved = new UnityEvent();
         ItemEquipped = new UnityEvent();
     }
-    void Start()
+    protected override void Start()
     {
-        inventoryItem = GetComponent<InventoryItem>();
+        base.Start();
+        Item = GetComponent<InventoryItem>();
         rb = GetComponent<Rigidbody>();
         rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
         startDrag = rb.drag;
@@ -65,7 +65,7 @@ public class ReappearItemAction : ItemInteraction
     {
         if (Input.GetMouseButtonDown(1) && !inventoryScreen.activeSelf)
         {
-            Inventory.RemoveItem(inventoryItem);
+            Inventory.RemoveItem(Item);
             Inventory.UnequipItem();
             rb.drag = startDrag;
             rb.mass = startMass;
@@ -76,7 +76,7 @@ public class ReappearItemAction : ItemInteraction
     protected void FixedUpdate()
     {
 
-        if (Inventory.CurrentItem == inventoryItem)
+        if (Inventory.CurrentItem == Item)
         {
             ItemEquipped?.Invoke();
             rb.freezeRotation = true;

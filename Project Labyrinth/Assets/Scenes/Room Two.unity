@@ -1095,6 +1095,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pile of Paper (Custom) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 104216880950422563, guid: 8175144d77bc3f4449fec41cd271fe5d, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 274044398644080364, guid: 8175144d77bc3f4449fec41cd271fe5d, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -22061,7 +22065,7 @@ GameObject:
   - component: {fileID: 1339792086}
   m_Layer: 0
   m_Name: crypto_key (1)
-  m_TagString: Interaction
+  m_TagString: Zoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24738,6 +24742,7 @@ MonoBehaviour:
   zoomCam: {fileID: 990810598}
   mainCam: {fileID: 0}
   cameraHandler: {fileID: 1533396526}
+  cursorHover: {fileID: 0}
   ItemName: Key
   ItemImage: {fileID: 21300000, guid: 67a2d8e7e7817dd4cbfc122dbaab69ff, type: 3}
   ItemText: SUCCESS!
@@ -25101,7 +25106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4870709984476889512, guid: 435ccff05efc97e4f8eb9212bce6f158, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Zoom
       objectReference: {fileID: 0}
     - target: {fileID: 9209089727168109745, guid: 435ccff05efc97e4f8eb9212bce6f158, type: 3}
       propertyPath: m_RootOrder
@@ -27977,6 +27982,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1533396524}
   cameraHandler: {fileID: 1533396526}
+  cursorHover: {fileID: 0}
   ItemName: Donut
   ItemImage: {fileID: 21300000, guid: 11e0aaf3a84311c41bfe18a8a2b79bf1, type: 3}
   ItemText: Guess it wasn't that tasty?
@@ -29168,6 +29174,10 @@ PrefabInstance:
     - target: {fileID: 104216880950422563, guid: 8175144d77bc3f4449fec41cd271fe5d, type: 3}
       propertyPath: m_Name
       value: Pile of Paper (Custom)
+      objectReference: {fileID: 0}
+    - target: {fileID: 104216880950422563, guid: 8175144d77bc3f4449fec41cd271fe5d, type: 3}
+      propertyPath: m_TagString
+      value: Zoom
       objectReference: {fileID: 0}
     - target: {fileID: 274044398644080364, guid: 8175144d77bc3f4449fec41cd271fe5d, type: 3}
       propertyPath: m_RootOrder
@@ -30724,7 +30734,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   eulerRotation: {x: 0, y: -55, z: 0}
-  contents: {fileID: 0}
 --- !u!64 &1795157114
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33002,7 +33011,7 @@ GameObject:
   - component: {fileID: 1941185454}
   m_Layer: 0
   m_Name: Monitor On
-  m_TagString: Interaction
+  m_TagString: Zoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33567,6 +33576,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 0}
   cameraHandler: {fileID: 1533396526}
+  cursorHover: {fileID: 0}
   ItemName: Sticky Note
   ItemImage: {fileID: 21300000, guid: 5c5e25a20e651b44197885971fe98dc0, type: 3}
   ItemText: Feeling bamboozled? It's behind the middle one.
@@ -36958,6 +36968,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 0}
   cameraHandler: {fileID: 1533396526}
+  cursorHover: {fileID: 0}
   ItemName: Book
   ItemImage: {fileID: 21300000, guid: f43ae9259bc458740bcf574a3adf003e, type: 3}
   ItemText: '"Engaging Meetings"  By: Z.z. Snooze '

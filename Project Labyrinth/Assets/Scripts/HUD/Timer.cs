@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    [Header("Timer")]
+
+    [SerializeField]
+    private bool PauseTimer;
+
+    /// <summary>
+    /// Controller to save time when moving between rooms
+    /// </summary>
+    private TimerController Controller;
+
     /// <summary>
     /// Text component to display the timer
     /// </summary>
@@ -20,15 +30,22 @@ public class Timer : MonoBehaviour
     {
         TimerText = this.gameObject.GetComponent<Text>();
 
-        //Temporary time start will be updated when new scenes are added
-        CurrentTime = 300f;
+        //Find Timer Controller
+        Controller = GameObject.FindObjectOfType<TimerController>();
+
+        //Get starting time
+        CurrentTime = Controller.CurrentTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // DeltaTime : https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
-        CurrentTime -= Time.deltaTime;
+        if (!PauseTimer)
+        {
+            // DeltaTime : https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
+            CurrentTime -= Time.deltaTime;
+        }
+        Controller.SetCurrentTime(CurrentTime);
         UpdateTimer(CurrentTime);
     }
 
@@ -48,5 +65,10 @@ public class Timer : MonoBehaviour
         {
             TimerText.text = "0:00";
         }
+    }
+
+    public void SetPauseTimer()
+    {
+        PauseTimer = true;
     }
 }

@@ -7,19 +7,25 @@ public class CabinetDrawerToggle : MonoBehaviour
     public bool Opened;
     public Transform player; //This creates a slot in the inspector where you can add your player
     private Rigidbody rigidBody;
+    Animator openAnim;
+    Animator closeAnim;
 
     void Start () {
-         rigidBody = GetComponent<Rigidbody> ();
-         Opened = false;
+        rigidBody = GetComponent<Rigidbody> ();
+        //openAnim = gameObject.GetComponent<Animator>();
+        // add closeAnim here
+        Opened = false;
      }
 
     void OnMouseDown()
     {
         if (Opened == false) {
                 gameObject.transform.position += new Vector3(0.3f, 0f, 0f);
+                // Add open animation here instead
                 Opened = true;
             }
             else {
+                // Add close animation here instead
                 gameObject.transform.position += new Vector3(-0.3f, 0f, 0f);
                 Opened = false;
             }

@@ -25,7 +25,6 @@ public class InventoryItem : MonoBehaviour
     void Start()
     {
         cursorHover = gameObject.AddComponent<CursorHoverEffect>();
-        cursorHover.Start();
         ItemModel = this.gameObject;
         cam = Camera.main;
     }

@@ -29,14 +29,15 @@ public class PlaceFuse1 : ItemInteraction
 
         InteractionComplete?.Invoke();
     }
-    void Awake()
+    protected override void Awake()
     {
         cam = Camera.main;
 
     }
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         placeFuse = this.GetComponent<Animator>();
         fuseAdded = false;
     }

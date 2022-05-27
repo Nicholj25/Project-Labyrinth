@@ -11,7 +11,7 @@ public class MotivationalPuzzlePoster : Puzzle
 
     public bool LockStateInitialized { get; private set; }
 
-    private bool KeyObtained { get => Inventory.ContainsItem(Key); }
+    private bool PosterKeyObtained { get => Inventory.ContainsItem(Key); }
     private bool PuzzleFinished { get => SlidePuzzle.PuzzleSolved; }
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class MotivationalPuzzlePoster : Puzzle
 
         if (!PuzzleFinished)
             hintText = "That motivational poster doesn't look quite right.";
-        else if (!KeyObtained)
+        else if (!PosterKeyObtained)
             hintText = "Can't forget to pick up that key.";
 
         return hintText;

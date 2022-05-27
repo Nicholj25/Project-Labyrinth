@@ -24,12 +24,16 @@ public class Keypad : ZoomItem
     public Collider KeypadCollider { get; private set; }
     public UnityEvent SuccessfulEntry { get; private set; }
 
-
-    // Start is called before the first frame update
-    protected void Start()
+    protected override void Awake()
     {
+        base.Awake();
         // Success Handler
         SuccessfulEntry = new UnityEvent();
+    }
+    // Start is called before the first frame update
+    protected override void Start()
+    {
+        base.Start();
 
         // Default value
         CurrentValue = "";
@@ -170,5 +174,10 @@ public class Keypad : ZoomItem
     {
         EnableButtonColliders(true);
         base.ActivateZoomCam();
+    }
+
+    public void SetExpectedValue(string value)
+    {
+        ExpectedValue = value;
     }
 }

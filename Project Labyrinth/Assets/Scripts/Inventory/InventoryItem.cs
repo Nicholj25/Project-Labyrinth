@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 
 public class InventoryItem : MonoBehaviour
 {
@@ -10,6 +7,7 @@ public class InventoryItem : MonoBehaviour
     public GameObject zoomCam;
     public GameObject mainCam;
     public CameraHandler cameraHandler;
+    public CursorHoverEffect cursorHover;
     public string ItemName;
     public Sprite ItemImage;
     public string ItemText;
@@ -26,6 +24,8 @@ public class InventoryItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cursorHover = gameObject.AddComponent<CursorHoverEffect>();
+        cursorHover.Start();
         ItemModel = this.gameObject;
         cam = Camera.main;
     }

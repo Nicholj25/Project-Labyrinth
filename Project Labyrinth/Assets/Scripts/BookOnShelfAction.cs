@@ -25,6 +25,8 @@ public class BookOnShelfAction : ItemInteraction
         Inventory.UnequipItem();
 
         InteractionComplete?.Invoke();
+        Item.GetComponent<CursorHoverEffect>().isOn = false;
+        Item.enabled = false;
     }
     void Awake()
     {
@@ -32,9 +34,9 @@ public class BookOnShelfAction : ItemInteraction
 
     }
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        Animations = this.GetComponent<Animator>();   
+        Animations = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame

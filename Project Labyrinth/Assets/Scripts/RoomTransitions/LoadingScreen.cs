@@ -27,7 +27,6 @@ public class LoadingScreen : MonoBehaviour
     {
         if (loadOnClick)
         {
-            Debug.Log("onclick");
             showLoadingCamera();
             await WaitOneSecondAsync();
             LoadLevel(roomToLoad);

@@ -110,7 +110,7 @@ public class PuzzleInput : ItemInteraction
         yield return new WaitForSeconds(.5f);
 
         // Add Positive Feedback Sound Here
-        Debug.Log("Positive feedback sound here");
+        Debug.Log("Positive feedback computer boot sound here");
 
         // Success Object Appears and If Present, Start Object Disappears
         if (startObject)

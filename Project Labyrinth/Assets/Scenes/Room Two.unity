@@ -24178,7 +24178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6093123324213153233, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Zoom
       objectReference: {fileID: 0}
     - target: {fileID: 7035535659886823454, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
       propertyPath: m_RootOrder
@@ -26375,6 +26375,7 @@ MonoBehaviour:
   transformDirection: {x: 0, y: 0, z: 2}
   thrust: 7
   player: {fileID: 0}
+  cursorHoverOn: 0
 --- !u!54 &1578296606
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27530,7 +27531,7 @@ GameObject:
   - component: {fileID: 1637506842}
   m_Layer: 0
   m_Name: Keypad
-  m_TagString: Interaction
+  m_TagString: Zoom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32927,6 +32928,7 @@ MonoBehaviour:
   transformDirection: {x: 0, y: 0, z: -2}
   thrust: 7
   player: {fileID: 0}
+  cursorHoverOn: 0
 --- !u!1 &1936887207
 GameObject:
   m_ObjectHideFlags: 0

@@ -116,6 +116,7 @@ public class RoomTwoPuzzle : Puzzle
             Key.enabled = true;
             secondBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = true;
             fourthBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = true;
+            Debug.Log("Positive feedback clicking sound on bamboo here");
         }
         else
         {

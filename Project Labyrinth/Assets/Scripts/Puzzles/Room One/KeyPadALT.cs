@@ -28,8 +28,9 @@ public class KeyPadALT : ZoomItem
 
 
     // Start is called before the first frame update
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
         deskAnim = Desk.GetComponent<Animator>();
 
         // Success Handler

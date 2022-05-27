@@ -13,6 +13,7 @@ public class CursorHoverEffect : MonoBehaviour
     private Sprite defaultTexture;
     private InventoryItem inventoryItem;
 
+
     // Sources: https://forum.unity.com/threads/resources-load-not-working.95527/
     public void Start()
     {
@@ -31,6 +32,8 @@ public class CursorHoverEffect : MonoBehaviour
     /// </summary>
     private void OnMouseEnter()
     {
+        if (!cursor)
+            Start();
         if (!playerInventory.CurrentItem && isOn && player.isNearby(this.gameObject))
         {
             if (gameObject.tag == "Interaction")

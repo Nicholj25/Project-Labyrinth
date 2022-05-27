@@ -40,7 +40,6 @@ public class ItemInteraction : MonoBehaviour
     protected virtual void Start()
     {
         cursorHover = gameObject.AddComponent<CursorHoverEffect>();
-        cursorHover.Start();
     }
 
     // Update is called once per frame

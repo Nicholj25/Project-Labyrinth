@@ -19,7 +19,7 @@ public class InventoryScreen : MonoBehaviour
     /// <summary>
     /// Index of the last item in the inventory clicked on
     /// </summary>
-    private int CurrentSelectedIndex;
+    private int CurrentSelectedIndex = -1;
 
     // Start is called before the first frame update
     void Awake()
@@ -104,7 +104,12 @@ public class InventoryScreen : MonoBehaviour
                     currentInventoryButton.GetComponent<Button>().interactable = true;
                 }
             }
+        }
 
+        if(CurrentSelectedIndex != -1)
+        {
+            // Update Item Text
+            ItemDescriptionTextBox.transform.GetComponentInChildren<Text>().text = Inventory.HeldItems[CurrentSelectedIndex].ItemText;
         }
     }
 

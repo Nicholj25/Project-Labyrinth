@@ -86,23 +86,31 @@ public class RoomTwoPuzzle : Puzzle
         if (!hasZoomed)
             hintText = "Looks like the boss was working on something.";
         else if (!riddleSolved)
-            hintText = "Hmm...the answer is probably an object in this room.  The boss isn't too creative with passwords.";
+            hintText = "Hmm...the answer is probably an object in this room." +
+                "  The boss isn't very creative with passwords.";
         else if (riddleSolved && !station7Zoomed)
             hintText = "Let me take a closer look at workstation 7.";
         else if (station7Zoomed && riddleSolved && !whiteboardZoomed)
-            hintText = "Seems like the my colleague at station 7 was working with something on the whiteboard.";
+            hintText = "Seems like my colleague at station 7 was working " +
+                "with something on the whiteboard.";
         else if(!microwaveUnlocked && !codeZoomed)
-            hintText = "My colleague at station 8 didn't want to forget an important code.";
+            hintText = "My colleague at station 8 didn't want to forget an " +
+                "important code.";
         else if(!microwaveUnlocked && codeZoomed)
-            hintText = "I remember my colleague at station 8 didn't want to forget an important code. Let me find a key pad to enter it.";
+            hintText = "I remember my colleague at station 8 didn't want to " +
+                "forget an important code. Let me find a keypad to enter it.";
         else if(microwaveUnlocked && !microwaveOpened)
             hintText = "The microwave unlocked. I'll try opening it.";
         else if (station7Zoomed && microwaveOpened && whiteboardZoomed && !(inTrash && onTable))
-            hintText = "The email at station 7 was Bee = Tea. B=T could be the key to decode the whiteboard instructions.";
+            hintText = "The email at station 7 was Bee = Tea. B=T could be " +
+                "the key to decode the whiteboard instructions. Bee sure to " +
+                "follow them.";
         else if(microwaveOpened && !bambooMoved && inTrash && onTable)
-            hintText = "The sticky note said something about bamboozled. I'll try pushing all of the bamboo.";
+            hintText = "The sticky note said something about bamboozled. I'll " +
+                "try pushing all of the bamboo.";
         else if(bambooMoved && !KeyObtained)
-            hintText = "The sticky note said something about the middle one. I think I need to look carefully where the middle bamboo was.";
+            hintText = "The sticky note said something about the middle one. I " +
+                "think I need to look carefully where the middle bamboo was.";
         else if(KeyObtained)
             hintText = "I've got the key to freedom!";
             return hintText;

@@ -9,6 +9,6 @@ public class HintTextTutorial : HintText
         if (!RoomPuzzles[0].Completed)
             UpdateHint(RoomPuzzles[0].GetCurrentHint());
         else
-            UpdateHint("I found the key. Let me try equipping it and testing the door handle. If it unlocks, I'll try the door.");
+            UpdateHint("I found the key. Let me try using it on the door handle. If it unlocks, I'll try the door.");
     }
 }

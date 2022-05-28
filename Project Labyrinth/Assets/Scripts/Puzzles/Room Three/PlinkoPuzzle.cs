@@ -43,15 +43,15 @@ public class PlinkoPuzzle : Puzzle
         if (!RedBallObtained)
             hintText = "Have a ball checking out the stuff on your coworker's desk.";
         else if (!YellowBallObtained)
-            hintText = "Have a ball getting a little bit of light reading done";
+            hintText = "Have a ball getting a little bit of light reading done.";
         else if (!GreenBallObtained)
-            hintText = "Have a ball breaking down those old unused boxes";
+            hintText = "Have a ball breaking down those old unused boxes.";
         else if (!BlueBallObtained)
-            hintText = "Remember when you used to have a ball stacking chairs at the end of the day in Elementary School";
+            hintText = "Remember when you used to have a ball stacking chairs at the end of the day in Elementary School?";
         else if (RedBallObtained && YellowBallObtained && GreenBallObtained && BlueBallObtained && Plinko.PlayedBalls.Count != 4)
-            hintText = "Maybe I can use all these balls with that machine in the back";
+            hintText = "Maybe I can use all these balls with that machine in the back.";
         else if (Plinko.PlayedBalls.Count == 4)
-            hintText = "I think the colors of those balls match the colors I saw over on the door's keypad";
+            hintText = "I think the colors of those balls match the colors I saw over on the door's keypad.";
 
         return hintText;
     }

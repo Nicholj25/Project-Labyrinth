@@ -4923,12 +4923,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96bbd5369e78b8043948cb84743b24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  AcceptableItems: []
+  playerMovement: {fileID: 0}
+  cameraHandler: {fileID: 0}
+  cam: {fileID: 0}
+  cursorHover: {fileID: 0}
+  Text: {fileID: 0}
+  Inventory: {fileID: 0}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
   cabinet: {fileID: 231897652}
   player: {fileID: 318402000}
   drawerOne: {fileID: 665017180}
   drawerTwo: {fileID: 89136282}
   drawerThree: {fileID: 1809253453}
   drawerFour: {fileID: 1440394984}
+  FileCabinetKeyFound:
+    m_PersistentCalls:
+      m_Calls: []
   fileCabinetMoved: 0
 --- !u!64 &231897655
 MeshCollider:
@@ -11510,6 +11524,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a61261069d421e84c9d10c062cde3685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Item: {fileID: 0}
+  AcceptableItems: []
+  playerMovement: {fileID: 0}
+  cameraHandler: {fileID: 0}
+  cam: {fileID: 0}
+  cursorHover: {fileID: 0}
+  Text: {fileID: 0}
+  Inventory: {fileID: 0}
+  InteractionComplete:
+    m_PersistentCalls:
+      m_Calls: []
   lightParent: {fileID: 536393728}
   breakingAudio: {fileID: 536393731}
   FuseboxLever: {fileID: 53746913}
@@ -11518,6 +11543,9 @@ MonoBehaviour:
   projectorScreen: {fileID: 1136528372}
   screenPlane: {fileID: 315439861}
   planeRenderer: {fileID: 315439864}
+  PowerIsOn:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &536393731
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11525,7 +11553,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536393728}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 458438429a884944b805d8a976a9d55b, type: 3}
@@ -25633,6 +25661,55 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999982, y: 0.0375, z: 2.0000002}
   m_Center: {x: -1.0000001, y: -0.01875, z: 1.0000001}
+--- !u!1 &1279226115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1279226117}
+  - component: {fileID: 1279226116}
+  m_Layer: 0
+  m_Name: HintHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1279226116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279226115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa851634875438489d6540c1f199892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Completed: 0
+  Power: {fileID: 536393730}
+  FileCabinetKey: {fileID: 231897654}
+  FinalKey: {fileID: 1665364645}
+  Text: {fileID: 977405946}
+--- !u!4 &1279226117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279226115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.5466168, y: 1.3649726, z: 5.9453816}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1282055719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31730,6 +31807,9 @@ MonoBehaviour:
       m_Calls: []
   ExpectedValue: 1357
   Desk: {fileID: 39467824}
+  FinalKeyObtained:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1665364647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7035535659886823454, guid: 1e7efcf4e20f9a545917968e7ea94201, type: 3}

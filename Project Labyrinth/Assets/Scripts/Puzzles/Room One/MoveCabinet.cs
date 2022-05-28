@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class MoveCabinet : MonoBehaviour
+public class MoveCabinet : ItemInteraction
 {
     public GameObject cabinet;
     public Transform player;
@@ -10,6 +11,7 @@ public class MoveCabinet : MonoBehaviour
     public Transform drawerTwo;
     public Transform drawerThree;
     public Transform drawerFour;
+    public UnityEvent FileCabinetKeyFound;
 
     public bool fileCabinetMoved;
 
@@ -35,6 +37,7 @@ public class MoveCabinet : MonoBehaviour
                 drawerThree.GetComponent<CabinetDrawerToggle>().Opened &&
                 drawerFour.GetComponent<CabinetDrawerToggle>().Opened){
                 moveCabinet();
+                FileCabinetKeyFound?.Invoke();
             }
         }
         

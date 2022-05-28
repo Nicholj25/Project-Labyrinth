@@ -21024,6 +21024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be844c4d2db1bc149849456debe3c5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseTimer: 0
 --- !u!114 &1292687856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33507,7 +33508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 333640529973026658, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
       propertyPath: m_TagString
-      value: Interaction
+      value: Inventory
       objectReference: {fileID: 0}
     - target: {fileID: 9141498245154989028, guid: f71087e924b3d7f4989e0d3d5969dc4e, type: 3}
       propertyPath: m_RootOrder

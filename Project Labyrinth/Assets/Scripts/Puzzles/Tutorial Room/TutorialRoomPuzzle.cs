@@ -72,8 +72,6 @@ public class TutorialRoomPuzzle : Puzzle
             hintText = "It is important to put books back where they belong when they are not being used.";
         else if (!KeyObtained)
             hintText = "Maybe I should check for changes at the desk.";
-        else if (KeyObtained)
-            hintText = "Let me equip the key I found and test the door handle. If it unlocks, I'll try the door.";
 
         return hintText;
     }

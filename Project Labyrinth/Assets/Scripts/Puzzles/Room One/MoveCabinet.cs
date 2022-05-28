@@ -37,7 +37,7 @@ public class MoveCabinet : ItemInteraction
                 drawerThree.GetComponent<CabinetDrawerToggle>().Opened &&
                 drawerFour.GetComponent<CabinetDrawerToggle>().Opened){
                 moveCabinet();
-                FileCabinetKeyFound?.Invoke();
+                InteractionComplete?.Invoke();
             }
         }
         

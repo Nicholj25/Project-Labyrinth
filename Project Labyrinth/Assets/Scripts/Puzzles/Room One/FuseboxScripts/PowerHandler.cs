@@ -59,7 +59,7 @@ public class PowerHandler : ItemInteraction
             }
             // also enable screen
             planeRenderer.enabled = false;
-            PowerIsOn?.Invoke();
+            InteractionComplete?.Invoke();
         }
     }
 

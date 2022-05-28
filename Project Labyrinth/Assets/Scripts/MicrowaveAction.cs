@@ -14,7 +14,6 @@ public class MicrowaveAction : ItemInteraction
         keypad.SuccessfulEntry.AddListener(() => { isOpen = true; isLocked = false; });
         isOpen = false;
         isLocked = true;
-        Item.enabled = false;
     }
 
     private void OnMouseDown()
@@ -30,12 +29,10 @@ public class MicrowaveAction : ItemInteraction
         if (isOpen)
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z) - eulerRotation;
-            Item.enabled = true;
         }
         else
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z) + eulerRotation;
-            Item.enabled = false;
         }
 
         isOpen = !isOpen;

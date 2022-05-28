@@ -5,12 +5,14 @@ public class CursorHoverEffect : MonoBehaviour
 {
     public Sprite interactionTexture;
     public Sprite zoomTexture;
+    public Sprite inventoryTexture;
     public PlayerInventory playerInventory;
     public PlayerMovement player;
     public Image cursor;
     public bool isOn = true;
-    public float width = 50f;
-    public float height = 30f;
+    public Vector2 interactionSize;
+    public Vector2 zoomSize;
+    public Vector2 inventorySize;
     private bool isHovering;
     private Sprite defaultTexture;
     private InventoryItem inventoryItem;
@@ -19,11 +21,16 @@ public class CursorHoverEffect : MonoBehaviour
     // Sources: https://forum.unity.com/threads/resources-load-not-working.95527/
     public void Start()
     {
+        interactionSize = new Vector2(50f, 30f);
+        zoomSize = new Vector2(50f, 30f);
+        inventorySize = new Vector2(60f, 36f);
+
         isHovering = false;
         inventoryItem = GetComponent<InventoryItem>();
         inventoryItem?.PickupCompletion.AddListener(OnMouseExit);
         interactionTexture = Resources.Load<Sprite>("Sprites/eye_cursor");
         zoomTexture = Resources.Load<Sprite>("Sprites/eye_cursor");
+        inventoryTexture = Resources.Load<Sprite>("Sprites/diamond_cursor");
         player = GameObject.Find("Player Capsule").GetComponent<PlayerMovement>();
         playerInventory = GameObject.Find("Player Capsule").GetComponent<PlayerInventory>();
         cursor = GameObject.Find("Cursor")?.GetComponent<Image>();
@@ -48,13 +55,19 @@ public class CursorHoverEffect : MonoBehaviour
             if (gameObject.tag == "Interaction")
             {
                 cursor.sprite = interactionTexture;
-                cursor.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+                cursor.gameObject.GetComponent<RectTransform>().sizeDelta = interactionSize;
             }
             else if (gameObject.tag == "Zoom")
             {
                 cursor.sprite = zoomTexture;
-                cursor.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+                cursor.gameObject.GetComponent<RectTransform>().sizeDelta = zoomSize;
             }
+            else if (gameObject.tag == "Inventory")
+            {
+                cursor.sprite = inventoryTexture;
+                cursor.gameObject.GetComponent<RectTransform>().sizeDelta = inventorySize;
+            }
+
         }
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interaction
   - Zoom
+  - Inventory
   layers:
   - Default
   - TransparentFX

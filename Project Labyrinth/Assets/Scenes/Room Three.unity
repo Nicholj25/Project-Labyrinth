@@ -13022,6 +13022,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Whiteboard Eraser
       objectReference: {fileID: 0}
+    - target: {fileID: 739452338329536689, guid: 3962d8b94c80dae44b13e7d28b2e60df, type: 3}
+      propertyPath: m_TagString
+      value: Inventory
+      objectReference: {fileID: 0}
     - target: {fileID: 6602126124339937792, guid: 3962d8b94c80dae44b13e7d28b2e60df, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -13100,6 +13104,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Whiteboard Eraser
   ItemImage: {fileID: 21300000, guid: a666b74bd7906b64380ebddef6667b75, type: 3}
   ItemText: Let's get erasing!
@@ -13977,6 +13982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be844c4d2db1bc149849456debe3c5d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseTimer: 0
 --- !u!114 &1015362233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14619,6 +14625,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper File (Custom)
       objectReference: {fileID: 0}
+    - target: {fileID: 3689213640607575970, guid: 409a59359549aef418ba80e0b2e0056a, type: 3}
+      propertyPath: m_TagString
+      value: Inventory
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 409a59359549aef418ba80e0b2e0056a, type: 3}
 --- !u!1 &1041324131 stripped
@@ -14641,6 +14651,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Crumpled Paper
   ItemImage: {fileID: 21300000, guid: 91ac6397b7bdf3e4fa10a8925cd87d50, type: 3}
   ItemText: '"Urgent! Don''t forget to deactivate Jeremy Quandry''s account."'
@@ -14782,6 +14793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Computer (New)
       objectReference: {fileID: 0}
+    - target: {fileID: 4510268153137465182, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
+      propertyPath: m_TagString
+      value: Zoom
+      objectReference: {fileID: 0}
     - target: {fileID: 5928691315063117075, guid: ed7a8441bc8a9e042b68e5c08b5d0286, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -14815,6 +14830,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1430299960}
   cameraHandler: {fileID: 1882498821}
   cam: {fileID: 2037675670}
+  cursorHover: {fileID: 0}
   Text: {fileID: 151298171}
   Inventory: {fileID: 1430299959}
   InteractionComplete:
@@ -14826,6 +14842,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &1048617472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16928,6 +16947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keypad
       objectReference: {fileID: 0}
+    - target: {fileID: 6093123324213153233, guid: 1e7efcf4e20f9a545917968e7ea94201, type: 3}
+      propertyPath: m_TagString
+      value: Zoom
+      objectReference: {fileID: 0}
     - target: {fileID: 7035535659886823454, guid: 1e7efcf4e20f9a545917968e7ea94201, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17139,7 +17162,7 @@ GameObject:
   - component: {fileID: 1248425578}
   m_Layer: 0
   m_Name: Yellow Ball
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17203,6 +17226,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Yellow Ball
   ItemImage: {fileID: 21300000, guid: 369a961ff5b9e4c45afd49b2c81a931e, type: 3}
   ItemText: A yellow ball
@@ -17905,6 +17929,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Sticky Note
   ItemImage: {fileID: 21300000, guid: 5c5e25a20e651b44197885971fe98dc0, type: 3}
   ItemText: 'Password: QuanMan06'
@@ -17953,6 +17978,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1430299960}
   cameraHandler: {fileID: 1882498821}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 151298171}
   Inventory: {fileID: 1430299959}
   InteractionComplete:
@@ -21697,7 +21723,7 @@ GameObject:
   - component: {fileID: 1571025858}
   m_Layer: 0
   m_Name: Green Ball
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21761,6 +21787,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Green Ball
   ItemImage: {fileID: 21300000, guid: 5e7a98e664f1eb5478ce4552bc2c1fdc, type: 3}
   ItemText: A green ball
@@ -21988,7 +22015,7 @@ GameObject:
   - component: {fileID: 1586693851}
   m_Layer: 0
   m_Name: Blue Ball
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22052,6 +22079,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Blue Ball
   ItemImage: {fileID: 21300000, guid: 2a6851443a0c5b44bbee9182391d77bc, type: 3}
   ItemText: A blue ball
@@ -23892,7 +23920,7 @@ GameObject:
   - component: {fileID: 1670943849}
   m_Layer: 0
   m_Name: Red Ball
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24006,6 +24034,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 1882498819}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Red Ball
   ItemImage: {fileID: 21300000, guid: 6c343c9a27f7c9b49a38f2d36469a744, type: 3}
   ItemText: A red ball
@@ -31556,9 +31585,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 354238620321009253, guid: 3ebd4bdaff870654f964fab1694cce0b, type: 3}
+      propertyPath: m_TagString
+      value: Inventory
+      objectReference: {fileID: 0}
     - target: {fileID: 418081082797573101, guid: 3ebd4bdaff870654f964fab1694cce0b, type: 3}
       propertyPath: m_Name
       value: Slide Puzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 418081082797573101, guid: 3ebd4bdaff870654f964fab1694cce0b, type: 3}
+      propertyPath: m_TagString
+      value: Zoom
       objectReference: {fileID: 0}
     - target: {fileID: 1433086279854291751, guid: 3ebd4bdaff870654f964fab1694cce0b, type: 3}
       propertyPath: m_RootOrder
@@ -31654,6 +31691,7 @@ MonoBehaviour:
   zoomCam: {fileID: 0}
   mainCam: {fileID: 0}
   cameraHandler: {fileID: 1882498821}
+  cursorHover: {fileID: 0}
   ItemName: Slide Puzzle Prize Key
   ItemImage: {fileID: 21300000, guid: 67a2d8e7e7817dd4cbfc122dbaab69ff, type: 3}
   ItemText: Motivation is the key to success
@@ -31741,6 +31779,7 @@ MonoBehaviour:
   playerMovement: {fileID: 1430299960}
   cameraHandler: {fileID: 1882498821}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 151298171}
   Inventory: {fileID: 1430299959}
   InteractionComplete:
@@ -31763,7 +31802,7 @@ GameObject:
   - component: {fileID: 8715816825812852435}
   m_Layer: 0
   m_Name: Sticky Note
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

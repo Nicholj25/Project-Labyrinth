@@ -148,4 +148,12 @@ public class InventoryScreen : MonoBehaviour
         // Update
         PopulateScreen();
     }
+
+    public void UpdateSelected()
+    {
+        if(Inventory.CurrentItem == null)
+        {
+            CurrentSelectedIndex = -1;
+        }
+    }
 }

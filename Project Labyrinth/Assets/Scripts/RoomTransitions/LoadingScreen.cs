@@ -45,8 +45,16 @@ public class LoadingScreen : MonoBehaviour
     // Switches from the main camera to the loading screen
     void showLoadingCamera()
     {
-    MainCamera.SetActive(false);
-    LoadingCamera.SetActive(true);
+        MainCamera.SetActive(false);
+        LoadingCamera.SetActive(true);
+
+        GameObject hud = GameObject.Find("HUD");
+        if(hud != null)
+        {
+            Timer timer = hud.GetComponentInChildren<Timer>();
+            timer.SetPauseTimer();
+            hud.SetActive(false);
+        }
     }
 
     void Update()

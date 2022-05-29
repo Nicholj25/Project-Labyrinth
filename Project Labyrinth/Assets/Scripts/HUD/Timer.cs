@@ -34,7 +34,10 @@ public class Timer : MonoBehaviour
         Controller = GameObject.FindObjectOfType<TimerController>();
 
         //Get starting time
-        CurrentTime = Controller.CurrentTime;
+        if(Controller != null)
+        {
+            CurrentTime = Controller.CurrentTime;
+        }
     }
 
     // Update is called once per frame
@@ -45,7 +48,10 @@ public class Timer : MonoBehaviour
             // DeltaTime : https://docs.unity3d.com/ScriptReference/Time-deltaTime.html
             CurrentTime -= Time.deltaTime;
         }
-        Controller.SetCurrentTime(CurrentTime);
+        if(Controller != null)
+        {
+            Controller.SetCurrentTime(CurrentTime);
+        }
         UpdateTimer(CurrentTime);
     }
 

@@ -27,32 +27,34 @@ public class OpenableDrawer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0) && cameraHandler.IsMainCameraActive())
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (hit.transform.gameObject == Drawer)
+            if(Camera.main != null)
             {
-                if (!Locked)
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (hit.transform.gameObject == Drawer)
                 {
-                    // Check current state of playing animator
-                    if (Animations.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
+                    if (!Locked)
                     {
-                        if (Opened)
+                        // Check current state of playing animator
+                        if (Animations.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
                         {
-                            CloseDrawer();
-                        }
-                        else
-                        {
-                            Opened = true;
-                            Animations.Play("Open");
+                            if (Opened)
+                            {
+                                CloseDrawer();
+                            }
+                            else
+                            {
+                                Opened = true;
+                                Animations.Play("Open");
+                            }
                         }
                     }
+                    else
+                        Text.UpdateTextBox("The drawer is locked.");
                 }
-                else
-                    Text.UpdateTextBox("The drawer is locked.");
             }
         }
     }

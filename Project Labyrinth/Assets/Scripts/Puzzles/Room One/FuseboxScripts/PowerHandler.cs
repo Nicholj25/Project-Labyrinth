@@ -22,13 +22,14 @@ public class PowerHandler : ItemInteraction
     public Renderer planeRenderer;
     public UnityEvent PowerIsOn;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         breakingAudio.enabled = false;
         PowerIsOn = new UnityEvent();
     }
 
-    async void Start()
+    async protected override void Start()
     {
         // Get the material from the projector object
         planeRenderer = screenPlane.GetComponent<Renderer>();
@@ -46,7 +47,7 @@ public class PowerHandler : ItemInteraction
 
     }
     
-    async void Update()
+    protected override void Update()
     {
         lights = lightParent.GetComponentsInChildren<Light>(true);
         

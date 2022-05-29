@@ -16,6 +16,11 @@ public class RoomTwoPuzzle : Puzzle
     [SerializeField] private MicrowaveAction microwave;
     [SerializeField] private GameObject smallBamboo;
     [SerializeField] private PlayerInventory inventory;
+    [SerializeField] private AudioSource station7Audio;
+    [SerializeField] private AudioSource smallBambooAudio;
+    [SerializeField] private AudioSource bamboo2Audio;
+    [SerializeField] private AudioSource bamboo4Audio;
+
     public TextPrompt Text;
     public InventoryItem Key;
     private bool hasZoomed;
@@ -30,20 +35,34 @@ public class RoomTwoPuzzle : Puzzle
     private bool bambooMoved;
     void Start()
     {
-        Key.PickupCompletion.AddListener(() => { KeyObtained = true; Completed = true; });
-        riddle.InteractionComplete.AddListener(() => { riddleSolved = true; });
-        monitor.InteractionComplete.AddListener(() => { hasZoomed = true; });
-        station7.InteractionComplete.AddListener(() => { station7Zoomed = true; });
-        whiteboard.InteractionComplete.AddListener(() => { whiteboardZoomed = true; });
-        donut.InteractionComplete.AddListener(() => { if (!inTrash) TipBamboo(-45); inTrash = true; CheckBamboo(); });
-        book.InteractionComplete.AddListener(() => { if (!onTable) TipBamboo(-45); onTable = true; CheckBamboo(); });
-        donut.ItemRemoved.AddListener(() => { if (onTable) TipBamboo(45); onTable = false; CheckBamboo(); });
-        book.ItemRemoved.AddListener(() => { if (onTable) TipBamboo(45); onTable = false; CheckBamboo(); });
-        paperPile.InteractionComplete.AddListener(() => { codeZoomed = true; });
-        keypad.SuccessfulEntry.AddListener(() => { microwaveUnlocked = true; });
-        microwave.InteractionComplete.AddListener(() => { microwaveOpened = true; });
-        secondBamboo.InteractionComplete.AddListener(() => { bambooMoved = true; });
-        fourthBamboo.InteractionComplete.AddListener(() => { bambooMoved = true; });
+        Key.PickupCompletion.AddListener(
+            () => { KeyObtained = true; Completed = true; });
+        riddle.InteractionComplete.AddListener(
+            () => { riddleSolved = true; station7Audio.Play();});
+        monitor.InteractionComplete.AddListener(
+            () => { hasZoomed = true; });
+        station7.InteractionComplete.AddListener(
+            () => { station7Zoomed = true; });
+        whiteboard.InteractionComplete.AddListener(
+            () => { whiteboardZoomed = true; });
+        donut.InteractionComplete.AddListener(
+            () => { if (!inTrash) TipBamboo(-45); inTrash = true; CheckBamboo(); });
+        book.InteractionComplete.AddListener(
+            () => { if (!onTable) TipBamboo(-45); onTable = true; CheckBamboo(); });
+        donut.ItemRemoved.AddListener(
+            () => { if (onTable) TipBamboo(45); onTable = false; CheckBamboo(); });
+        book.ItemRemoved.AddListener(
+            () => { if (onTable) TipBamboo(45); onTable = false; CheckBamboo(); });
+        paperPile.InteractionComplete.AddListener(
+            () => { codeZoomed = true; });
+        keypad.SuccessfulEntry.AddListener(
+            () => { microwaveUnlocked = true; });
+        microwave.InteractionComplete.AddListener(
+            () => { microwaveOpened = true; });
+        secondBamboo.InteractionComplete.AddListener(
+            () => { bambooMoved = true; });
+        fourthBamboo.InteractionComplete.AddListener(
+            () => { bambooMoved = true; });
 
         // Start with key unobtained, Monitor not Zoomed, Riddle not Solved
         KeyObtained = false;
@@ -68,14 +87,20 @@ public class RoomTwoPuzzle : Puzzle
         {
             onTable = false;
             TipBamboo(45);
+            if (inTrash)
+                bamboo2Audio.Play();
         }
         else if (inTrash && !donut.gameObject.activeSelf)
         {
             inTrash = false;
             TipBamboo(45);
+            if(onTable)
+                bamboo2Audio.Play();
         }
         if (!onTable || !inTrash)
+        {
             bamboo.toggleRigidbody(true);
+        }
 
     }
 
@@ -120,24 +145,25 @@ public class RoomTwoPuzzle : Puzzle
     {
         if (inTrash && onTable)
         {
+            // Unlock Bamboo
             bamboo.toggleRigidbody(false);
             Key.enabled = true;
             secondBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = true;
             fourthBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = true;
-            Debug.Log("Positive feedback clicking sound on bamboo here");
+            bamboo2Audio.Play(); 
         }
         else
         {
+            // Lock Bamboo
             bamboo.toggleRigidbody(true);
             Key.enabled = false;
-            secondBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = false;
-            fourthBamboo.gameObject.GetComponent<CursorHoverEffect>().isOn = false;
         }
     }
 
     private void TipBamboo(float zAxis)
     {   
         smallBamboo.transform.eulerAngles = smallBamboo.transform.eulerAngles + new Vector3(0, 0, zAxis);
+        smallBambooAudio.Play();
     }
 
 }

@@ -7,7 +7,7 @@ public class ZoomItem : ItemInteraction
     [SerializeField] protected GameObject zoomCam;
     [SerializeField] protected GameObject puzzleInputObject;
     [SerializeField] protected PuzzleInput puzzleInput;
-    [SerializeField] protected bool inUse;
+    [SerializeField] public bool inUse;
     [SerializeField] protected bool hasZoomed;
     protected GameObject player;
     protected GameObject mainCam;

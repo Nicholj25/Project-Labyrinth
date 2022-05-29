@@ -25,6 +25,7 @@ public class KeyPadALT : ZoomItem
     public UnityEvent SuccessfulEntry { get; private set; }
     public GameObject Desk;
     Animator deskAnim;
+    public UnityEvent FinalKeyObtained;
 
 
     // Start is called before the first frame update
@@ -135,7 +136,7 @@ public class KeyPadALT : ZoomItem
             SuccessfulEntry.Invoke();
             deskAnim.enabled = true;
             deskAnim.Play("SinkingDesk");
-            //Text.UpdateTextBox("The boss's desk is sinking into the floor.");
+            FinalKeyObtained?.Invoke();
         }
     }
 

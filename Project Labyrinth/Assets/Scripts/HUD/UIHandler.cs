@@ -34,6 +34,8 @@ public class UIHandler : MonoBehaviour
         {
             Normal.gameObject.SetActive(!Normal.activeSelf);
             Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
+
+            Inventory.UpdateSelected();
             Inventory.PopulateScreen();
 
             // Change cursor and lock camera when inventory menu is open

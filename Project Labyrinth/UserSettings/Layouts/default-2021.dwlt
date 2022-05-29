@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1117
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 17
+  controlID: 67
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 310
     height: 691
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -398,10 +398,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 2231}
-      m_SelectedIDs: aa9bffff
-      m_LastClickedID: -25686
-      m_ExpandedIDs: a89bffff72f7ffff3cf8ffff5ef9ffff3afbffffa05a0000165b0000285c0000fe5c0000dc5d0000265f0000fe5f00000460000038600000ce6100002662000034620000d2620000046300003a63000098640000a8640000ce640000d0650000ea660000fe660000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 04720000
+      m_LastClickedID: 0
+      m_ExpandedIDs: ace4ffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.10929474, y: -0.5721863, z: 0.08135163, w: -0.8098833}
     speed: 2
-    m_Value: {x: -0.11040466, y: -0.5715288, z: 0.08213513, w: -0.80896205}
+    m_Value: {x: -0.10919261, y: -0.57165164, z: 0.08127561, w: -0.8091265}
   m_Size:
     m_Target: 0.5833052
     speed: 2
@@ -771,13 +771,13 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Puzzles/Room One/FuseboxScripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Puzzles/Room One/FuseboxScripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\mjan4\Documents\GitHub\mjanPLrecent\Project-Labyrinth\Project
     Labyrinth
@@ -785,9 +785,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 113}
-    m_SelectedIDs: 8cb00000
-    m_LastClickedID: 45196
-    m_ExpandedIDs: 000000006e71000070710000727100007471000076710000787100007a7100007c7100007e71000080710000b0710000b8710000c2710000c4710000c6710000e8710000f071000000ca9a3bffffff7f
+    m_SelectedIDs: b4710000
+    m_LastClickedID: 29108
+    m_ExpandedIDs: 000000007c7100007e71000080710000827100008471000086710000887100008a7100008c7100008e710000b6710000e6710000e871000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -815,7 +815,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006e71000070710000727100007471000076710000787100007a7100007c7100007e71000080710000
+    m_ExpandedIDs: 000000007c7100007e71000080710000827100008471000086710000887100008a7100008c7100008e710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

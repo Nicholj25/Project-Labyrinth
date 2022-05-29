@@ -48,12 +48,15 @@ public class ItemInteraction : MonoBehaviour
         cam = cameraHandler.GetCurrentCamera();
         if (playerMovement.isNearby(this.gameObject) && Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (hit.transform.gameObject == this.gameObject && AcceptableItems.Contains(Inventory.CurrentItem))
+            if(cam != null)
             {
-                ItemUsageAction();
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (hit.transform.gameObject == this.gameObject && AcceptableItems.Contains(Inventory.CurrentItem))
+                {
+                    ItemUsageAction();
+                } 
             }
         }
     }

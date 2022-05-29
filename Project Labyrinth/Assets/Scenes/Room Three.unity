@@ -15826,6 +15826,7 @@ MonoBehaviour:
   LockButton: {fileID: 774271231}
   UnlockButton: {fileID: 886042378}
   RequireLogin: 1
+  ComputerZoom: {fileID: 1048617471}
 --- !u!1001 &1181004011
 PrefabInstance:
   m_ObjectHideFlags: 0

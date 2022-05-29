@@ -20,6 +20,7 @@ public class ComputerLockLogin : MonoBehaviour, ILock
     [SerializeField] private Button UnlockButton;
 
     [SerializeField] private bool RequireLogin;
+    [SerializeField] private ZoomItem ComputerZoom;
 
     private string UsernameString;
     private string PasswordString;
@@ -80,15 +81,29 @@ public class ComputerLockLogin : MonoBehaviour, ILock
 
     void Update()
     {
-        if(PasswordInput.text.Length != PasswordString.Length)
+        if(ComputerZoom.inUse)
         {
-            DisplayPassword();
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Return) && LoginScreen.activeSelf && (UsernameInput.text.Length != 0 || PasswordInput.text.Length != 0))
-        {
-            //Invoke the button's onClick event.
-            LoginButton.onClick.Invoke();
+            // Stop text from leaving input space
+            if (UsernameInput.text.Length > 25)
+            {
+                UsernameInput.text = UsernameInput.text.Remove(UsernameInput.text.Length - 1);
+            }
+
+            if (PasswordInput.text.Length != PasswordString.Length)
+            {
+                // Stop text from leaving input space
+                if (PasswordInput.text.Length > 25)
+                {
+                    PasswordInput.text = PasswordInput.text.Remove(PasswordInput.text.Length - 1);
+                }
+                DisplayPassword();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) && LoginScreen.activeSelf && (UsernameInput.text.Length != 0 || PasswordInput.text.Length != 0))
+            {
+                //Invoke the button's onClick event.
+                LoginButton.onClick.Invoke();
+            }
         }
     }
 

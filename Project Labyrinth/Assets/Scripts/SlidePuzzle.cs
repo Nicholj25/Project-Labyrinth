@@ -48,25 +48,28 @@ public class SlidePuzzle : ZoomItem
         if (Input.GetMouseButtonDown(0))
         {
             cam = cameraHandler.GetCurrentCamera();
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            Physics.Raycast(ray, out hit);
-            if (hit.transform.gameObject == this.gameObject && !inUse)
-                ActivateZoomCam();
-            else if (SlotsGO.Contains(hit.transform.gameObject))
+            if (cam != null)
             {
-                SlidePuzzleSlot clickedSlide = hit.transform.gameObject.GetComponent<SlidePuzzleSlot>();
-                if (DisabledSlot.AdjacentSlots.Contains(clickedSlide))
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                Physics.Raycast(ray, out hit);
+                if (hit.transform.gameObject == this.gameObject && !inUse)
+                    ActivateZoomCam();
+                else if (SlotsGO.Contains(hit.transform.gameObject))
                 {
-                    clickedSlide.SwapImages(DisabledSlot);
-                    FindDisabled();
-                    if(CheckCorrect())
+                    SlidePuzzleSlot clickedSlide = hit.transform.gameObject.GetComponent<SlidePuzzleSlot>();
+                    if (DisabledSlot.AdjacentSlots.Contains(clickedSlide))
                     {
-                        PrizeSlot.GetComponentInChildren<Animator>().Play("Reveal Prize");
-                        DisabledSlot.Disabled = false;
-                        DisabledSlot.SetActive();
-                        DisabledSlot = null;
-                        PuzzleSolved = true;
+                        clickedSlide.SwapImages(DisabledSlot);
+                        FindDisabled();
+                        if (CheckCorrect())
+                        {
+                            PrizeSlot.GetComponentInChildren<Animator>().Play("Reveal Prize");
+                            DisabledSlot.Disabled = false;
+                            DisabledSlot.SetActive();
+                            DisabledSlot = null;
+                            PuzzleSolved = true;
+                        }
                     }
                 }
             }

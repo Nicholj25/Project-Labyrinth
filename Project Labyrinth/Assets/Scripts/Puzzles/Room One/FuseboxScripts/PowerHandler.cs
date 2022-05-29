@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using UnityEngine.Events;
 
 // This script flashes the lights on and off in the beginning ("Oh no the power is going out!")
 // This script then checks for the fuseboxes being back on, and turns lights back on when all three
 // fusebox levers have been pulled
 
-public class PowerHandler : MonoBehaviour
+public class PowerHandler : ItemInteraction
 {
     private Light[] lights;
     public GameObject lightParent;
@@ -19,10 +20,12 @@ public class PowerHandler : MonoBehaviour
     public GameObject projectorScreen;
     public GameObject screenPlane;
     public Renderer planeRenderer;
+    public UnityEvent PowerIsOn;
 
     void Awake()
     {
         breakingAudio.enabled = false;
+        PowerIsOn = new UnityEvent();
     }
 
     async void Start()
@@ -56,6 +59,7 @@ public class PowerHandler : MonoBehaviour
             }
             // also enable screen
             planeRenderer.enabled = false;
+            InteractionComplete?.Invoke();
         }
     }
 

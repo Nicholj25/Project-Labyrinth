@@ -23,26 +23,26 @@ public class LoadRoom : MonoBehaviour
 
     }
 
-    async void OnMouseDown()
+    void OnMouseDown()
     {
         if (loadOnClick)
         {
             LoadLevel("Loading Screen");
             Debug.Log("1");
-            await WaitOneSecondAsync();
+            StartCoroutine(WaitForSeconds(1));
             Debug.Log("2");
             LoadLevel(roomToLoad);
             Debug.Log("3");
-            await WaitOneSecondAsync();
+            StartCoroutine(WaitForSeconds(1));
         }
     }
 
-    async public void LoadNextRoom()
+    public void LoadNextRoom()
     {
         LoadLevel("Loading Screen");
-        await WaitOneSecondAsync();
+        StartCoroutine(WaitForSeconds(1));
         LoadLevel(roomToLoad);
-        await WaitOneSecondAsync();
+        StartCoroutine(WaitForSeconds(1));
     }
 
     void Update()
@@ -64,6 +64,11 @@ public class LoadRoom : MonoBehaviour
     public async Task WaitOneSecondAsync()
     {
         await Task.Delay(TimeSpan.FromSeconds(2));
+    }
+
+    IEnumerator WaitForSeconds(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     public void LoadLevel (string levelName)

@@ -23,23 +23,23 @@ public class LoadingScreen : MonoBehaviour
 
     }
 
-    async void OnMouseDown()
+    void OnMouseDown()
     {
         if (loadOnClick)
         {
             showLoadingCamera();
-            await WaitOneSecondAsync();
+            StartCoroutine(WaitForSeconds(1));
             LoadLevel(roomToLoad);
-            await WaitOneSecondAsync();
+            StartCoroutine(WaitForSeconds(1));
         }
     }
 
-    async public void LoadNextRoom()
+    public void LoadNextRoom()
     {
         showLoadingCamera();
-        await WaitOneSecondAsync();
+        StartCoroutine(WaitForSeconds(1));
         LoadLevel(roomToLoad);
-        await WaitOneSecondAsync();
+        StartCoroutine(WaitForSeconds(1));
     }
 
     // Switches from the main camera to the loading screen
@@ -61,13 +61,17 @@ public class LoadingScreen : MonoBehaviour
     {
         // Gets the spot the user clicked at
        if (Input.GetMouseButtonDown(0)) {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            
-            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            if (hit.collider != null) {
-                Debug.Log(hit.collider.gameObject.name);
-                hit.collider.attachedRigidbody.AddForce(Vector2.up);
+            if(Camera.main != null)
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+
+                RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+                if (hit.collider != null)
+                {
+                    Debug.Log(hit.collider.gameObject.name);
+                    hit.collider.attachedRigidbody.AddForce(Vector2.up);
+                }
             }
         }
         enabled = false;
@@ -77,6 +81,11 @@ public class LoadingScreen : MonoBehaviour
     private async Task WaitOneSecondAsync()
     {
         await Task.Delay(TimeSpan.FromSeconds(2));
+    }
+
+    IEnumerator WaitForSeconds(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 
     public void LoadLevel (string levelName)

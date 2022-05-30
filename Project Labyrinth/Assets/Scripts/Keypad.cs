@@ -87,7 +87,7 @@ public class Keypad : ZoomItem
     // Update is called once per frame
     protected override void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && playerMovement.isNearby(this.gameObject))
         {
             cam = cameraHandler.GetCurrentCamera();
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);

@@ -19,13 +19,15 @@ public class MotivationalPuzzlePoster : Puzzle
     {
         // Puzzle is finished when Key lock is unlocked
         LockStateInitialized = false;
-        KeypadLockListener();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!LockStateInitialized)
+        {
+            KeypadLockListener();
+        }
     }
 
     public override string GetCurrentHint()
@@ -36,6 +38,8 @@ public class MotivationalPuzzlePoster : Puzzle
             hintText = "That motivational poster doesn't look quite right.";
         else if (!PosterKeyObtained)
             hintText = "Can't forget to pick up that key.";
+        else
+            hintText = "Better use the key to unlock the door handle!";
 
         return hintText;
     }

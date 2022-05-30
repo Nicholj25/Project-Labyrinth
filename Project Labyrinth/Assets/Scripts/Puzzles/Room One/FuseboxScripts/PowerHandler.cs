@@ -29,9 +29,8 @@ public class PowerHandler : ItemInteraction
         PowerIsOn = new UnityEvent();
     }
 
-    async protected override void Start()
+    protected override void Start()
     {
-        Debug.Log("started");
         // Get the material from the projector object
         planeRenderer = screenPlane.GetComponent<Renderer>();
         lights = lightParent.GetComponentsInChildren<Light>(true);
@@ -65,7 +64,6 @@ public class PowerHandler : ItemInteraction
 
     public void StartFlickering ()
     {
-        Debug.Log("startflickering");
         StartCoroutine(FlickerLights());
     }
 
@@ -74,7 +72,6 @@ public class PowerHandler : ItemInteraction
     {
         yield return new WaitForSeconds(10f);
         
-        Debug.Log("in flicker lights");
         // lights off until fuses are on
         foreach (Light light in lights)
         {

@@ -21,7 +21,7 @@ public class CabinetSwingClosed : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
         if (Camera.main)
         {
@@ -39,7 +39,6 @@ public class CabinetSwingClosed : MonoBehaviour
                             animationActive = true;
                             cabinetAnim.Play("CabinetSwing2");
                             closed = false;
-                            await WaitOneSecondAsync(1);
                             animationActive = false;
                         }
                         else
@@ -47,7 +46,6 @@ public class CabinetSwingClosed : MonoBehaviour
                             animationActive = true;
                             cabinetAnim.Play("CabinetSwingClosed2");
                             closed = true;
-                            await WaitOneSecondAsync(1);
                             animationActive = false;
                         }
                     }
@@ -56,9 +54,5 @@ public class CabinetSwingClosed : MonoBehaviour
         }
     }
 
-    // Add a short delay
-    public async Task WaitOneSecondAsync(double seconds)
-    {
-        await Task.Delay(TimeSpan.FromSeconds(seconds));
-    }
+
 }

@@ -21,7 +21,7 @@ public class KitchenPull3 : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
         if (Camera.main)
         {
@@ -39,7 +39,7 @@ public class KitchenPull3 : MonoBehaviour
                             animationActive = true;
                             cabinetPullAnim.Play("KitchenPullDrawer3");
                             closed = false;
-                            await WaitOneSecondAsync(1);
+                            //await WaitOneSecondAsync(1);
                             animationActive = false;
                         }
                         else
@@ -47,7 +47,7 @@ public class KitchenPull3 : MonoBehaviour
                             animationActive = true;
                             cabinetPullAnim.Play("KitchenPushDrawer3");
                             closed = true;
-                            await WaitOneSecondAsync(1);
+                            //await WaitOneSecondAsync(1);
                             animationActive = false;
                         }
                     }

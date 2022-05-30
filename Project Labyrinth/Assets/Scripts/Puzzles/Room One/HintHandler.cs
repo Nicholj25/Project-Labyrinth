@@ -19,7 +19,7 @@ public class HintHandler : Puzzle
 
    
     // Start is called before the first frame update 
-    async void Start()
+    void Start()
     {
         Power.InteractionComplete.AddListener(() => { PowerIsOn = true; });
         FileCabinetKey.InteractionComplete.AddListener(() => { FileCabinetKeyFound = true; });

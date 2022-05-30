@@ -9,6 +9,8 @@ public class PlaceFuse1 : ItemInteraction
     /// </summary>
     private Animator placeFuse;
     public bool fuseAdded;
+    public GameObject fuse;
+    public InventoryItem interaction;
 
     protected override void ItemUsageAction() 
     {
@@ -25,6 +27,8 @@ public class PlaceFuse1 : ItemInteraction
         fuseAdded = true;
 
         // Remove fuse from inventory
+        interaction.enabled = false;
+        fuse.tag = "Untagged";
         Inventory.RemoveItem(Inventory.CurrentItem);
         Inventory.UnequipItem();
 

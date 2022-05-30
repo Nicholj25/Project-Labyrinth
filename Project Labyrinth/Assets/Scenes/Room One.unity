@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43748862, g: 0.48531258, b: 0.5655862, a: 1}
+  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8615,7 +8615,7 @@ MonoBehaviour:
       m_Calls: []
   fuseAdded: 0
   fuse: {fileID: 1692656930}
-  interaction: {fileID: 0}
+  interaction: {fileID: 1692656931}
 --- !u!1001 &400532137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9737,8 +9737,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   fuseAdded: 0
-  fuse: {fileID: 0}
-  interaction: {fileID: 0}
+  fuse: {fileID: 2076169292}
+  interaction: {fileID: 2076169293}
 --- !u!65 &465032410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37343,6 +37343,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   fuseAdded: 0
+  fuse: {fileID: 1522751344}
+  interaction: {fileID: 1522751345}
 --- !u!95 &1979964930
 Animator:
   serializedVersion: 4

@@ -22,6 +22,7 @@ public class PlaceFuse1 : ItemInteraction
         Inventory.CurrentItem.transform.localRotation = new Quaternion();
         placeFuse.enabled = true;
         placeFuse.Play("placeFuse1");
+        fuseAdded = true;
 
         // Remove fuse from inventory
         Inventory.RemoveItem(Inventory.CurrentItem);
@@ -45,7 +46,7 @@ public class PlaceFuse1 : ItemInteraction
     // Update is called once per frame
     protected override void Update()
     {
-        if (Camera.main){
+        if (!fuseAdded && Camera.main){
             if(Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

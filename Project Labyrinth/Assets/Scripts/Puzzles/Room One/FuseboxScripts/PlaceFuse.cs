@@ -9,6 +9,8 @@ public class PlaceFuse : ItemInteraction
     /// </summary>
     private Animator placeFuse;
     public bool fuseAdded;
+    public GameObject fuse;
+    public InventoryItem interaction;
 
     protected override void ItemUsageAction() 
     {
@@ -22,8 +24,11 @@ public class PlaceFuse : ItemInteraction
         Inventory.CurrentItem.transform.localRotation = new Quaternion();
         placeFuse.enabled = true;
         placeFuse.Play("PlaceFuse0");
+        fuseAdded = true;
 
         // Remove fuse from inventory
+        interaction.enabled = false;
+        fuse.tag = "Untagged";
         Inventory.RemoveItem(Inventory.CurrentItem);
         Inventory.UnequipItem();
 
@@ -32,6 +37,7 @@ public class PlaceFuse : ItemInteraction
     protected override void Awake()
     {
         cam = Camera.main;
+        interaction = fuse.GetComponent<InventoryItem>();
 
     }
     // Start is called before the first frame update
@@ -45,7 +51,7 @@ public class PlaceFuse : ItemInteraction
     // Update is called once per frame
     protected override void Update()
     {
-        if (Camera.main){
+        if (!fuseAdded && Camera.main){
             if(Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

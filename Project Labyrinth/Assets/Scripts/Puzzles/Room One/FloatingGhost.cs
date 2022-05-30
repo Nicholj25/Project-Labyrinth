@@ -51,8 +51,11 @@ public class FloatingGhost : MonoBehaviour
 
     protected void floatTheGhost()
     {
-        // causes floating ghost animation to play
-        floatingGhost.enabled = true;
-        floatingGhost.Play("FloatingGhost");
+        if (!floatingGhost.enabled)
+        {
+            // causes floating ghost animation to play
+            floatingGhost.enabled = true;
+            floatingGhost.Play("FloatingGhost");
+        }
     }
 }

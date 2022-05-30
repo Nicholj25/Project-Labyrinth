@@ -16,6 +16,7 @@ public class PullLever : MonoBehaviour
     {
         leverAnim = gameObject.GetComponent<Animator>();
         pulledAlready = false;
+        fuseAdded = false;
     }
 
     // Update is called once per frame
@@ -30,7 +31,10 @@ public class PullLever : MonoBehaviour
                 Physics.Raycast(ray, out hit);
                 if (hit.transform.gameObject == this.gameObject)
                 {
-                    leverPull();
+                    if (!fuseAdded)
+                    {
+                        leverPull();
+                    }
                 }
             }
         }
@@ -45,6 +49,7 @@ public class PullLever : MonoBehaviour
             // We can pull the lever successfully
             {
                 leverAnim.enabled = true;
+                fuseAdded = true;
                 leverAnim.Play("leverPull");
                 Text.UpdateTextBox("The fusebox hums to life after you pull the lever.");
                 pulledAlready = true;

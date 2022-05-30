@@ -14,7 +14,7 @@ public class PowerHandler : ItemInteraction
     private Light[] lights;
     public GameObject lightParent;
     public AudioSource breakingAudio;
-    public GameObject FuseboxLever;     // has Pull Lever 0 script
+    public GameObject FuseboxLever;      // has Pull Lever 0 script
     public GameObject FuseboxLeverTwo;    // has PullLever3 script
     public GameObject FuseboxLeverThree;    // has Pull Lever script
     public GameObject projectorScreen;
@@ -22,14 +22,16 @@ public class PowerHandler : ItemInteraction
     public Renderer planeRenderer;
     public UnityEvent PowerIsOn;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         breakingAudio.enabled = false;
         PowerIsOn = new UnityEvent();
     }
 
-    async void Start()
+    async protected override void Start()
     {
+        Debug.Log("started");
         // Get the material from the projector object
         planeRenderer = screenPlane.GetComponent<Renderer>();
         lights = lightParent.GetComponentsInChildren<Light>(true);
@@ -40,13 +42,11 @@ public class PowerHandler : ItemInteraction
             light.enabled = true;
         }
 
-        await WaitOneSecondAsync(10);
-
-        FlickerLights();
+        StartFlickering();
 
     }
     
-    async void Update()
+    protected override void Update()
     {
         lights = lightParent.GetComponentsInChildren<Light>(true);
         
@@ -63,22 +63,25 @@ public class PowerHandler : ItemInteraction
         }
     }
 
-    // Add a short delay
-    public async Task WaitOneSecondAsync(double seconds)
+    public void StartFlickering ()
     {
-        await Task.Delay(TimeSpan.FromSeconds(seconds));
+        Debug.Log("startflickering");
+        StartCoroutine(FlickerLights());
     }
 
     // Flickers the lights when the room is first entered
-    async public void FlickerLights()
+    IEnumerator FlickerLights()
     {
+        yield return new WaitForSeconds(10f);
+        
+        Debug.Log("in flicker lights");
         // lights off until fuses are on
         foreach (Light light in lights)
         {
             light.enabled = false;
         }
 
-        await WaitOneSecondAsync(1);
+        yield return new WaitForSeconds(1);
 
         // flicker the lights
         foreach (Light light in lights)
@@ -86,7 +89,7 @@ public class PowerHandler : ItemInteraction
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(5);
+        yield return new WaitForSeconds(5);
 
         // flicker the lights
         foreach (Light light in lights)
@@ -94,7 +97,7 @@ public class PowerHandler : ItemInteraction
             light.enabled = false;
         }
 
-        await WaitOneSecondAsync(0.5);
+        yield return new WaitForSeconds(0.5f);
 
         // flicker the lights
         foreach (Light light in lights)
@@ -102,7 +105,7 @@ public class PowerHandler : ItemInteraction
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(3);
+        yield return new WaitForSeconds(3);
 
         // flicker the lights
         foreach (Light light in lights)
@@ -111,70 +114,70 @@ public class PowerHandler : ItemInteraction
         }
 
         // Quick blinks
-        await WaitOneSecondAsync(0.15);
+        yield return new WaitForSeconds(0.15f);
 
         foreach (Light light in lights)
         {
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(0.15);
+        yield return new WaitForSeconds(0.15f);
 
         foreach (Light light in lights)
         {
             light.enabled = false;
         }
 
-        await WaitOneSecondAsync(0.15);
+        yield return new WaitForSeconds(0.15f);
 
         foreach (Light light in lights)
         {
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(0.15);
+        yield return new WaitForSeconds(0.15f);
 
         foreach (Light light in lights)
         {
             light.enabled = false;
         }
 
-        await WaitOneSecondAsync(0.15);
+        yield return new WaitForSeconds(0.15f);
 
         foreach (Light light in lights)
         {
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(0.15);
+        yield return new WaitForSeconds(0.15f);
 
         foreach (Light light in lights)
         {
             light.enabled = false;
         }
 
-        await WaitOneSecondAsync(0.05);
+        yield return new WaitForSeconds(0.05f);
 
         foreach (Light light in lights)
         {
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(0.05);
+        yield return new WaitForSeconds(0.05f);
 
         foreach (Light light in lights)
         {
             light.enabled = false;
         }
 
-        await WaitOneSecondAsync(0.05);
+        yield return new WaitForSeconds(0.05f);
 
         foreach (Light light in lights)
         {
             light.enabled = true;
         }
         
-        await WaitOneSecondAsync(0.05);
+        yield return new WaitForSeconds(0.05f);
 
         foreach (Light light in lights)
         {
@@ -183,5 +186,7 @@ public class PowerHandler : ItemInteraction
 
         // Play bulb breaking sound
         breakingAudio.enabled = true;
+
+        yield return null;
     }
 }

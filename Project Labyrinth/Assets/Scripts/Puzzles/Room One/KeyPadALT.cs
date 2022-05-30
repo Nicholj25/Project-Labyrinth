@@ -27,12 +27,18 @@ public class KeyPadALT : ZoomItem
     Animator deskAnim;
     public UnityEvent FinalKeyObtained;
 
+    public MoveCabinet FileCabinetKey;
+    private bool FileCabinetKeyFound;
+
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
         deskAnim = Desk.GetComponent<Animator>();
+
+        FileCabinetKey.InteractionComplete.AddListener(() => { FileCabinetKeyFound = true; });
+        FileCabinetKeyFound = false;
 
         // Success Handler
         SuccessfulEntry = new UnityEvent();
@@ -89,7 +95,7 @@ public class KeyPadALT : ZoomItem
     // Update is called once per frame
     protected override void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (FileCabinetKeyFound && Input.GetMouseButtonDown(0))
         {
             cam = cameraHandler.GetCurrentCamera();
             //cam = Camera.main;

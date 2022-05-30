@@ -40,7 +40,6 @@ public class KitchenPull : MonoBehaviour
                             cabinetPullAnim.Play("KitchenPullDrawer");
                             closed = false;
                             await WaitOneSecondAsync(1);
-                            animationActive = false;
                         }
                         else
                         {
@@ -48,7 +47,6 @@ public class KitchenPull : MonoBehaviour
                             cabinetPullAnim.Play("KitchenPushDrawer");
                             closed = true;
                             await WaitOneSecondAsync(1);
-                            animationActive = false;
                         }
                     }
                 }

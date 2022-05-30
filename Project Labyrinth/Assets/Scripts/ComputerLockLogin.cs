@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
-using System;
+using UnityEngine.UI;
 
 public class ComputerLockLogin : MonoBehaviour, ILock
 {
@@ -63,14 +60,17 @@ public class ComputerLockLogin : MonoBehaviour, ILock
     /// </summary>
     private void UpdateLockStatus()
     {
-        // Change locked status
-        Locked = !Locked;
+        if (ComputerZoom.inUse)
+        {
+            // Change locked status
+            Locked = !Locked;
 
-        // Display correct button
-        UnlockButton.gameObject.SetActive(Locked);
-        LockButton.gameObject.SetActive(!Locked);
+            // Display correct button
+            UnlockButton.gameObject.SetActive(Locked);
+            LockButton.gameObject.SetActive(!Locked);
 
-        LockStateChange.Invoke();
+            LockStateChange.Invoke();
+        }
     }
 
     // Start is called before the first frame update
@@ -135,15 +135,18 @@ public class ComputerLockLogin : MonoBehaviour, ILock
     /// </summary>
     private void VerifyLogin()
     {
-        UsernameString = UsernameInput.text.ToLower();
-        if(UsernameString.Equals(Username.ToLower()) && PasswordString.Equals(Password))
+        if (ComputerZoom.inUse)
         {
-            LoginScreen.SetActive(false);
-            UnlockScreen.SetActive(true);
-        }
-        else 
-        {
-            InvalidLogin.SetActive(true);
+            UsernameString = UsernameInput.text.ToLower();
+            if (UsernameString.Equals(Username.ToLower()) && PasswordString.Equals(Password))
+            {
+                LoginScreen.SetActive(false);
+                UnlockScreen.SetActive(true);
+            }
+            else
+            {
+                InvalidLogin.SetActive(true);
+            }
         }
     }
 }

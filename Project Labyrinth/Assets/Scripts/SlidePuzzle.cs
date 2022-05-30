@@ -15,6 +15,7 @@ public class SlidePuzzle : ZoomItem
     private List<SlidePuzzleSlot> Slots;
     private SlidePuzzleSlot DisabledSlot;
     private GameObject PrizeSlot;
+    private bool FirstRandomize;
 
     public bool PuzzleSolved { get; private set; }
 
@@ -39,13 +40,18 @@ public class SlidePuzzle : ZoomItem
             SlotsGO.Add(slot.gameObject);
         }
         FindDisabled();
-        RandomizeImages();
+        FirstRandomize = true;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(FirstRandomize)
+        {
+            RandomizeImages();
+            FirstRandomize = false;
+        }
+        if (Input.GetMouseButtonDown(0) && playerMovement.isNearby(this.gameObject))
         {
             cam = cameraHandler.GetCurrentCamera();
             if (cam != null)
@@ -55,7 +61,7 @@ public class SlidePuzzle : ZoomItem
                 Physics.Raycast(ray, out hit);
                 if (hit.transform.gameObject == this.gameObject && !inUse)
                     ActivateZoomCam();
-                else if (SlotsGO.Contains(hit.transform.gameObject) && DisabledSlot)
+                else if (SlotsGO.Contains(hit.transform.gameObject) && !PuzzleSolved)
                 {
                     SlidePuzzleSlot clickedSlide = hit.transform.gameObject.GetComponent<SlidePuzzleSlot>();
                     if (DisabledSlot.AdjacentSlots.Contains(clickedSlide))
@@ -92,9 +98,10 @@ public class SlidePuzzle : ZoomItem
 
     public void RandomizeImages()
     {
+        System.Random rnd = new System.Random();
         for (int i = 0; i < 100; i++)
         {
-            int index = UnityEngine.Random.Range(0, DisabledSlot.AdjacentSlots.Count);
+            int index = rnd.Next(DisabledSlot.AdjacentSlots.Count);
             DisabledSlot.AdjacentSlots[index].SwapImages(DisabledSlot);
             FindDisabled();
         }

@@ -131,11 +131,7 @@ public class Keypad : ZoomItem
         if (CorrectValueFound)
         { 
             SuccessfulEntry.Invoke();
-            Debug.Log("Positive feedback sound here");
         }
-        else
-            Debug.Log("Negative feedback sound here");
-
     }
 
     protected void ClearButton()

@@ -55,7 +55,7 @@ public class SlidePuzzle : ZoomItem
                 Physics.Raycast(ray, out hit);
                 if (hit.transform.gameObject == this.gameObject && !inUse)
                     ActivateZoomCam();
-                else if (SlotsGO.Contains(hit.transform.gameObject))
+                else if (SlotsGO.Contains(hit.transform.gameObject) && DisabledSlot)
                 {
                     SlidePuzzleSlot clickedSlide = hit.transform.gameObject.GetComponent<SlidePuzzleSlot>();
                     if (DisabledSlot.AdjacentSlots.Contains(clickedSlide))

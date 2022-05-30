@@ -14,7 +14,7 @@ public class PowerHandler : ItemInteraction
     private Light[] lights;
     public GameObject lightParent;
     public AudioSource breakingAudio;
-    public GameObject FuseboxLever;     // has Pull Lever 0 script
+    public GameObject FuseboxLever;      // has Pull Lever 0 script
     public GameObject FuseboxLeverTwo;    // has PullLever3 script
     public GameObject FuseboxLeverThree;    // has Pull Lever script
     public GameObject projectorScreen;

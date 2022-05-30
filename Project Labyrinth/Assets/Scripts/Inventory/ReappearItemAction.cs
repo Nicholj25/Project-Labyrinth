@@ -145,8 +145,6 @@ public class ReappearItemAction : ItemInteraction
     {
         if (!inRoomX(objPosition.x, minPosition.x, maxPosition.x))
         {
-            Debug.Log(this.gameObject.transform.position);
-
             if (objPosition.x <= minPosition.x)
                 objPosition.x = minPosition.x;
 
@@ -155,7 +153,6 @@ public class ReappearItemAction : ItemInteraction
         }
         if (!inRoomY(objPosition.y, minPosition.y, maxPosition.y))
         {
-            Debug.Log(this.gameObject.transform.position);
             if(objPosition.y <= minPosition.y)
               objPosition.y = minPosition.y;
 
@@ -165,8 +162,6 @@ public class ReappearItemAction : ItemInteraction
             }
         if (!inRoomZ(objPosition.z, minPosition.z, maxPosition.z))
         {
-            Debug.Log(this.gameObject.transform.position);
-
             if (objPosition.z <= minPosition.z)
                 objPosition.z = minPosition.z;
 

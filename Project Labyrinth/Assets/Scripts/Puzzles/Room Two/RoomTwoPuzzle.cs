@@ -19,7 +19,6 @@ public class RoomTwoPuzzle : Puzzle
     [SerializeField] private AudioSource station7Audio;
     [SerializeField] private AudioSource smallBambooAudio;
     [SerializeField] private AudioSource bamboo2Audio;
-    [SerializeField] private AudioSource bamboo4Audio;
 
     public TextPrompt Text;
     public InventoryItem Key;

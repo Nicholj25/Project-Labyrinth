@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
-using System;
+using System.Collections;
 
 public class KitchenPull : MonoBehaviour
 {
@@ -11,6 +8,7 @@ public class KitchenPull : MonoBehaviour
     Animator cabinetPullAnim;
     public bool closed;
     public bool animationActive;
+    public string drawerNum;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +19,7 @@ public class KitchenPull : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
         if (Camera.main)
         {
@@ -37,26 +35,21 @@ public class KitchenPull : MonoBehaviour
                         {
                             cabinetPullAnim.enabled = true;
                             animationActive = true;
-                            cabinetPullAnim.Play("KitchenPullDrawer");
-                            closed = false;
-                            await WaitOneSecondAsync(1);
+                            cabinetPullAnim.Play("KitchenPullDrawer" + drawerNum);
+                            closed = !closed;
+                            animationActive = !animationActive;
                         }
                         else
                         {
                             animationActive = true;
-                            cabinetPullAnim.Play("KitchenPushDrawer");
-                            closed = true;
-                            await WaitOneSecondAsync(1);
+                            cabinetPullAnim.Play("KitchenPushDrawer" + drawerNum);
+                            closed = !closed;
+                            animationActive = !animationActive;
+
                         }
                     }
                 }
             }
         }
-    }
-
-    // Add a short delay
-    public async Task WaitOneSecondAsync(double seconds)
-    {
-        await Task.Delay(TimeSpan.FromSeconds(seconds));
     }
 }

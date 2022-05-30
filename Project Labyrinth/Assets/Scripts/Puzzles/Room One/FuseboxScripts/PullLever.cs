@@ -45,7 +45,7 @@ public class PullLever : MonoBehaviour
         // If the lever hasn't been pulled yet
         if (!pulledAlready)
             // Try to pull the lever, if a fuse is present in the box, pull the lever, else, don't pull lever--give negative feedback
-            if (GameObject.Find("Missing Fuse").GetComponent<PlaceFuse1>().fuseAdded)
+            if (GameObject.Find("Missing Fuse 2").GetComponent<PlaceFuse1>().fuseAdded)
             // We can pull the lever successfully
             {
                 leverAnim.enabled = true;

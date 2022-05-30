@@ -15,9 +15,11 @@ public class FloatingGhost : MonoBehaviour
     /// TextPrompt script to display info
     /// </summary>
     public TextPrompt Text;
+    private bool isFloating;
 
     private void Awake()
     {
+        isFloating = false;
     }
 
     // Start is called before the first frame update
@@ -29,7 +31,7 @@ public class FloatingGhost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Camera.main)
+        if (Camera.main && !isFloating)
         {
             if(Input.GetMouseButtonDown(0))
             {
@@ -38,7 +40,9 @@ public class FloatingGhost : MonoBehaviour
                 Physics.Raycast(ray, out hit);
                 if (hit.transform.gameObject == this.gameObject)
                 {
+                    isFloating = true;
                     floatTheGhost();
+                    Debug.Log("floating the ghost x1");
                 }
             }
         }

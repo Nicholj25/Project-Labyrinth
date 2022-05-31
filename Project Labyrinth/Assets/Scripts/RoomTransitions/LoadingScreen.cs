@@ -10,8 +10,8 @@ public class LoadingScreen : MonoBehaviour
 {
     public GameObject MainCamera;
     public GameObject LoadingCamera;
-    [SerializeField] private string roomToLoad;
-    [SerializeField] private bool loadOnClick;
+    [SerializeField] public string roomToLoad;
+    [SerializeField] public bool loadOnClick;
     public GameObject LoadingPanel;
     public Slider LoadingBar;
     private void Start()

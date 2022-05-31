@@ -10593,7 +10593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722598e5f5eb88845accd2d023ead5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 2086692365}
 --- !u!1 &1422746572
 GameObject:
   m_ObjectHideFlags: 0
@@ -13780,11 +13780,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1421448929}
-  hintUI: {fileID: 0}
+  hintUI: {fileID: 1539052139}
   instructions: {fileID: 1881662813}
   inventory: {fileID: 1421448925}
   textBackground: {fileID: 2046187390}
-  playerCam: {fileID: 0}
+  playerCam: {fileID: 2086692366}
   Normal: {fileID: 161257524}
   Inventory: {fileID: 1421448929}
   Time: {fileID: 340805717}

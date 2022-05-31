@@ -50,7 +50,7 @@ public class CursorHoverEffect : MonoBehaviour
         isHovering = true;
         if (!cursor)
             Start();
-        if (!playerInventory.CurrentItem && isOn && player.isNearby(this.gameObject))
+        if ((inventoryItem.Reappearable && !playerInventory.CurrentItem || !inventoryItem.Reappearable) && isOn && player.isNearby(this.gameObject))
         {
             if (gameObject.tag == "Interaction")
             {

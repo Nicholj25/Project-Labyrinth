@@ -31,12 +31,11 @@ public class HintHandler : Puzzle
         FileCabinetKeyFound = false;
         FinalKeyObtained = false;
 
+        StartCoroutine(PowerFlickerUpdate());
     }
 
-    async private void Update()
+    private void Update()
     {
-        await WaitOneSecondAsync(21);
-        PowerFlickeredOut = true;
     }  
 
     public override string GetCurrentHint()
@@ -51,14 +50,17 @@ public class HintHandler : Puzzle
             hintText = "Sometimes opening cabinets wildly is helpful.";
         else if (!FinalKeyObtained)
             hintText = "The boss always likes things in order and on time.";
+        else
+            hintText = "Grab what the boss was hiding and use it to get out of here!";
 
         return hintText;
     }
 
     // Add a short delay
-    public async Task WaitOneSecondAsync(double seconds)
+    IEnumerator PowerFlickerUpdate()
     {
-        await Task.Delay(TimeSpan.FromSeconds(seconds));
+        yield return new WaitForSeconds(21);
+        PowerFlickeredOut = true;
     }
 
 }

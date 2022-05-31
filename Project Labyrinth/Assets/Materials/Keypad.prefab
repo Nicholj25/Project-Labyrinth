@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 502352838862062224}
   - component: {fileID: 432654012119889710}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Keypad Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2785,6 +2785,7 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   cameraHandler: {fileID: 0}
   cam: {fileID: 0}
+  cursorHover: {fileID: 0}
   Text: {fileID: 0}
   Inventory: {fileID: 0}
   InteractionComplete:
@@ -2796,6 +2797,9 @@ MonoBehaviour:
   puzzleInput: {fileID: 0}
   inUse: 0
   hasZoomed: 0
+  zoomOutTrigger:
+    m_PersistentCalls:
+      m_Calls: []
   ExpectedValue: 
 --- !u!1 &6928024343032679905
 GameObject:

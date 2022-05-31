@@ -8,6 +8,7 @@ public class UIHandler : MonoBehaviour
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject textBackground;
     [SerializeField] private PlayerCam playerCam;
+    private PlayerMovement playerMovement;
     public GameObject Normal;
     public InventoryScreen Inventory;
     public Timer Time;
@@ -25,6 +26,8 @@ public class UIHandler : MonoBehaviour
 
         // Disable Inventory screen until needed
         Inventory.gameObject.SetActive(false);
+
+        playerMovement = playerCam.gameObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -32,17 +35,23 @@ public class UIHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I) && !Inventory.isFrozen)
         {
-            Normal.gameObject.SetActive(!Normal.activeSelf);
-            Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
-
-            Inventory.UpdateSelected();
-            Inventory.PopulateScreen();
-
-            // Change cursor and lock camera when inventory menu is open
-            Cursor.lockState = Inventory.gameObject.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
-            playerCam.IsFrozen = Inventory.gameObject.activeSelf;
+            SwapScreens();
         }
 
+    }
+
+    public void SwapScreens()
+    {
+        Normal.gameObject.SetActive(!Normal.activeSelf);
+        Inventory.gameObject.SetActive(!Inventory.gameObject.activeSelf);
+
+        Inventory.UpdateSelected();
+        Inventory.PopulateScreen();
+
+        // Change cursor and lock camera when inventory menu is open
+        Cursor.lockState = Inventory.gameObject.activeSelf ? CursorLockMode.None : CursorLockMode.Locked;
+        playerCam.IsFrozen = Inventory.gameObject.activeSelf;
+        playerMovement.isFrozen = Inventory.gameObject.activeSelf;
     }
 
     /// <summary>

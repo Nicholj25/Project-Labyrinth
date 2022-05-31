@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4374891, g: 0.48531312, b: 0.5655872, a: 1}
+  m_IndirectSpecularColor: {r: 0.43748918, g: 0.48531258, b: 0.5655865, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11777,7 +11777,7 @@ GameObject:
   - component: {fileID: 744002779}
   - component: {fileID: 744002778}
   m_Layer: 0
-  m_Name: Background
+  m_Name: Keypad Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24216,6 +24216,10 @@ PrefabInstance:
     - target: {fileID: 277836316582113871, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
       propertyPath: m_Size.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 920207642628821874, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
+      propertyPath: m_Name
+      value: Keypad Background
       objectReference: {fileID: 0}
     - target: {fileID: 1214403436171030085, guid: a90c3701d9df3c14fa35df8591c8914b, type: 3}
       propertyPath: m_LocalScale.x

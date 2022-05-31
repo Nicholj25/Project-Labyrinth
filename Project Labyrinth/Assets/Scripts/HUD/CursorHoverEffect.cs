@@ -16,6 +16,7 @@ public class CursorHoverEffect : MonoBehaviour
     private bool isHovering;
     private Sprite defaultTexture;
     private InventoryItem inventoryItem;
+    bool reappearEquipped = false;
 
 
     // Sources: https://forum.unity.com/threads/resources-load-not-working.95527/
@@ -50,8 +51,11 @@ public class CursorHoverEffect : MonoBehaviour
         isHovering = true;
         if (!cursor)
             Start();
-        if (!playerInventory.CurrentItem && isOn && player.isNearby(this.gameObject))
+        if (inventoryItem)
+            reappearEquipped = inventoryItem.Reappearable && playerInventory.CurrentItem == inventoryItem;
+        if ((!reappearEquipped || !inventoryItem.Reappearable) && isOn && player.isNearby(this.gameObject))
         {
+
             if (gameObject.tag == "Interaction")
             {
                 cursor.sprite = interactionTexture;
